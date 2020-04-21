@@ -9,8 +9,8 @@ describe('SharedExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SharedExampleComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [SharedExampleComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SharedExampleComponent);
