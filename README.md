@@ -1,3 +1,5 @@
+<a href="https://github.com/airbnb/javascript">
+    <img alt="code style: airbnb" src="https://badgen.net/badge/eslint/airbnb/ff5a5f?icon=airbnb"></a>
 <a href="https://github.com/prettier/prettier">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
 <a href="https://www.typescriptlang.org/">
@@ -88,6 +90,23 @@ Remember to add the component on the `declarations` array in the feature `.modul
 
 ```
 ng g c modules/{module-name}/pages/{page-name}
+```
+
+## Linter
+
+This project uses ESLint with Typescript support. Note that Angular [does not](https://github.com/angular/angular-cli/issues/13732) support ESLint on their CLI yet.
+
+The linter settings is opinionated and uses [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) as a base. There are a few considerations:
+
+- For .ts, .js and .scss files, the project uses Prettier for formatting;
+- For .html files, the project uses Beautify
+- To be sure that the above rules will work on your workspace, use [VSCode](https://code.visualstudio.com/) and install the following extensions: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify), [Prettier](https://github.com/prettier/prettier-vscode)
+- If you find any rule that is conflicting with Angular and Typescript, please update the `.eslintrc.js` file and open a PR for this fix.
+
+You can manually trigger linter (with automated fixing):
+
+```
+npm run lint
 ```
 
 ## State Manager
