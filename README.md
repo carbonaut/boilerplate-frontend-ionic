@@ -39,8 +39,10 @@ Core is a combination of all Singletons and Services that can be used in the who
 Each service should be in their own folder together with their test file.
 
 - Each service should be global and not tied to a specific feature;
-- Each service should be in its own folder inside the `core` folder;
-- Core services should be imported in `app.module.ts`;
+- Each service should be in its own folder inside the `core/services` folder;
+- Guards should be inside its own folder inside the `core/guards` folder
+- Interceptors should be inside its own folder inside `core/interceptors` folder
+- Core services should be provided in `app.module.ts`;
 
 ### Modules
 

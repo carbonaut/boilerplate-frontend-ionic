@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -8,17 +10,51 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ExampleCoreService } from './core/example-service/example-core.service';
+
+// ====================================
+// SERVICES
+// ====================================
+
+import { ExampleCoreService } from './core/services/example-service/example-core.service';
+import { GlobalErrorHandlerService } from './core/services/global-error-handler/global-error-handler.service';
+import { CustomTranslationsLoaderService } from './core/services/custom-translations-loader-service/custom-translations-loader.service';
+
+// ====================================
+// INTERCEPTORS
+// ====================================
+
+import { ApiInterceptor } from './core/interceptors/api/api.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useClass: CustomTranslationsLoaderService,
+        deps: [HttpClient],
+      },
+    }),
+  ],
   providers: [
     ExampleCoreService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true,
+    },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService,
+    },
   ],
   bootstrap: [AppComponent],
 })
