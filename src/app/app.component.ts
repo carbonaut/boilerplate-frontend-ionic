@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TranslationsService } from './shared/services/translations-service/translations.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   constructor(
+    private translationsService: TranslationsService,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
@@ -20,6 +22,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.translationsService.init();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
