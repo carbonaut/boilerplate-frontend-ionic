@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    endpoint: '',
+    maxWaiting: 10000,
+    authHeader: 'Authorization',
+  },
+  log: {
+    enabled: true,
+    payload: { },
+  },
+  availableLanguages: [
+    'en',
+    'de'
+  ]
 };
 
 /*
