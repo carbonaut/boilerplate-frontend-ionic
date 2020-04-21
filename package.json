@@ -27,7 +27,9 @@
     "@ionic/angular": "^5.0.0",
     "@storybook/addon-knobs": "^5.3.18",
     "core-js": "^2.5.4",
+    "html-loader": "^1.1.0",
     "rxjs": "~6.5.1",
+    "to-string-loader": "^1.1.6",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
