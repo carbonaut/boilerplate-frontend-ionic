@@ -100,7 +100,7 @@ The linter settings is opinionated and uses [Airbnb Javascript Style Guide](http
 
 - For .ts, .js and .scss files, the project uses Prettier for formatting;
 - For .html files, the project uses Beautify
-- To be sure that the above rules will work on your workspace, use [VSCode](https://code.visualstudio.com/) and install the following extensions: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify), [Prettier](https://github.com/prettier/prettier-vscode)
+- To be sure that the above rules will work on your workspace, use [VSCode](https://code.visualstudio.com/) and install the following extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify), [Prettier](https://github.com/prettier/prettier-vscode)
 - If you find any rule that is conflicting with Angular and Typescript, please update the `.eslintrc.js` file and open a PR for this fix.
 
 You can manually trigger linter (with automated fixing):
