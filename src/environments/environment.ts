@@ -10,7 +10,7 @@ export const environment = {
     authHeader: 'Authorization',
   },
   log: {
-    enabled: true,
+    enabled: false,
     payload: { },
   },
   availableLanguages: [
