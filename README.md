@@ -6,7 +6,7 @@
     <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a> <a href="https://storybook.js.org/">
     <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 
-This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/) and [Angular 8](http://angular.io/).
+This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 8](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12.\*.
 
 Please read the entire document before developing.
 
@@ -34,15 +34,22 @@ This project uses the _folder by feature_ structure. Please read [this article](
 
 ### Core
 
-Core is a combination of all Singletons and Services that can be used in the whole app. eg.: AnalyticsService, ErrorHandler, ToastService...
+Core is a combination of all *singletons* and *services* that can be used in the whole app. 
 
 Each service should be in their own folder together with their test file.
 
 - Each service should be global and not tied to a specific feature;
 - Each service should be in its own folder inside the `core/services` folder;
-- Guards should be inside its own folder inside the `core/guards` folder
-- Interceptors should be inside its own folder inside `core/interceptors` folder
-- Core services should be provided in `app.module.ts`;
+- Guards should be inside its own folder inside the `core/guards` folder;
+- Interceptors should be inside its own folder inside `core/interceptors` folder;
+- Core services should be provided in `app.module.ts`.
+
+By default, this project implements the following core features:
+
+- `ApiInterceptor`: API interceptor to handle HTTP errors and HTTP request headers;
+- `CustomTranslationsLoaderService`: custom loader for translations;
+- `GlobalErrorHandlerService`: global error handler interceptor;
+- `ExampleCoreService`: generic service structure for example purpose.
 
 ### Modules
 
@@ -51,7 +58,7 @@ Each _feature_ is a folder within the `src/app/modules` folder.
 - Each _feature_ should have its own `*.module.ts` and `*-routing.module.ts`, created at `modules/{feature-name}/*.module.ts`;
 - Dumb components specific to the feature should be created in `modules/feature/components/{component-name.component}/`;
 - Smart components related to the feature should be created in `modules/{feature-name}/pages/{page-name}/`;
-- State manager files (store and query) and feature related service should be created in `modules/{feature-name}/state/`;
+- State manager files (store and query) and feature related service should be created in `modules/{feature-name}/state/`.
 
 ### Shared
 
@@ -59,38 +66,47 @@ All dumb components, overlays and templates that are used in more than one _feat
 
 - Components should be created in `shared/components/{component-name}/*.component.ts` sub-folder;
 - Utilities should be created in `shared/utilities/{utility-name}/*.utility.ts`;
-- Each feature should import the `shared.module.ts` if the feature requires any of the shared components;
+- Each feature should import the `shared.module.ts` if the feature requires any of the shared components.
+
+By default, this project implements the following shared features:
+
+- `LoggerService`: skeleton wrapper to hold all log related logic (errors, warnings, info. etc.);
+- `ToastService`: wrapper to hold all toast related logic. By default it implements [ion-toast from Ionic](https://ionicframework.com/docs/api/toast);
+- `TranslationsService`: wrapper to hold all translation related logic. By default it implements [@ngx-translate/core](https://github.com/ngx-translate/core).
 
 ## Theme
 
-### BEM and reusable styles
+### BEM and Reusable Styles
 
 Use the [BEM](http://getbem.com/introduction/) naming convention for class namings and structure.
 
 All global _SCSS_ files are under the `theme` folders. These are classes that can and should be reused through the entire project. Note that all components css's are kept within the theme folder in order to make the _framework_ reusable on other projects and not tie visuals to Angular code.
 
 All classes should use the following convention:
+
+```
 .<namespace>-<component><modifier>
+```
 
 #### Namespaces
 
 Namespaces can be either:
 
-- [_c_ for component classes]: these classes will be used for general components such as buttons (_.c-button_), links (_.c-link_), sections (_.c-section_), etc. It should contain all styles needed to make these elements work as is.
-- [_u_ for utility classes]: these classes will contain utility classes that can be used sparingly to avoid writing css for common tasks. They'll contain utilities for display (_.u-display-flex_, _.u-display-inline_, etc), margin (_.u-margin-top_, ._-u-margin-bottom_, etc), padding, visibility, alignment, fonts, etc.
-- [_l_ for layout classes]: these classes will be used for layouts such as grids (_.l-grid_), containers (_.l-container_), etc.
+- [_c_ for component classes]: these classes will be used for general components such as buttons (_.c-button_), links (_.c-link_), sections (_.c-section_), etc. It should contain all styles needed to make the element work out of the box without the need of additional styling;
+- [_u_ for utility classes]: these classes will contain utility classes that can be used sparingly to avoid writing css for common tasks. They'll contain utilities for display (_.u-display-flex_, _.u-display-inline_, etc), margin (_.u-margin-top_, ._-u-margin-bottom_, etc), padding, visibility, alignment, fonts, etc;
+- [_l_ for layout classes]: these classes will be used for layouts such as grids (_.l-grid_), containers (_.l-container_), etc;
 - [_e_ for custom component classes]: these classes should be used inside Angular component's css to style specific components that will not be reused. Ideally, you should be able to use utility classes to perfom most basic customizations without needing to write a custom component class.
 
 #### Modifiers
 
 Modifiers can be either:
 
-- _--state_ to indicate a different state for a component (eg. _.c-button--active_)
-- **_subcomponent_ to indicate subcomponents (eg. \_.c-hero**title\_)
+- `--state`: to indicate a different state for a component (eg. `.c-button--active`)
+- `subcomponent`: to indicate subcomponents (eg. `.c-hero__title`)
 
 As we build the different pages, it's important to reuse those classes as much as possible to avoid conflicting css and reduce the amount of time needed to manage different yet similar components.
 
-Should you need to create a very specific component or style something slightly different, you should [not] modify the css on the _theme_ folder [nor] modify a class within that element's specific style. You should create a custom component class (the ones starting with _e_) modifying only the specific properties you need and apply it in conjunction with the regular _framework_ class, eg.:
+You should need to create a very specific component or style something slightly different, you should [not] modify the css on the _theme_ folder [nor] modify a class within that element's specific style. You should create a custom component class (the ones starting with `e`) modifying only the specific properties you need and apply it in conjunction with the regular _framework_ class. Eg.:
 
 ```
 <button class="c-button c-button--large e-hero-button">
@@ -102,7 +118,7 @@ Should you need to create a very specific component or style something slightly 
 
 Within them [theme] folder, there'll be all _.scss_ files related to the _framework_. The folder structure below represent how they look and where the different classes should go. Two items worth mentioning are:
 
-- [spacing.scss]: this file will include all spacing variables. To keep the design coherent and spaced proportionally, you should avoid using specific values for margin, padding, width, height and others. Use these variables to space elements proportionally based on units, so items will be spaced based on a half, single, double and quad units.
+- [spacing.scss]: this file will include all spacing variables. To keep the design coherent and spaced proportionally, you should avoid using specific values for margin, padding, width, height and others. Use these variables to space elements proportionally based on units, so items will be spaced based on a half, single, double and quad units;
 - [variables.scss]: you must not add any colors directly on your _.scss_ files. All colors must be defined within this file using sass variables and used across the application.
 
 Folder structure is as follows:
@@ -137,11 +153,11 @@ Here's an example of how this structure is going to look like on code:
 </div>
 ```
 
-## Creating modules and components
+## Creating Modules and Components
 
 We recommend using the `@angular/cli` for generating project files.
 
-### Create a new module with router
+### Create a New Module With Router
 
 ```
 ng g module modules/{module-name} --routing
@@ -149,7 +165,7 @@ ng g module modules/{module-name} --routing
 
 Remember to import the feature module to the `app-routing.module.ts`.
 
-### Creates a new dumb component
+### Creates a New Dumb Component
 
 ```
 ng g c modules/{module-name}/components/{component-name}
@@ -157,7 +173,7 @@ ng g c modules/{module-name}/components/{component-name}
 
 Remember to add the component on the `declarations` array in the feature `.module.ts`.
 
-### Create a smart component
+### Create a Smart Component
 
 ```
 ng g c modules/{module-name}/pages/{page-name}
@@ -170,14 +186,14 @@ This project uses ESLint with Typescript support. Note that Angular [does not](h
 The linter settings is opinionated and uses [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) as a base. There are a few considerations:
 
 - For .ts, .js and .scss files, the project uses Prettier for formatting;
-- For .html files, the project uses Beautify
-- To be sure that the above rules will work on your workspace, use [VSCode](https://code.visualstudio.com/) and install the following extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify), [Prettier](https://github.com/prettier/prettier-vscode)
+- For .html files, the project uses Beautify;
+- To be sure that the above rules will work on your workspace, use [VSCode](https://code.visualstudio.com/) and install the following extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify), [Prettier](https://github.com/prettier/prettier-vscode);
 - If you find any rule that is conflicting with Angular and Typescript, please update the `.eslintrc.js` file and open a PR for this fix.
 
 You can manually trigger linter (with automated fixing):
 
 ```
-npm run lint
+npm run lint:fix
 ```
 
 ## State Manager
@@ -196,10 +212,10 @@ To build components with dependency for other components, services or modules, p
 
 Note that the component preview has a 16px padding on all sites for a better view.
 
-### Live storybook instance
+### Live Storybook Instance
 
 `npm run storybook`
 
-### Static storybook
+### Static Storybook
 
 `npm run build-storybook`
