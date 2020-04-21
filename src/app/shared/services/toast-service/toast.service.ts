@@ -1,45 +1,47 @@
-import { Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import { toastConfig } from './toast.config';
-import { TranslationsService } from '../translations-service/translations.service';
+import { Injectable } from "@angular/core";
+import { ToastController } from "@ionic/angular";
+import { toastConfig } from "./toast.config";
+import { TranslationsService } from "../translations-service/translations.service";
+
+interface ToastExtraConfig {
+  header?: string;
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ToastService {
+  constructor(private toastController: ToastController) {}
 
-  constructor(private toastController: ToastController,
-              private translationService: TranslationsService) { }
-
-  async success(message: string, extraConfig: {} = {}) {
+  async success(message: string, extraConfig: ToastExtraConfig = {}) {
     const toast = await this.toastController.create({
-      header: this.translationService.getInstantTranslation('TOAST_MESSAGES.SUCCESS'),
+      header: extraConfig.header || "",
       message,
-      color: 'success',
-      ... toastConfig,
-      ... extraConfig
+      color: "success",
+      ...toastConfig,
+      ...extraConfig,
     });
     toast.present();
   }
 
-  async error(message: string, extraConfig: {} = {}) {
+  async error(message: string, extraConfig: ToastExtraConfig = {}) {
     const toast = await this.toastController.create({
-      header: this.translationService.getInstantTranslation('TOAST_MESSAGES.ERROR'),
+      header: extraConfig.header || "",
       message,
-      color: 'danger',
-      ... toastConfig,
-      ... extraConfig
+      color: "danger",
+      ...toastConfig,
+      ...extraConfig,
     });
     toast.present();
   }
 
-  async warning(message: string, extraConfig: {} = {}) {
+  async warning(message: string, extraConfig: ToastExtraConfig = {}) {
     const toast = await this.toastController.create({
-      header: this.translationService.getInstantTranslation('TOAST_MESSAGES.WARNING'),
+      header: extraConfig.header || "",
       message,
-      color: 'warning',
-      ... toastConfig,
-      ... extraConfig
+      color: "warning",
+      ...toastConfig,
+      ...extraConfig,
     });
     toast.present();
   }
