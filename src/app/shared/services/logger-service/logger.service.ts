@@ -8,22 +8,22 @@ export class LoggerService {
   constructor() { }
 
   public debug(payload: any): void {
-    console.log('debug', payload);
+    // TO DO
   }
 
   public info(payload: any): void {
-    console.log('info', payload);
+    // TO DO
   }
 
   public warning(payload: any): void {
-    console.log('warning', payload);
+    // TO DO
   }
 
   public error(payload: any): void {
-    console.log('error', payload);
+    // TO DO
   }
 
   public critical(payload: any): void {
-    console.log('critical', payload);
+    // TO DO
   }
 }
