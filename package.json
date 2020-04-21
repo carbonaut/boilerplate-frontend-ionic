@@ -1,17 +1,18 @@
 {
   "name": "pwa-boilerplate",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Carbonaut",
+  "homepage": "",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "build": "ng build --prod --configuration=$CURRENT_ENV",
+    "test": "echo \"Error: no tests specified.\"",
     "lint": "eslint --ext .ts --ext .js src/app/ --fix",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -49,9 +50,9 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "babel-loader": "^8.1.0",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
+    "babel-loader": "^8.1.0",
     "codelyzer": "^5.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^7.2.1",
@@ -71,7 +72,8 @@
     "to-string-loader": "^1.1.6",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "webpack-bundle-analyzer": "^3.7.0"
   },
-  "description": "An Ionic project"
+  "description": "Boilerplate for Carbonaut projects."
 }
