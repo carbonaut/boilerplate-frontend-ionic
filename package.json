@@ -13,6 +13,11 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "akitaCli": {
+    "basePath": "./src/app",
+    "template": "angular",
+    "idKey": "_id"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~8.2.14",
