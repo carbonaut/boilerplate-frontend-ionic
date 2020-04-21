@@ -4,10 +4,9 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TranslationsService {
-
   constructor(private translateService: TranslateService) {
     this.addLangs(environment.availableLanguages);
     this.setDefaultLang(environment.availableLanguages[0]);

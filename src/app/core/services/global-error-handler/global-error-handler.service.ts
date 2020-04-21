@@ -3,11 +3,10 @@ import { environment } from '../../../../environments/environment';
 import { LoggerService } from '../../../shared/services/logger-service/logger.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class GlobalErrorHandlerService  implements ErrorHandler {
-
-  constructor(private injector: Injector) { }
+export class GlobalErrorHandlerService implements ErrorHandler {
+  constructor(private injector: Injector) {}
 
   public handleError(err: any): void {
     if (environment.log.enabled) {

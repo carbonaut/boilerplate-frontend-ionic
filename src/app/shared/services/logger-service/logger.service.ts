@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoggerService {
-
-  constructor() { }
-
   public debug(payload: any): void {
     console.log('debug', payload);
   }
