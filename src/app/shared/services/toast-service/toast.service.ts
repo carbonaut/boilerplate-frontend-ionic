@@ -15,7 +15,10 @@ export class ToastService {
 
   async success(message: string, extraConfig: ToastExtraConfig = {}) {
     const toast = await this.toastController.create({
+<<<<<<< HEAD
       header: extraConfig.header || "",
+=======
+>>>>>>> feat(toast.service): remove header param.
       message,
       color: "success",
       ...toastConfig,
@@ -26,7 +29,10 @@ export class ToastService {
 
   async error(message: string, extraConfig: ToastExtraConfig = {}) {
     const toast = await this.toastController.create({
+<<<<<<< HEAD
       header: extraConfig.header || "",
+=======
+>>>>>>> feat(toast.service): remove header param.
       message,
       color: "danger",
       ...toastConfig,
@@ -37,7 +43,10 @@ export class ToastService {
 
   async warning(message: string, extraConfig: ToastExtraConfig = {}) {
     const toast = await this.toastController.create({
+<<<<<<< HEAD
       header: extraConfig.header || "",
+=======
+>>>>>>> feat(toast.service): remove header param.
       message,
       color: "warning",
       ...toastConfig,
