@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { toastConfig } from './toast.config';
 import { ToastOptions } from '@ionic/core';
+import { toastConfig } from './toast.config';
 
 @Injectable({
   providedIn: 'root',
