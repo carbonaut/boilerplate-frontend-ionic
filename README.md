@@ -62,6 +62,7 @@ All dumb components, overlays and templates that are used in more than one _feat
 ## Theme
 
 ### BEM and reusable styles
+
 Use the [BEM](http://getbem.com/introduction/) naming convention for class namings and structure.
 
 All global _SCSS_ files are under the `theme` folders. These are classes that can and should be reused through the entire project. Note that all components css's are kept within the theme folder in order to make the _framework_ reusable on other projects and not tie visuals to Angular code.
@@ -70,18 +71,22 @@ All classes should use the following convention:
 .<namespace>-<component><modifier>
 
 #### Namespaces
+
 Namespaces can be either:
+
 - [_c_ for component classes]: these classes will be used for general components such as buttons (_.c-button_), links (_.c-link_), sections (_.c-section_), etc. It should contain all styles needed to make these elements work as is.
 - [_u_ for utility classes]: these classes will contain utility classes that can be used sparingly to avoid writing css for common tasks. They'll contain utilities for display (_.u-display-flex_, _.u-display-inline_, etc), margin (_.u-margin-top_, ._-u-margin-bottom_, etc), padding, visibility, alignment, fonts, etc.
 - [_l_ for layout classes]: these classes will be used for layouts such as grids (_.l-grid_), containers (_.l-container_), etc.
 - [_e_ for custom component classes]: these classes should be used inside Angular component's css to style specific components that will not be reused. Ideally, you should be able to use utility classes to perfom most basic customizations without needing to write a custom component class.
 
 #### Modifiers
-Modifiers can be either:
-- _--state_ to indicate a different state for a component (eg. _.c-button--active_)
-- ___subcomponent_ to indicate subcomponents (eg. _.c-hero__title_)
 
-As we build the different pages, it's important to reuse those classes as much as possible to avoid conflicting css and reduce the amount of time needed to manage different yet similar components. 
+Modifiers can be either:
+
+- _--state_ to indicate a different state for a component (eg. _.c-button--active_)
+- **_subcomponent_ to indicate subcomponents (eg. \_.c-hero**title\_)
+
+As we build the different pages, it's important to reuse those classes as much as possible to avoid conflicting css and reduce the amount of time needed to manage different yet similar components.
 
 Should you need to create a very specific component or style something slightly different, you should [not] modify the css on the _theme_ folder [nor] modify a class within that element's specific style. You should create a custom component class (the ones starting with _e_) modifying only the specific properties you need and apply it in conjunction with the regular _framework_ class, eg.:
 
@@ -92,18 +97,21 @@ Should you need to create a very specific component or style something slightly 
 ```
 
 #### Folder Structure
+
 Within them [theme] folder, there'll be all _.scss_ files related to the _framework_. The folder structure below represent how they look and where the different classes should go. Two items worth mentioning are:
+
 - [spacing.scss]: this file will include all spacing variables. To keep the design coherent and spaced proportionally, you should avoid using specific values for margin, padding, width, height and others. Use these variables to space elements proportionally based on units, so items will be spaced based on a half, single, double and quad units.
-- [variables.scss]: you must [not any colors directly on your _.scss_ files]. All colors must be defined within this file using sass variables and used across the application.
+- [variables.scss]: you must not add any colors directly on your _.scss_ files. All colors must be defined within this file using sass variables and used across the application.
 
 Folder structure is as follows:
+
 ```
     .
     ├── ...
     ├── theme
     │   ├── components                   # Should contain all components styles
     │   │   ├── button.scss              # All styles related to a button, its states and subcomponents
-    │   │   └── ...                         
+    │   │   └── ...
     │   ├── base.scss                    # General theme definitions (fonts, reset, body, html, etc.)
     │   ├── layout.scss                  # Layout classes
     │   ├── utilities.scss               # Utilities classes
@@ -113,7 +121,9 @@ Folder structure is as follows:
 ```
 
 #### Theme Example
+
 Here's an example of how this structure is going to look like on code:
+
 ```
 <div class="c-card">
     <h3 class="c-card__title c-card__title--small">
