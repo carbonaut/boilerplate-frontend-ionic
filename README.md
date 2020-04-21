@@ -3,7 +3,8 @@
 <a href="https://github.com/prettier/prettier">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
 <a href="https://www.typescriptlang.org/">
-    <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a>
+    <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a> <a href="https://storybook.js.org/">
+    <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 
 This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/) and [Angular 8](http://angular.io/).
 
@@ -14,7 +15,7 @@ Please read the entire document before developing.
 This project does not require any global dependencies, but you can install the following CLIs to improve your experience:
 
 ```
-npm i -g @ionic/cli @angular/cli
+npm i -g @ionic/cli @angular/cli @storybook/cli @datorama/akita-cli
 ```
 
 Before running locally, clone the repo and install its dependencies by running `npm install`.
@@ -111,8 +112,37 @@ npm run lint
 
 ## State Manager
 
-TODO: Write about Akita
+We use [akita](https://datorama.github.io/akita/docs/) as a library to manage our states in a reactive way.
+
+If you have the akita cli you can run the command below to create a new store (with the associated query and service) 
+
+```
+akita
+```
+
+You can also see the example store on `modules/example-feature/state/examples.{store, query, service}.ts`
+
+- This project uses the localStorage to save the state.
+- The akita service should only be used as a bridge between the pages and the API service, never make the http request directly.
+- As a convention, bind the queries to smart components variables. If you wish to read more about, see the [akita documentation](https://datorama.github.io/akita/docs/best-practices)
+- Don't forget to subscribe to the akita service to load the store
 
 ## Storybook
 
-TODO: Write about Storybook
+Each presentational component should have stories documenting inputs, outputs, css variables and every variant.
+
+The component story is expected to be in a file called `component-name.stories.ts` on it's folder. Check
+`modules/example-feature/components/presentation/presentation.stories.ts` for a detailed example.
+
+To build components with dependency for other components, services or modules, please check the
+[storybook documentation](https://www.learnstorybook.com/intro-to-storybook/angular/en/composite-component/).
+
+Note that the component preview has a 16px padding on all sites for a better view.
+
+### Live storybook instance
+
+`npm run storybook`
+
+### Static storybook
+
+`npm run build-storybook`
