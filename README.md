@@ -1,7 +1,8 @@
 <a href="https://github.com/prettier/prettier">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
 <a href="https://www.typescriptlang.org/">
-    <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a>
+    <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a> <a href="https://storybook.js.org/">
+    <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 
 This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/) and [Angular 8](http://angular.io/).
 
@@ -107,7 +108,9 @@ To build components with dependency for other components, services or modules, p
 Note that the component preview has a 16px padding on all sites for a better view.
 
 ### Live storybook instance
+
 `npm run storybook`
 
 ### Static storybook
+
 `npm run build-storybook`
