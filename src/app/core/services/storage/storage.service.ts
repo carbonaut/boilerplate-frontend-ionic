@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { enableAkitaProdMode, persistState } from '@datorama/akita';
-import { Storage } from '@ionic/storage';
 import { environment } from '../../../../environments/environment.prod';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { environment } from '../../../../environments/environment.prod';
 })
 export class StorageService {
   akitaStorage;
-  constructor(private storage: Storage) {
+  constructor() {
     if (environment.production) {
       enableAkitaProdMode();
     }
@@ -17,6 +16,5 @@ export class StorageService {
 
   clearAll() {
     this.akitaStorage.clear();
-    return this.storage.clear();
   }
 }

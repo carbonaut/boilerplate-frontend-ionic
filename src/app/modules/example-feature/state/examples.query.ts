@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { QueryEntity } from '@datorama/akita';
 import { Observable } from 'rxjs';
 import { ExampleState, ExamplesStore } from './examples.store';
-import { ExampleInterface } from '../example.interface';
+import { ExampleInterface } from './example.interface';
 
 @Injectable({
   providedIn: 'root'

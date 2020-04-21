@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ExamplesStore } from './examples.store';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { ExampleInterface } from '../example.interface';
+import { ExampleInterface } from './example.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class ExamplesService {
     return of([example]).pipe(
       tap(response => {
         // Set it in store
-        // this.examplesStore.set(response);
+        this.examplesStore.set(response);
       }),
     );
   }

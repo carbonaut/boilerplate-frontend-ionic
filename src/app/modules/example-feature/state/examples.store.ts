@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
-import { ExampleInterface } from '../example.interface';
+import { ExampleInterface } from './example.interface';
 
 export interface ExampleState extends EntityState<ExampleInterface> {
   metaInformation: boolean,
