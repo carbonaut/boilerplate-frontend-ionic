@@ -28,6 +28,14 @@ module.exports = {
         functions: 'ignore',
       },
     ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '**/*.stories.ts', 
+        ]
+      }
+    ],
     'no-restricted-syntax': [
       // copied from airbnb code, but removed for...of
       'error',

@@ -2,7 +2,7 @@
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
-import { PresentationComponent } from '../presentation/presentation.component';
+import { PresentationComponent } from './presentation.component';
 
 const componentNotes = {
   markdown: `
@@ -50,8 +50,7 @@ storiesOf('Example/Presentation Component', module)
     'Variant B',
     () => ({
       component: PresentationComponent,
-      props: {
-      },
+      props: {},
     }),
     {
       notes: componentNotes,
