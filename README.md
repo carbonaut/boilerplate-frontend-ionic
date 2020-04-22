@@ -6,7 +6,7 @@
     <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a> <a href="https://storybook.js.org/">
     <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 
-This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 8](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12 (for CI).\*.
+This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 8](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12.\*.(for CI)
 
 Please read the entire document before developing.
 
