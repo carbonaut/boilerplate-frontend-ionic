@@ -21,12 +21,4 @@ export class SessionStore extends Store<SessionState> {
   constructor() {
     super(createInitialState());
   }
-
-  login(session: Session) {
-    this.update({ session });
-  }
-
-  logout() {
-    this.update(createInitialState());
-  }
 }

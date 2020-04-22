@@ -5,7 +5,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 
 import { environment } from '../../../../environments/environment';
 import { LoggerService } from '../../../shared/services/logger-service/logger.service';
-import { SessionQuery } from '../../state/session';
+import { SessionQuery } from '../../state/session/session.query';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
     return next.handle(requestModified).pipe(
       timeout(environment.api.maxWaiting),
-      catchError((err) => {
+      catchError(err => {
         this.loggerService.error(err);
         return this.customErrorHandler(err);
       })
