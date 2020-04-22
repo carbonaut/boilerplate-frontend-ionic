@@ -5,12 +5,11 @@ import { ExampleState, ExamplesStore } from './examples.store';
 import { ExampleInterface } from './example.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ExamplesQuery extends QueryEntity<ExampleState> {
+  examples$: Observable<ExampleInterface[]> = this.selectAll();
   constructor(protected store: ExamplesStore) {
     super(store);
   }
-
-  examples$: Observable<ExampleInterface[]> = this.selectAll();
 }

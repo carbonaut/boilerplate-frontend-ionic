@@ -3,7 +3,7 @@ import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
 import { ExampleInterface } from './example.interface';
 
 export interface ExampleState extends EntityState<ExampleInterface> {
-  metaInformation: boolean,
+  metaInformation: boolean;
 }
 
 export function createInitialState() {
@@ -13,10 +13,10 @@ export function createInitialState() {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 @StoreConfig({
-  name: 'examples'
+  name: 'examples',
 })
 export class ExamplesStore extends EntityStore<ExampleState> {
   constructor() {
