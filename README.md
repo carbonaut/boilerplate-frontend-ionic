@@ -6,7 +6,7 @@
     <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a> <a href="https://storybook.js.org/">
     <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 
-This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 8](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12.\*.
+This is a PWA boilerplate, based of `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 8](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12 (for CI).\*.
 
 Please read the entire document before developing.
 
@@ -34,7 +34,7 @@ This project uses the _folder by feature_ structure. Please read [this article](
 
 ### Core
 
-Core is a combination of all *singletons* and *services* that can be used in the whole app. 
+Core is a combination of all _singletons_ and _services_ that can be used in the whole app.
 
 Each service should be in their own folder together with their test file.
 
@@ -47,9 +47,9 @@ Each service should be in their own folder together with their test file.
 By default, this project implements the following core features:
 
 - `ApiInterceptor`: API interceptor to handle HTTP errors and HTTP request headers;
-- `CustomTranslationsLoaderService`: custom loader for translations;
-- `GlobalErrorHandlerService`: global error handler interceptor;
-- `ExampleCoreService`: generic service structure for example purpose.
+- `CustomTranslationsLoaderService`: custom loader for loading translations;
+- `GlobalErrorHandlerService`: global error handler service;
+- `ExampleCoreService`: generic example service.
 
 ### Modules
 
