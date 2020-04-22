@@ -1,8 +1,9 @@
 /* tslint:disable:ter-indent */
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { PresentationComponent } from './presentation.component';
+import { StorybookTranslateModule } from '../../../../core/services/storybook-translations-loader/storybook-translations.module';
 
 const componentNotes = {
   markdown: `
@@ -33,6 +34,11 @@ Brief description of css variable
 
 storiesOf('Example/Presentation Component', module)
   .addDecorator(withKnobs)
+  .addDecorator(
+    moduleMetadata({
+      imports: [StorybookTranslateModule],
+    })
+  )
   .add(
     'Variant A',
     () => ({

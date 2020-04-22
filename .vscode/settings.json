@@ -1,0 +1,18 @@
+{
+  "prettier.singleQuote": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "editor.formatOnSave": true,
+  "beautify.ignore": ["**/*.ts", "**/*.scss", "**/*.js"],
+  "html.format.wrapAttributes": "force",
+  "html.format.enable": true,
+  "html.format.wrapLineLength": 100,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  }
+}
