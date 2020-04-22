@@ -23,7 +23,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
     return next.handle(requestModified).pipe(
       timeout(environment.api.maxWaiting),
-      catchError(err => {
+      catchError((err) => {
         this.loggerService.error(err);
         return this.customErrorHandler(err);
       })

@@ -9,7 +9,7 @@ export class SessionService {
 
   login() {
     return this.sessionApiService.postLogin().pipe(
-      tap(session => {
+      tap((session) => {
         this.sessionStore.update({ session });
       })
     );
