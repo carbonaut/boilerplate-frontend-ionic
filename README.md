@@ -15,7 +15,7 @@ Please read the entire document before developing.
 This project does not require any global dependencies, but you can install the following CLIs to improve your experience:
 
 ```
-npm i -g @ionic/cli @angular/cli @storybook/cli
+npm i -g @ionic/cli @angular/cli @storybook/cli @datorama/akita-cli
 ```
 
 Before running locally, clone the repo and install its dependencies by running `npm install`.
@@ -198,7 +198,20 @@ npm run lint:fix
 
 ## State Manager
 
-TODO: Write about Akita
+We use [akita](https://datorama.github.io/akita/docs/) as a library to manage our states in a reactive way.
+
+If you have the akita cli you can run the command below to create a new store (with the associated query and service) 
+
+```
+akita
+```
+
+You can also see the example store on `modules/example-feature/state/examples.{store, query, service}.ts`
+
+- This project uses the localStorage to save the state.
+- The akita service should only be used as a bridge between the pages and the API service, never make the http request directly.
+- As a convention, bind the queries to smart components variables. If you wish to read more about, see the [akita documentation](https://datorama.github.io/akita/docs/best-practices)
+- Don't forget to subscribe to the akita service to load the store
 
 ## Storybook
 
