@@ -9,8 +9,8 @@ describe('FieldNumberComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FieldNumberComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [FieldNumberComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FieldNumberComponent);

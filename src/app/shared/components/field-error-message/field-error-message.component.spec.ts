@@ -9,8 +9,8 @@ describe('FieldErrorMessageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FieldErrorMessageComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [FieldErrorMessageComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FieldErrorMessageComponent);

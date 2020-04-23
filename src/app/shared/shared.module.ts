@@ -35,7 +35,7 @@ import { FieldNumberComponent } from './components/field-number/field-number.com
     FieldPasswordComponent,
     FieldEmailComponent,
     FieldNumberComponent,
-    FieldTextComponent
+    FieldTextComponent,
   ],
 })
 export class SharedModule {}

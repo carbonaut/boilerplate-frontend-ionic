@@ -9,8 +9,8 @@ describe('FieldTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FieldTextComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [FieldTextComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FieldTextComponent);
