@@ -1,0 +1,21 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+.c-link {
+  color: var(--color-primary-500);
+  cursor: pointer;
+  text-decoration: underline;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--color-gray-900);
+  }
+
+  &--clear {
+    text-decoration: none;
+  }
+
+  ion-icon {
+    margin-left: $size-xs;
+  }
+}

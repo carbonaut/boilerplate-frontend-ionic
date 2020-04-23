@@ -1,0 +1,18 @@
+<button class="c-btn" [class.c-btn--lg]="size === 'lg'" [class.c-btn--sm]="size === 'sm'"
+  [class.c-btn--outline]="isOutline" [class.c-btn--clear]="isClear"
+  [class.c-btn--inverted]="isInverted" [type]="type" [disabled]="disabled"
+  (click)="onClick($event)">
+  <span *ngIf="loading" class="c-btn__loading">
+    <img *ngIf="!isInverted && !disabled" src="../../../../assets/images/loading/loading-white.svg">
+    <img *ngIf="!isInverted && disabled" src="../../../../assets/images/loading/loading-gray.svg">
+    <img *ngIf="isInverted" src="../../../../assets/images/loading/loading-colored.svg">
+  </span>
+
+  <ion-icon class="c-btn__icon" *ngIf="!loading && icon" [name]="icon"></ion-icon>
+
+  <span>
+    <ng-content></ng-content>
+  </span>
+
+  <ion-icon class="c-btn__arrow" *ngIf="hasArrow" name="chevron-forward-outline"></ion-icon>
+</button>

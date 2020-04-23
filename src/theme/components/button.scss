@@ -1,0 +1,88 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+.c-btn {
+  display: flex;
+  align-items: center;
+
+  padding: 1em 2em;
+  border-radius: 1.5em;
+  background: var(--color-primary-500);
+  border: 0;
+  appearance: none;
+
+  color: white;
+  font-size: 1 * $size-base;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  &--lg {
+    font-size: 1.2 * $size-base;
+  }
+
+  &--sm {
+    font-size: 0.85 * $size-base;
+  }
+
+  &--inverted {
+    color: var(--color-primary-500);
+    background: white;
+  }
+
+  &--outline {
+    background: transparent;
+    border: 2px solid white;
+
+    &.c-btn--inverted {
+      border-color: var(--color-primary-500);
+    }
+  }
+
+  &--clear {
+    background: transparent;
+    border: 0;
+    color: var(--color-primary-500);
+  }
+
+  &:hover {
+    opacity: 0.95;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background: var(--color-gray-200);
+    color: var(--color-gray-600);
+  }
+
+  &__loading {
+    height: $size-lg;
+    margin: -$size-sm;
+    margin-left: -$size-md;
+    margin-right: $size-sm;
+    width: $size-lg;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__icon {
+    font-size: 1.2em;
+    margin: -$size-sm;
+    margin-right: $size-sm;
+  }
+
+  &__arrow {
+    font-size: 1.2em;
+    margin: -$size-sm;
+    margin-left: $size-sm;
+  }
+}

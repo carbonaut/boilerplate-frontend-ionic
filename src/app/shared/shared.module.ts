@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
+import { ButtonComponent } from './components/button/button.component';
 
 // ================================================================================================
 // FORM COMPONENTS
@@ -18,6 +19,7 @@ import { AppFieldTextComponent } from './components/app-field-text/app-field-tex
 @NgModule({
   declarations: [
     SharedExampleComponent,
+    ButtonComponent,
     AppFieldErrorMessageComponent,
     AppFieldPasswordComponent,
     AppFieldEmailComponent,
@@ -28,6 +30,7 @@ import { AppFieldTextComponent } from './components/app-field-text/app-field-tex
   exports: [
     SharedExampleComponent,
     TranslateModule,
+    ButtonComponent,
     AppFieldErrorMessageComponent,
     AppFieldPasswordComponent,
     AppFieldEmailComponent,
