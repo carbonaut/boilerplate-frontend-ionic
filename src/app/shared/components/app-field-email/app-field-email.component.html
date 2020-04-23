@@ -1,0 +1,10 @@
+<ion-item>
+  <ion-label position="stacked">{{ label || ('FIELDS.EMAIL.LABEL' | translate) }}</ion-label>
+  <ion-input type="email"
+             [placeholder]="placeholder || ('FIELDS.EMAIL.PLACEHOLDER' | translate)"
+             [formControl]="control"
+             [disabled]="disabled"
+             [required]="required"></ion-input>
+
+  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control"></app-field-error-message>
+</ion-item>
