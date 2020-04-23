@@ -3,10 +3,10 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-field-error-message',
-  templateUrl: './app-field-error-message.component.html',
-  styleUrls: ['./app-field-error-message.component.scss'],
+  templateUrl: './field-error-message.component.html',
+  styleUrls: ['./field-error-message.component.scss'],
 })
-export class AppFieldErrorMessageComponent implements AfterViewInit, OnDestroy {
+export class FieldErrorMessageComponent implements AfterViewInit, OnDestroy {
   @Input() visible = true;
   @Input() currentControl: FormControl;
 

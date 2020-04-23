@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AppFieldErrorMessageComponent } from './app-field-error-message.component';
+import { FieldErrorMessageComponent } from './field-error-message.component';
 
-describe('AppFieldErrorMessageComponent', () => {
-  let component: AppFieldErrorMessageComponent;
-  let fixture: ComponentFixture<AppFieldErrorMessageComponent>;
+describe('FieldErrorMessageComponent', () => {
+  let component: FieldErrorMessageComponent;
+  let fixture: ComponentFixture<FieldErrorMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppFieldErrorMessageComponent],
+      declarations: [FieldErrorMessageComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppFieldErrorMessageComponent);
+    fixture = TestBed.createComponent(FieldErrorMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -10,31 +10,32 @@ import { ButtonComponent } from './components/button/button.component';
 // FORM COMPONENTS
 // ================================================================================================
 
-import { AppFieldPasswordComponent } from './components/app-field-password/app-field-password.component';
-import { AppFieldEmailComponent } from './components/app-field-email/app-field-email.component';
-import { AppFieldErrorMessageComponent } from './components/app-field-error-message/app-field-error-message.component';
-import { AppFieldNumberComponent } from './components/app-field-number/app-field-number.component';
-import { AppFieldTextComponent } from './components/app-field-text/app-field-text.component';
+import { FieldErrorMessageComponent } from './components/field-error-message/field-error-message.component';
+import { FieldTextComponent } from './components/field-text/field-text.component';
+import { FieldEmailComponent } from './components/field-email/field-email.component';
+import { FieldPasswordComponent } from './components/field-password/field-password.component';
+import { FieldNumberComponent } from './components/field-number/field-number.component';
 
 @NgModule({
   declarations: [
     SharedExampleComponent,
     ButtonComponent,
-    AppFieldErrorMessageComponent,
-    AppFieldPasswordComponent,
-    AppFieldEmailComponent,
-    AppFieldNumberComponent,
-    AppFieldTextComponent,
+    FieldErrorMessageComponent,
+    FieldPasswordComponent,
+    FieldEmailComponent,
+    FieldNumberComponent,
+    FieldTextComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, IonicModule, TranslateModule.forChild({})],
   exports: [
     SharedExampleComponent,
     TranslateModule,
     ButtonComponent,
-    AppFieldErrorMessageComponent,
-    AppFieldPasswordComponent,
-    AppFieldEmailComponent,
-    AppFieldNumberComponent,
+    FieldErrorMessageComponent,
+    FieldPasswordComponent,
+    FieldEmailComponent,
+    FieldNumberComponent,
+    FieldTextComponent,
   ],
 })
 export class SharedModule {}
