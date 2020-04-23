@@ -1,6 +1,6 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { LoggerService } from '../../../shared/services/logger-service/logger.service';
+import { LoggerService } from '../logger-service/logger.service';
 
 @Injectable({
   providedIn: 'root',

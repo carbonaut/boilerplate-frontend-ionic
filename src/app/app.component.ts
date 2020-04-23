@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { TranslationsService } from './shared/services/translations-service/translations.service';
 
-import { StorageService } from './core/services/storage/storage.service';
+import { TranslationsService } from './core/services/translations-service/translations.service';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +16,7 @@ export class AppComponent {
     private translationsService: TranslationsService,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private storageService: StorageService
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
   }
