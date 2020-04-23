@@ -2,16 +2,19 @@
 @import '../variables.scss';
 
 .c-btn {
+  --button-background: var(--color-primary-500);
+  --button-color: white;
+
   display: flex;
   align-items: center;
 
-  padding: 1em 2em;
+  padding: 1em 3em;
   border-radius: 1.5em;
-  background: var(--color-primary-500);
+  background: var(--button-background);
   border: 0;
   appearance: none;
 
-  color: white;
+  color: var(--button-color);
   font-size: 0.9 * $size-base;
   font-weight: 700;
   letter-spacing: 1px;
@@ -28,6 +31,7 @@
 
   &--sm {
     font-size: 0.8 * $size-base;
+    padding: 1em 2.5em;
   }
 
   &--inverted {

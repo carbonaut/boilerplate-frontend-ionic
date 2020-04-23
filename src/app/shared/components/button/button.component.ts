@@ -17,11 +17,5 @@ export class ButtonComponent implements OnInit {
   @Input() loading: boolean;
   @Input() disabled: boolean;
 
-  @Output() click = new EventEmitter<string>();
-
   ngOnInit() {}
-
-  onClick($event) {
-    this.click.emit($event);
-  }
 }
