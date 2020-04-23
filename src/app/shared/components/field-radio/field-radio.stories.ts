@@ -60,7 +60,7 @@ storiesOf('Form/Radio field', module)
       ]),
     },
   }))
-  .add('All inputs set', () => ({
+  .add('Full configuration', () => ({
     component: FieldRadioComponent,
     props: {
       control: new FormControl(),
@@ -68,6 +68,7 @@ storiesOf('Form/Radio field', module)
       label: text('label', 'Sex'),
       required: boolean('required', true),
       disabled: boolean('disabled', false),
+      showValidationErrorMessage: boolean('showValidationErrorMessage', true),
       options: object('options', [
         { icon: 'female-outline', label: 'Female', value: 'female' },
         {
