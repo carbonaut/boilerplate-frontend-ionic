@@ -1,0 +1,68 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+.c-breadcrumb {
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  list-style: none;
+  counter-reset: breadcrumb;
+
+  &__item {
+    --color: var(--color-blue-700);
+    display: flex;
+    align-items: center;
+    margin-right: $size-md;
+    color: var(--color);
+
+    &--completed {
+      --color: var(--color-success-300);
+
+      &:before {
+        content: '\2713' !important;
+        background: var(--color);
+        color: white;
+      }
+    }
+
+    &--active {
+      --color: var(--color-primary-500);
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+
+    &:before {
+      counter-increment: breadcrumb;
+      content: counter(breadcrumb);
+      $circle-size: 1.75 * $size-base;
+      flex: 1 0 auto;
+      width: $circle-size;
+      height: $circle-size;
+      border-radius: $size-md;
+      margin-right: $size-sm;
+      border: 1px solid var(--color);
+      font-size: 0.9em;
+      font-weight: 600;
+      line-height: $circle-size;
+      text-align: center;
+    }
+
+    &:after {
+      content: '';
+      width: $size-sm;
+      height: $size-sm;
+      border: 2px solid transparent;
+      border-top-color: var(--color-blue-500);
+      border-right-color: var(--color-blue-500);
+      margin-left: $size-md;
+      transform: rotate(45deg);
+    }
+  }
+}

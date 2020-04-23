@@ -20,6 +20,15 @@
     }
   }
 
+  &--multiline {
+    .c-list__item {
+      align-items: flex-start;
+      .c-list__label {
+        white-space: pre-line;
+      }
+    }
+  }
+
   &__item,
   &__action {
     display: flex;
