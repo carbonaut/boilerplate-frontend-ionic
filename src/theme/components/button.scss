@@ -12,7 +12,7 @@
   appearance: none;
 
   color: white;
-  font-size: 1 * $size-base;
+  font-size: 0.9 * $size-base;
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
@@ -23,11 +23,11 @@
   cursor: pointer;
 
   &--lg {
-    font-size: 1.2 * $size-base;
+    font-size: 1.125 * $size-base;
   }
 
   &--sm {
-    font-size: 0.85 * $size-base;
+    font-size: 0.8 * $size-base;
   }
 
   &--inverted {
