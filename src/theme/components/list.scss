@@ -48,6 +48,21 @@
     font-size: 1.4em;
   }
 
+  &__number {
+    $circle-size: 1.75 * $size-base;
+    flex: 1 0 auto;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: $size-md;
+    margin-right: $size-md;
+    background: var(--color-primary-500);
+    color: white;
+    font-size: 0.9em;
+    font-weight: 600;
+    line-height: $circle-size;
+    text-align: center;
+  }
+
   &__label {
     flex: 1 1 auto;
     width: 100%;
