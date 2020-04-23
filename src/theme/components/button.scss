@@ -7,7 +7,7 @@
 
   padding: 1em 2em;
   border-radius: 1.5em;
-  background: $primary--500;
+  background: var(--color-primary-500);
   border: 0;
   appearance: none;
 
@@ -31,7 +31,7 @@
   }
 
   &--inverted {
-    color: $primary--500;
+    color: var(--color-primary-500);
     background: white;
   }
 
@@ -40,14 +40,14 @@
     border: 2px solid white;
 
     &.c-btn--inverted {
-      border-color: $primary--500;
+      border-color: var(--color-primary-500);
     }
   }
 
   &--clear {
     background: transparent;
     border: 0;
-    color: $primary--500;
+    color: var(--color-primary-500);
   }
 
   &:hover {
@@ -57,8 +57,8 @@
 
   &:disabled {
     pointer-events: none;
-    background: $gray--200;
-    color: $gray--600;
+    background: var(--color-gray-200);
+    color: var(--color-gray-600);
   }
 
   &__loading {

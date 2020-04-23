@@ -167,14 +167,14 @@ $directions: 'left', 'right', 'top', 'bottom';
 
 // COLORS AND BACKGROUND
 $colors: (
-  'primary-500': $primary--500,
-  'primary-300': $primary--300,
-  'primary-700': $primary--700,
+  'primary-500': var(--color-primary-500),
+  'primary-300': var(--color-primary-300),
+  'primary-700': var(--color-primary-700),
   'white': white,
-  'black': $gray--900,
-  'success': $success--500,
-  'warning': $warning,
-  'error': $error,
+  'black': var(--color-gray-900),
+  'success': var(--color-success-500),
+  'warning': var(--color-warning),
+  'error': var(--color-error),
 );
 
 @each $color, $color-value in $colors {
