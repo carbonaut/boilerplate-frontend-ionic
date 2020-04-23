@@ -29,6 +29,13 @@
     }
   }
 
+  &--illustrated {
+    .c-card__title,
+    .c-card__description {
+      max-width: 66%;
+    }
+  }
+
   &--inverted {
     .c-card__title,
     .c-card__description {
@@ -37,12 +44,10 @@
   }
 
   &__title {
-    max-width: 66%;
     font-size: 1.6 * $size-base;
   }
 
   &__description {
-    max-width: 66%;
     opacity: 0.7;
   }
 
