@@ -20,6 +20,10 @@ export class AppFieldPasswordComponent implements OnInit {
   showPassword = false;
 
   ngOnInit() {
+    if (this.disabled) {
+      this.control.disable();
+    }
+
     this.setupValidators();
   }
 

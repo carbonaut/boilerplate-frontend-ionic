@@ -15,6 +15,10 @@ export class AppFieldEmailComponent implements OnInit {
   @Input() showValidationErrorMessage = true;
 
   ngOnInit() {
+    if (this.disabled) {
+      this.control.disable();
+    }
+
     this.setupValidators();
   }
 

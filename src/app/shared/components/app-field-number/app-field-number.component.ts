@@ -14,5 +14,9 @@ export class AppFieldNumberComponent implements OnInit {
   @Input() disabled = false;
   @Input() showValidationErrorMessage = true;
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.disabled) {
+      this.control.disable();
+    }
+  }
 }
