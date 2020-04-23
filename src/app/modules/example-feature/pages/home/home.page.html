@@ -1,20 +1,68 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      {{ "HOME_PAGE_TITLE" | translate }}
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>{{ "HOME_PAGE_TITLE" | translate }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ "HOME_PAGE_TITLE" | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">{{ "HOME_PAGE_TITLE" | translate }}</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <app-presentation></app-presentation>
-    <app-shared-example></app-shared-example>
-  </div>
+    <div id="container">
+        <app-presentation></app-presentation>
+        <app-shared-example></app-shared-example>
+
+        <div class="u-text-align--left u-margin-left--md">
+            <h3>Text Styles</h3>
+
+            <h1>Header 1</h1>
+            <h2>Header 2</h2>
+            <h3>Header 3</h3>
+            <h4>Header 4</h4>
+            <h5>Header 5</h5>
+            <h6>Header 6</h6>
+            <p>Paragraph</p>
+
+            <h3>Link</h3>
+            <a class="c-link">Link</a>
+            <div></div>
+            <a class="c-link">
+                <ion-icon name="airplane-outline"></ion-icon>
+                Link with icon
+            </a>
+
+            <h3>Button</h3>
+            <button class="c-btn">Button</button>
+
+            <button class="c-btn">
+                <ion-icon
+                    class="c-btn__icon"
+                    name="airplane-outline"
+                ></ion-icon>
+                <span>Button</span>
+                <ion-icon
+                    class="c-btn__arrow"
+                    name="chevron-forward-outline"
+                ></ion-icon>
+            </button>
+
+            <button class="c-btn">
+                <img
+                    src="../../../../../assets/images/loading/loading-white.svg"
+                    class="c-btn__loading"
+                >
+                <span>Loading</span>
+            </button>
+
+            <button
+                class="c-btn"
+                disabled="true"
+            >
+                <span>Disabled</span>
+            </button>
+        </div>
+    </div>
 </ion-content>

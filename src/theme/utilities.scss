@@ -1,0 +1,165 @@
+@import 'sizing.scss';
+
+// DISPLAY
+.u-display--block {
+  display: block;
+}
+
+.u-display--inline {
+  display: inline;
+}
+
+.u-display--none {
+  display: none;
+}
+
+.u-display--flex {
+  display: flex;
+}
+
+.u-flex-direction--row {
+  flex-direction: row;
+}
+
+.u-flex-direction--column {
+  flex-direction: column;
+}
+
+.u-flex-align--center {
+  align-items: center;
+}
+
+.u-flex-align--start {
+  align-items: flex-start;
+}
+
+.u-flex-align--end {
+  align-items: flex-end;
+}
+
+.u-flex-justify--center {
+  justify-content: center;
+}
+
+.u-flex-justify--start {
+  justify-content: flex-start;
+}
+
+.u-flex-justify--end {
+  justify-content: flex-end;
+}
+
+// FONT
+.u-text-align--center {
+  text-align: center;
+}
+
+.u-text-align--left {
+  text-align: left;
+}
+
+.u-text-align--right {
+  text-align: right;
+}
+
+// WIDTH
+.u-width--10 {
+  width: 10%;
+}
+
+.u-width--25 {
+  width: 25%;
+}
+
+.u-width--33 {
+  width: 33%;
+}
+
+.u-width--50 {
+  width: 50%;
+}
+
+.u-width--66 {
+  width: 66%;
+}
+
+.u-width--75 {
+  width: 75%;
+}
+
+.u-width--90 {
+  width: 90%;
+}
+
+.u-width--100 {
+  width: 100%;
+}
+
+// MAX WIDTH
+.u-max-width--10 {
+  max-width: 10%;
+}
+
+.u-max-width--25 {
+  max-width: 66%;
+}
+
+.u-max-width--33 {
+  max-width: 33%;
+}
+
+.u-max-width--50 {
+  max-width: 50%;
+}
+
+.u-max-width--66 {
+  max-width: 66%;
+}
+
+.u-max-width--75 {
+  max-width: 75%;
+}
+
+.u-max-width--90 {
+  max-width: 90%;
+}
+
+.u-max-width--100 {
+  max-width: 100%;
+}
+
+// MARGIN AND PADDING
+$sizes: (
+  'xs': $size-xs,
+  'sm': $size-sm,
+  'md': $size-md,
+  'lg': $size-lg,
+  'xl': $size-xl,
+);
+$directions: 'left', 'right', 'top', 'bottom';
+
+@each $direction in $directions {
+  @each $size, $size-value in $sizes {
+    .u-margin-#{$direction}--#{$size} {
+      margin-#{$direction}: $size-value;
+    }
+
+    .u-padding-#{$direction}--#{$size} {
+      padding-#{$direction}: $size-value;
+    }
+  }
+}
+
+@each $direction in $directions {
+  .u-margin-#{$direction}--auto {
+    margin-#{$direction}: auto;
+  }
+
+  .u-margin-#{$direction}--none {
+    margin-#{$direction}: none;
+  }
+
+  .u-padding-#{$direction}--none {
+    margin-#{$direction}: none;
+  }
+}
