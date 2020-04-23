@@ -1,0 +1,66 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+.c-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &--bullet {
+    .c-list__item {
+      padding: $size-sm 0;
+      border-bottom: 0;
+
+      .c-list__icon {
+        font-size: 1.6em;
+      }
+    }
+  }
+
+  &__item,
+  &__action {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__item {
+    padding: $size-md 0;
+    border-bottom: 1px solid var(--color-gray-400);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__action {
+    color: var(--color-gray-900);
+    text-decoration: none;
+  }
+
+  &__icon {
+    flex: 1 0 auto;
+    margin-right: $size-md;
+    color: var(--color-primary-500);
+    font-size: 1.4em;
+  }
+
+  &__label {
+    flex: 1 1 auto;
+    width: 100%;
+    padding-right: $size-md;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__arrow {
+    flex: 1 0 auto;
+    margin-left: auto;
+    color: var(--color-gray-400);
+    font-size: 1.4em;
+  }
+}
