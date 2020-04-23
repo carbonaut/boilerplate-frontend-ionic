@@ -74,6 +74,34 @@ By default, this project implements the following shared features:
 - `ToastService`: wrapper to hold all toast related logic. By default it implements [ion-toast from Ionic](https://ionicframework.com/docs/api/toast);
 - `TranslationsService`: wrapper to hold all translation related logic. By default it implements [@ngx-translate/core](https://github.com/ngx-translate/core).
 
+## Creating Modules and Components
+
+We recommend using the `@angular/cli` for generating project files.
+
+### Create a New Module With Router
+
+```
+ng g module modules/{module-name} --routing
+```
+
+Remember to import the feature module to the `app-routing.module.ts`.
+
+### Creates a New Dumb Component
+
+```
+ng g c modules/{module-name}/components/{component-name}
+```
+
+Remember to add the component on the `declarations` array in the feature `.module.ts`.
+
+### Create a Smart Component
+
+```
+ionic g page modules/{module-name}/pages/{page-name}
+```
+
+This will automatically create a module for each page and import it on the feature module
+
 ## Theme
 
 ### BEM and Reusable Styles
@@ -153,32 +181,6 @@ Here's an example of how this structure is going to look like on code:
 </div>
 ```
 
-## Creating Modules and Components
-
-We recommend using the `@angular/cli` for generating project files.
-
-### Create a New Module With Router
-
-```
-ng g module modules/{module-name} --routing
-```
-
-Remember to import the feature module to the `app-routing.module.ts`.
-
-### Creates a New Dumb Component
-
-```
-ng g c modules/{module-name}/components/{component-name}
-```
-
-Remember to add the component on the `declarations` array in the feature `.module.ts`.
-
-### Create a Smart Component
-
-```
-ng g c modules/{module-name}/pages/{page-name}
-```
-
 ## Linter
 
 This project uses ESLint with Typescript support. Note that Angular [does not](https://github.com/angular/angular-cli/issues/13732) support ESLint on their CLI yet.
@@ -200,7 +202,7 @@ npm run lint:fix
 
 We use [akita](https://datorama.github.io/akita/docs/) as a library to manage our states in a reactive way.
 
-If you have the akita cli you can run the command below to create a new store (with the associated query and service) 
+If you have the akita cli you can run the command below to create a new store (with the associated query and service)
 
 ```
 akita
