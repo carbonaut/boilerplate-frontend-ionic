@@ -1,5 +1,23 @@
 {
   "HOME_PAGE_TITLE": "Home Page",
   "PRESENTATION_TITLE": "Ready to create an app?",
-  "SHARED_EXAMPLE_CONTENT": "shared-example works!"
+  "SHARED_EXAMPLE_CONTENT": "shared-example works!",
+  "FIELDS": {
+    "PASSWORD": {
+      "LABEL": "Password",
+      "PLACEHOLDER": "Enter your password",
+      "SHOW_PASSWORD_VISIBILITY": "Show your password",
+      "HIDE_PASSWORD_VISIBILITY": "Hide your password"
+    },
+    "EMAIL": {
+      "LABEL": "E-mail",
+      "PLACEHOLDER": "Enter your e-mail"
+    }
+  },
+  "FORM_VALIDATION_MESSAGES": {
+    "REQUIRED": "This field is required.",
+    "INVALID": "This field is invalid.",
+    "EMAIL": "E-mail is invalid.",
+    "WEAK_PASSWORD": "Your password must contain ..."
+  }
 }
