@@ -1,4 +1,5 @@
 @import 'sizing.scss';
+@import 'variables.scss';
 
 // DISPLAY
 .u-display--block {
@@ -141,25 +142,47 @@ $directions: 'left', 'right', 'top', 'bottom';
 @each $direction in $directions {
   @each $size, $size-value in $sizes {
     .u-margin-#{$direction}--#{$size} {
-      margin-#{$direction}: $size-value;
+      margin-#{$direction}: $size-value !important;
     }
 
     .u-padding-#{$direction}--#{$size} {
-      padding-#{$direction}: $size-value;
+      padding-#{$direction}: $size-value !important;
     }
   }
 }
 
 @each $direction in $directions {
   .u-margin-#{$direction}--auto {
-    margin-#{$direction}: auto;
+    margin-#{$direction}: auto !important;
   }
 
   .u-margin-#{$direction}--none {
-    margin-#{$direction}: none;
+    margin-#{$direction}: none !important;
   }
 
   .u-padding-#{$direction}--none {
-    margin-#{$direction}: none;
+    margin-#{$direction}: none !important;
+  }
+}
+
+// COLORS AND BACKGROUND
+$colors: (
+  'primary-500': $primary--500,
+  'primary-300': $primary--300,
+  'primary-700': $primary--700,
+  'white': white,
+  'black': $gray--900,
+  'success': $success--500,
+  'warning': $warning,
+  'error': $error,
+);
+
+@each $color, $color-value in $colors {
+  .u-color--#{$color} {
+    color: $color-value !important;
+  }
+
+  .u-background--#{$color} {
+    background-color: $color-value !important;
   }
 }
