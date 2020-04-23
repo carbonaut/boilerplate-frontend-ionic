@@ -2,6 +2,7 @@
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { IonicModule } from '@ionic/angular';
 import { PresentationComponent } from './presentation.component';
 import { StorybookTranslateModule } from '../../../../core/services/storybook-translations-loader/storybook-translations.module';
 
@@ -36,7 +37,7 @@ storiesOf('Example/Presentation Component', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
-      imports: [StorybookTranslateModule],
+      imports: [StorybookTranslateModule, IonicModule],
     })
   )
   .add(
