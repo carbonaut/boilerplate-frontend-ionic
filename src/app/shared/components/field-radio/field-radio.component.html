@@ -1,0 +1,16 @@
+<ion-list class="theme-{{ theme }}">
+  <ion-radio-group [formControl]="control">
+    <ion-list-header>
+      <ion-label>{{ label }}</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let option of options; trackBy: trackByOptions">
+      <ion-icon *ngIf="option.icon" [name]="option.icon"></ion-icon>
+      <ion-label>{{ option.label }}</ion-label>
+      <ion-radio [disabled]="disabled" slot="start" [value]="option.value"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+<app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
+</app-field-error-message>
