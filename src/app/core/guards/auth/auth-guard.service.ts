@@ -6,7 +6,6 @@ import { SessionQuery } from '../../state/session/session.query';
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  // eslint-disable-next-line no-unused-vars
   constructor(public router: Router, public sessionQuery: SessionQuery) {}
 
   canActivate(): boolean {
