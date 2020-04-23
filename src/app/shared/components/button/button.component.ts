@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  @Input() size: 'large' | 'small' | '';
+  @Input() size: 'lg' | 'sm' | '';
   @Input('clear') isClear: boolean;
   @Input('outline') isOutline: boolean;
   @Input('inverted') isInverted: boolean;

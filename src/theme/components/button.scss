@@ -5,14 +5,14 @@
   display: flex;
   align-items: center;
 
-  padding: $size-md $size-lg;
-  border-radius: $size-lg;
+  padding: 1em 2em;
+  border-radius: 1.5em;
   background: $primary--500;
   border: 0;
   appearance: none;
 
   color: white;
-  font-size: $size-base * 1;
+  font-size: 1 * $size-base;
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
@@ -22,9 +22,12 @@
 
   cursor: pointer;
 
-  &--large {
-    padding: 1rem 2.2rem;
-    font-size: 1rem;
+  &--lg {
+    font-size: 1.2 * $size-base;
+  }
+
+  &--sm {
+    font-size: 0.85 * $size-base;
   }
 
   &--inverted {
