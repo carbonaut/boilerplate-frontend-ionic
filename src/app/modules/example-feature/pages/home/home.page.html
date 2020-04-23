@@ -12,57 +12,105 @@
     </ion-header>
 
     <div id="container">
-        <app-presentation></app-presentation>
-        <app-shared-example></app-shared-example>
+        <div class="u-text-align--left u-margin-left--md u-margin-top--md">
+            <div class="u-margin-bottom--lg">
+                <h3>Text Styles</h3>
 
-        <div class="u-text-align--left u-margin-left--md">
-            <h3>Text Styles</h3>
+                <div class="u-margin-left--md">
+                    <h1>Header 1</h1>
+                    <h2>Header 2</h2>
+                    <h3>Header 3</h3>
+                    <h4>Header 4</h4>
+                    <h5>Header 5</h5>
+                    <h6>Header 6</h6>
+                    <p>Paragraph</p>
+                </div>
+            </div>
 
-            <h1>Header 1</h1>
-            <h2>Header 2</h2>
-            <h3>Header 3</h3>
-            <h4>Header 4</h4>
-            <h5>Header 5</h5>
-            <h6>Header 6</h6>
-            <p>Paragraph</p>
+            <div class="u-margin-bottom--lg">
+                <h3>Link</h3>
 
-            <h3>Link</h3>
-            <a class="c-link">Link</a>
-            <div></div>
-            <a class="c-link">
-                <ion-icon name="airplane-outline"></ion-icon>
-                Link with icon
-            </a>
+                <div class="u-margin-left--md">
+                    <a class="c-link u-margin-bottom--md">Link</a>
 
-            <h3>Button</h3>
-            <button class="c-btn">Button</button>
+                    <a class="c-link">
+                        <ion-icon name="airplane-outline"></ion-icon>
+                        Link with icon
+                    </a>
+                </div>
+            </div>
 
-            <button class="c-btn">
-                <ion-icon
-                    class="c-btn__icon"
-                    name="airplane-outline"
-                ></ion-icon>
-                <span>Button</span>
-                <ion-icon
-                    class="c-btn__arrow"
-                    name="chevron-forward-outline"
-                ></ion-icon>
-            </button>
+            <div class="u-margin-bottom--lg">
+                <h3>Button</h3>
 
-            <button class="c-btn">
-                <img
-                    src="../../../../../assets/images/loading/loading-white.svg"
-                    class="c-btn__loading"
-                >
-                <span>Loading</span>
-            </button>
+                <div class="u-margin-left--md">
+                    <app-button class="u-margin-bottom--md">Button</app-button>
 
-            <button
-                class="c-btn"
-                disabled="true"
-            >
-                <span>Disabled</span>
-            </button>
+                    <app-button
+                        class="u-margin-bottom--md"
+                        icon="airplane-outline"
+                    >
+                        Button with Icon
+                    </app-button>
+
+                    <app-button
+                        class="u-margin-bottom--md"
+                        icon="airplane-outline"
+                        arrow="true"
+                    >
+                        Button with Icon and Arrow
+                    </app-button>
+
+                    <app-button
+                        class="u-margin-bottom--md"
+                        loading="true"
+                        disabled="true"
+                    >
+                        Button Loading and Disabled
+                    </app-button>
+
+                    <app-button
+                        class="u-margin-bottom--md"
+                        outline="true"
+                        inverted="true"
+                    >
+                        Button Inverted Outline
+                    </app-button>
+
+                    <app-button
+                        class="u-margin-bottom--md"
+                        size="large"
+                    >
+                        Button Outline
+                    </app-button>
+
+                    <app-button
+                        class="u-margin-bottom--md"
+                        clear="true"
+                    >
+                        Button Outline
+                    </app-button>
+                </div>
+            </div>
+
+            <div class="u-margin-bottom--lg">
+                <h3>Button</h3>
+
+                <div class="u-margin-left--md">
+
+                    <div class="c-card">
+                        <h3 class="c-card__title">Card Title</h3>
+                        <p class="c-card__description">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia nobis quod vel recusandae earum eum explicabo, magnam, inventore.
+                        </p>
+
+                        <app-button class="c-card__button">Learn More</app-button>
+                    </div>
+
+                    <div class="c-card c-card--center"></div>
+
+                </div>
+            </div>
         </div>
     </div>
 </ion-content>
