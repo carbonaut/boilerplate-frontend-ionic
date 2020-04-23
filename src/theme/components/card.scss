@@ -1,0 +1,56 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+.c-card {
+  --background-color: white;
+  --background-image: '';
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  max-width: 24 * $size-base;
+  padding: 1.5 * $size-base;
+
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  border-radius: $size-sm;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+
+  &--center {
+    align-items: center;
+    text-align: center;
+
+    .c-card__title,
+    .c-card__description {
+      max-width: none;
+    }
+  }
+
+  &--inverted {
+    .c-card__title,
+    .c-card__description {
+      color: white;
+    }
+  }
+
+  &__title {
+    max-width: 66%;
+    font-size: 1.6 * $size-base;
+  }
+
+  &__description {
+    max-width: 66%;
+    opacity: 0.7;
+  }
+
+  &__image {
+    margin-bottom: $size-md;
+  }
+
+  &__button {
+    margin-top: $size-md;
+  }
+}
