@@ -16,6 +16,7 @@ import { FieldEmailComponent } from './components/field-email/field-email.compon
 import { FieldPasswordComponent } from './components/field-password/field-password.component';
 import { FieldNumberComponent } from './components/field-number/field-number.component';
 import { FieldRadioComponent } from './components/field-radio/field-radio.component';
+import { FieldCheckboxComponent } from './components/field-checkbox/field-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FieldRadioComponent } from './components/field-radio/field-radio.compon
     FieldNumberComponent,
     FieldTextComponent,
     FieldRadioComponent,
+    FieldCheckboxComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, IonicModule, TranslateModule.forChild({})],
   exports: [
@@ -39,6 +41,7 @@ import { FieldRadioComponent } from './components/field-radio/field-radio.compon
     FieldNumberComponent,
     FieldTextComponent,
     FieldRadioComponent,
+    FieldCheckboxComponent,
   ],
 })
 export class SharedModule {}
