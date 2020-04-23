@@ -2,14 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-app-field-text',
-  templateUrl: './app-field-text.component.html',
-  styleUrls: ['./app-field-text.component.scss'],
+  selector: 'app-field-number',
+  templateUrl: './field-number.component.html',
+  styleUrls: ['./field-number.component.scss'],
 })
-export class AppFieldTextComponent implements OnInit {
+export class FieldNumberComponent implements OnInit {
   @Input() control: FormControl;
-  @Input() label: string;
   @Input() placeholder: string;
+  @Input() label: string;
   @Input() required = false;
   @Input() disabled = false;
   @Input() showValidationErrorMessage = true;

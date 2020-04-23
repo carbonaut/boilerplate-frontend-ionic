@@ -4,11 +4,11 @@ import { FormControl, Validators } from '@angular/forms';
 import { passwordStrengthValidator } from '../../../core/validators/password-strength/password-strenght.validator';
 
 @Component({
-  selector: 'app-app-field-password',
-  templateUrl: './app-field-password.component.html',
-  styleUrls: ['./app-field-password.component.scss'],
+  selector: 'app-field-password',
+  templateUrl: './field-password.component.html',
+  styleUrls: ['./field-password.component.scss'],
 })
-export class AppFieldPasswordComponent implements OnInit {
+export class FieldPasswordComponent implements OnInit {
   @Input() control: FormControl;
   @Input() label: string;
   @Input() placeholder: string;
