@@ -4,22 +4,19 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 
 import { environment } from '../../../../environments/environment';
-import { LoggerService } from '../../../shared/services/logger-service/logger.service';
+
+import { LoggerService } from '../../services/logger-service/logger.service';
+import { SessionQuery } from '../../state/session/session.query';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiInterceptor implements HttpInterceptor {
-  constructor(private loggerService: LoggerService) {}
+  constructor(private loggerService: LoggerService, private sessionQuery: SessionQuery) {}
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    /*
-      TO DO: integrate with auth store
-     */
-
-    const isLoggedUser = false;
-    const tokenType = null;
-    const accessToken = null;
+    const isLoggedUser = this.sessionQuery.isLoggedIn();
+    const { accessToken, tokenType } = this.sessionQuery.session();
 
     const requestModified = isLoggedUser
       ? this.addAuthenticationHeader(request, tokenType, accessToken)
