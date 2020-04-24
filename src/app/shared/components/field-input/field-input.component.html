@@ -4,7 +4,7 @@
     [required]="required">
   </ion-input>
 
-  <ion-icon *ngIf="icon" [name]="icon"></ion-icon>
+  <ion-icon *ngIf="icon" [name]="icon" slot="end"></ion-icon>
 
   <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
   </app-field-error-message>
