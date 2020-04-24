@@ -1,0 +1,7 @@
+<ion-item>
+  <ion-label position="stacked">{{ label }}</ion-label>
+  <ion-checkbox [formControl]="control"></ion-checkbox>
+
+  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
+  </app-field-error-message>
+</ion-item>
