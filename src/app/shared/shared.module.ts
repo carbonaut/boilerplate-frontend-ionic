@@ -16,10 +16,12 @@ import { AppFieldEmailComponent } from './components/app-field-email/app-field-e
 import { AppFieldErrorMessageComponent } from './components/app-field-error-message/app-field-error-message.component';
 import { AppFieldNumberComponent } from './components/app-field-number/app-field-number.component';
 import { AppFieldTextComponent } from './components/app-field-text/app-field-text.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
     SharedExampleComponent,
+    ModalComponent,
     ModalExampleComponent,
     ButtonComponent,
     AppFieldErrorMessageComponent,
@@ -32,6 +34,7 @@ import { AppFieldTextComponent } from './components/app-field-text/app-field-tex
   entryComponents: [ModalExampleComponent],
   exports: [
     SharedExampleComponent,
+    ModalComponent,
     ModalExampleComponent,
     TranslateModule,
     ButtonComponent,

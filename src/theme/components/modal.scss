@@ -19,8 +19,9 @@
 
   // animate overflow toggling to make it look nicer
   animation-name: overflowTrigger;
-  animation-duration: 0.7s;
+  animation-delay: 0.25s;
   animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 
   ion-backdrop {
     display: none;
@@ -39,10 +40,7 @@
       align-items: center;
       padding: $size-xl 0;
       min-height: 100vh;
-    }
-
-    .c-modal {
-      height: 100%;
+      justify-content: center;
     }
   }
 }
@@ -123,6 +121,7 @@
       .ion-page {
         padding-top: $size-xl * 2;
         padding-bottom: 0;
+        justify-content: flex-end;
       }
     }
   }
