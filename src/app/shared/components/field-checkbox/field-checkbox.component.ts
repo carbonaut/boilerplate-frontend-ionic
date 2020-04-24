@@ -1,4 +1,4 @@
-import { Component, Input, Self } from '@angular/core';
+import { Component, Input, Optional, Self } from '@angular/core';
 import { NgControl, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -19,7 +19,7 @@ export class FieldCheckboxComponent implements ControlValueAccessor {
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  constructor(@Self() public ngControl: NgControl) {
+  constructor(@Self() @Optional() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Self } from '@angular/core';
+import { Component, Input, OnInit, Optional, Self } from '@angular/core';
 import { Validators, ControlValueAccessor, NgControl } from '@angular/forms';
 
 import { passwordStrengthValidator } from '../../../core/validators/password-strength/password-strenght.validator';
@@ -25,7 +25,7 @@ export class FieldPasswordComponent implements ControlValueAccessor, OnInit {
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  constructor(@Self() public ngControl: NgControl) {
+  constructor(@Self() @Optional() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
   }
 

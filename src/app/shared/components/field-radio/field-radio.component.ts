@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Self } from '@angular/core';
+import { Component, Input, OnInit, Optional, Self } from '@angular/core';
 import { NgControl, ControlValueAccessor } from '@angular/forms';
 import { FieldRadioOption } from './field-radio.interface';
 
@@ -24,7 +24,7 @@ export class FieldRadioComponent implements ControlValueAccessor, OnInit {
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  constructor(@Self() public ngControl: NgControl) {
+  constructor(@Self() @Optional() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
   }
 
