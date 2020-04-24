@@ -12,6 +12,11 @@
     "EMAIL": {
       "LABEL": "E-mail",
       "PLACEHOLDER": "Enter your e-mail"
+    },
+    "SELECT": {
+      "PLACEHOLDER": "Select an option",
+      "OK_TEXT": "OK",
+      "CANCEL_TEXT": "Dismiss"
     }
   },
   "FORM_VALIDATION_MESSAGES": {
