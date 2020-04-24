@@ -252,9 +252,14 @@
           <form [formGroup]="form" (ngSubmit)="submit()">
             <app-field-checkbox formControlName="checkbox" label="Checkbox"></app-field-checkbox>
 
-            <app-field-input formControlName="text" label="Test"></app-field-input>
+            <app-field-input formControlName="text" label="Test Disable">
+            </app-field-input>
 
-            <app-field-input formControlName="email" label="Email" type="email"></app-field-input>
+            <app-field-input formControlName="scan" label="Test" validationIcon="scan">
+            </app-field-input>
+
+            <app-field-input formControlName="email" label="Email" type="email" icon="mail">
+            </app-field-input>
 
             <app-field-otp formControlName="otp" label="OTP"></app-field-otp>
 

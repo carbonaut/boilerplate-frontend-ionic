@@ -22,6 +22,7 @@ import { FieldOtpComponent } from './components/field-otp/field-otp.component';
 import { FieldSelectComponent } from './components/field-select/field-select.component';
 import { DndDirective } from './directives/drag-and-drop.directive';
 import { FieldFileComponent } from './components/field-file/field-file.component';
+import { FieldValidationIconComponent } from './components/field-validation-icon/field-validation-icon.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FieldFileComponent } from './components/field-file/field-file.component
     FieldSelectComponent,
     DndDirective,
     FieldFileComponent,
+    FieldValidationIconComponent,
   ],
   imports: [
     CommonModule,
@@ -63,6 +65,7 @@ import { FieldFileComponent } from './components/field-file/field-file.component
     FieldSelectComponent,
     DndDirective,
     FieldFileComponent,
+    FieldValidationIconComponent,
   ],
 })
 export class SharedModule {}

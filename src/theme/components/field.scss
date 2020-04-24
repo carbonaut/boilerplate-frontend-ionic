@@ -1,0 +1,62 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+.c-field {
+  margin-bottom: $size-lg;
+
+  &__label {
+    margin-bottom: $size-sm;
+    font-size: $size-md;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    border: 1px solid var(--color-gray-400);
+    border-radius: $size-xs;
+    padding: $size-xs $size-sm !important;
+
+    &:disabled,
+    &--disabled {
+      background: var(--color-gray-100);
+    }
+
+    &--invalid,
+    &.ion-touched.ion-invalid {
+      border-color: var(--color-error);
+    }
+
+    &--has-icon {
+      padding-left: 3 * $size-base !important;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: $size-md;
+    color: var(--color-blue-700);
+    font-size: 1.5 * $size-base;
+
+    &--left {
+      left: $size-md;
+      right: auto;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    z-index: 2;
+    display: inline-block;
+    margin-top: $size-xs;
+    padding: $size-xs $size-sm;
+    background: var(--color-error);
+    color: white;
+    font-size: 0.7 * $size-base;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

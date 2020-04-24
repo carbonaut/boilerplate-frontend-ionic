@@ -1,0 +1,10 @@
+<div *ngIf="control.touched">
+  <ion-icon *ngIf="control.valid" name="checkmark"
+    class="c-field__icon c-field__icon--left u-color--success">
+  </ion-icon>
+  <ion-icon *ngIf="control.invalid" name="warning"
+    class="c-field__icon c-field__icon--left u-color--error">
+  </ion-icon>
+</div>
+<ion-icon *ngIf="!control.touched && icon" [name]="icon" class="c-field__icon c-field__icon--left">
+</ion-icon>

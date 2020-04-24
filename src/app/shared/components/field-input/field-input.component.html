@@ -1,13 +1,21 @@
-<ion-item>
-  <ion-label position="stacked">{{ label }}</ion-label>
+<div class="c-field" ion-content>
+  <h6 class="c-field__label">{{ label }}</h6>
 
-  <ion-input [type]="type" [placeholder]="placeholder" [formControl]="ngControl.control"
-    (ionChange)="setValue($event)">
-  </ion-input>
+  <div class="c-field__input-wrapper">
+    <app-field-validation-icon *ngIf="validationIcon" [icon]="validationIcon"
+      [control]="ngControl.control">
+    </app-field-validation-icon>
 
-  <ion-icon *ngIf="icon" [name]="icon" slot="end"></ion-icon>
+    <ion-input class="c-field__input" [type]="type" [placeholder]="placeholder"
+      [class.c-field__input--disabled]="isDisabled"
+      [class.c-field__input--has-icon]="validationIcon" [formControl]="ngControl.control"
+      (ionChange)="setValue($event)">
+    </ion-input>
+
+    <ion-icon *ngIf="icon" [name]="icon" class="c-field__icon"></ion-icon>
+  </div>
 
   <app-field-error-message [visible]="showValidationErrorMessage"
     [currentControl]="ngControl.control">
   </app-field-error-message>
-</ion-item>
+</div>
