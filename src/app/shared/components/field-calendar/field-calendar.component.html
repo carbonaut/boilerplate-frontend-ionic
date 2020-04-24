@@ -1,0 +1,10 @@
+<ion-label position="stacked">{{ label }}</ion-label>
+
+<dp-date-picker [placeholder]="placeholder" [formControl]="ngControl.control"
+  (onChange)="selectDateEvent($event)" [dpDayPicker]="config"></dp-date-picker>
+
+<ion-icon *ngIf="icon" [name]="icon" slot="end"></ion-icon>
+
+<app-field-error-message [visible]="showValidationErrorMessage"
+  [currentControl]="ngControl.control">
+</app-field-error-message>
