@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { NgOtpInputModule } from 'ng-otp-input';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
 import { ButtonComponent } from './components/button/button.component';
 
@@ -17,6 +18,7 @@ import { FieldPasswordComponent } from './components/field-password/field-passwo
 import { FieldNumberComponent } from './components/field-number/field-number.component';
 import { FieldRadioComponent } from './components/field-radio/field-radio.component';
 import { FieldCheckboxComponent } from './components/field-checkbox/field-checkbox.component';
+import { FieldOtpComponent } from './components/field-otp/field-otp.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,15 @@ import { FieldCheckboxComponent } from './components/field-checkbox/field-checkb
     FieldTextComponent,
     FieldRadioComponent,
     FieldCheckboxComponent,
+    FieldOtpComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, IonicModule, TranslateModule.forChild({})],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    IonicModule,
+    NgOtpInputModule,
+    TranslateModule.forChild({}),
+  ],
   exports: [
     SharedExampleComponent,
     TranslateModule,
@@ -42,6 +51,7 @@ import { FieldCheckboxComponent } from './components/field-checkbox/field-checkb
     FieldTextComponent,
     FieldRadioComponent,
     FieldCheckboxComponent,
+    FieldOtpComponent,
   ],
 })
 export class SharedModule {}
