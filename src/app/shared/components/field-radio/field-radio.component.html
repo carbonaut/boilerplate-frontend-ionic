@@ -6,7 +6,7 @@
 
     <ion-item *ngFor="let option of options; trackBy: trackByOptions">
       <ion-icon *ngIf="option.icon" [name]="option.icon"></ion-icon>
-      <ion-label>{{ option.label }}</ion-label>
+      <ion-label>{{ option.label | translate }}</ion-label>
       <ion-radio [disabled]="disabled" slot="start" [value]="option.value"></ion-radio>
     </ion-item>
   </ion-radio-group>
