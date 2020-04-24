@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FieldTextComponent } from './field-text.component';
+import { FieldOtpComponent } from './field-otp.component';
 
-describe('FieldTextComponent', () => {
-  let component: FieldTextComponent;
-  let fixture: ComponentFixture<FieldTextComponent>;
+describe('FieldOtpComponent', () => {
+  let component: FieldOtpComponent;
+  let fixture: ComponentFixture<FieldOtpComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FieldTextComponent],
+      declarations: [FieldOtpComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FieldTextComponent);
+    fixture = TestBed.createComponent(FieldOtpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
