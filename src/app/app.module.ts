@@ -11,6 +11,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { ToastModule } from './core/toasts/toast.module';
+
 // ====================================
 // SERVICES
 // ====================================
@@ -34,6 +36,7 @@ import { ApiInterceptor } from './core/interceptors/api/api.interceptor';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    ToastModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

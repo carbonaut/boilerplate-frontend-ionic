@@ -222,6 +222,28 @@
           </app-button>
         </div>
       </div>
+
+      <div class="u-margin-bottom--lg">
+        <h3>Toast</h3>
+
+        <div class="u-margin-left--md">
+          <app-button class="u-margin-bottom--md" (click)="triggetToast('success')">
+            Success
+          </app-button>
+
+          <app-button class="u-margin-bottom--md" (click)="triggetToast('error')">
+            Error
+          </app-button>
+
+          <app-button class="u-margin-bottom--md" (click)="triggetToast('info')">
+            Info
+          </app-button>
+
+          <app-button (click)="triggetToast('warning')">
+            Warning
+          </app-button>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

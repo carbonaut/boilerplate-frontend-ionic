@@ -1,0 +1,9 @@
+<div class="c-toast" [class.c-toast--success]="toast.type == 'success'"
+  [class.c-toast--info]="toast.type == 'info'" [class.c-toast--error]="toast.type == 'error'"
+  [class.c-toast--warning]="toast.type == 'warning'" [class.c-toast--hidden]="!toast.visible">
+  <ion-icon *ngIf="toast.icon" [name]="toast.icon" class="c-toast__icon"></ion-icon>
+  <div>{{ toast?.message }}</div>
+  <button class="c-toast__button" *ngIf="toast.button" (click)="handleClick($event)">
+    {{ toast.button }}
+  </button>
+</div>
