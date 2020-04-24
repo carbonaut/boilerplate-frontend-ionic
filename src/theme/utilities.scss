@@ -129,6 +129,11 @@
   max-width: 100%;
 }
 
+// CURSOR
+.u-cursor--clickable {
+  cursor: pointer;
+}
+
 // MARGIN AND PADDING
 $sizes: (
   'xs': $size-xs,

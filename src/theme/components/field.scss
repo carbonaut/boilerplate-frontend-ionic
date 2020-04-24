@@ -30,8 +30,12 @@
       border-color: var(--color-error);
     }
 
-    &--has-icon {
+    &--has-validation-icon {
       padding-left: 3 * $size-base !important;
+    }
+
+    &--has-icon {
+      padding-right: 3 * $size-base !important;
     }
   }
 
@@ -44,6 +48,7 @@
 
   &__icon {
     position: absolute;
+    z-index: 2;
     right: $size-md;
     color: var(--color-blue-700);
     font-size: 1.5 * $size-base;

@@ -8,7 +8,8 @@
 
     <ion-input class="c-field__input" [type]="type" [placeholder]="placeholder"
       [class.c-field__input--disabled]="isDisabled"
-      [class.c-field__input--has-icon]="validationIcon" [formControl]="ngControl.control"
+      [class.c-field__input--has-validation-icon]="validationIcon"
+      [class.c-field__input--has-icon]="icon" [formControl]="ngControl.control"
       (ionChange)="setValue($event)">
     </ion-input>
 
