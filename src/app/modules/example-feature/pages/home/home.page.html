@@ -244,6 +244,42 @@
           </app-button>
         </div>
       </div>
+
+      <div class="u-margin-bottom--lg">
+        <h3>Input</h3>
+
+        <div class="u-margin-left--md">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <app-field-checkbox formControlName="checkbox" label="Checkbox"></app-field-checkbox>
+
+            <app-field-input formControlName="text" label="Test"></app-field-input>
+
+            <app-field-input formControlName="email" label="Email" type="email"></app-field-input>
+
+            <app-field-otp formControlName="otp" label="OTP"></app-field-otp>
+
+            <app-field-radio formControlName="radio1" label="Testing" [options]="radioOptions">
+            </app-field-radio>
+
+            <app-field-radio formControlName="radio2" label="Testing" theme="toggle"
+              [options]="radioOptions">
+            </app-field-radio>
+
+            <app-field-select formControlName="select" label="Select" [options]="selectOptions">
+            </app-field-select>
+
+            <app-field-password formControlName="password" label="Testing">
+            </app-field-password>
+
+            <app-field-file formControlName="file" label="Testing" placeholder="Placeholder">
+            </app-field-file>
+
+            <app-button type="submit">
+              Submit
+            </app-button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

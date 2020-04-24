@@ -1,18 +1,17 @@
 import { Component, Input, Self } from '@angular/core';
-import { NgControl, ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-field-checkbox',
-  templateUrl: './field-checkbox.component.html',
-  styleUrls: ['./field-checkbox.component.scss'],
+  selector: 'app-field-file',
+  templateUrl: './field-file.component.html',
+  styleUrls: ['./field-file.component.scss'],
 })
-export class FieldCheckboxComponent implements ControlValueAccessor {
+export class FieldFileComponent implements ControlValueAccessor {
   @Input() label: string;
-  @Input() required = false;
-  @Input() disabled = false;
+  @Input() placeholder: string;
   @Input() showValidationErrorMessage = true;
 
-  value: boolean;
+  value: string;
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
@@ -24,8 +23,8 @@ export class FieldCheckboxComponent implements ControlValueAccessor {
   }
 
   // FORM CONTROL FUNCTIONS
-  setValue($event: any) {
-    this.value = $event.detail.checked;
+  setValue(files) {
+    this.value = files.item(0);
     this.updateChanges();
   }
 
@@ -33,7 +32,7 @@ export class FieldCheckboxComponent implements ControlValueAccessor {
     this.onChange(this.value);
   }
 
-  writeValue(value: boolean): void {
+  writeValue(value: string): void {
     this.value = value;
     this.updateChanges();
   }

@@ -37,6 +37,7 @@ export class FieldErrorMessageComponent implements AfterViewInit, OnDestroy {
 
   private getValidatorErrorMessage(validatorName: string) {
     // console.log('[getValidatorErrorMessage]', validatorName);
+    console.log(this.currentControl);
 
     switch (validatorName) {
       case 'email':

@@ -1,7 +1,9 @@
 <ion-item>
   <ion-label position="stacked">{{ label }}</ion-label>
-  <ion-checkbox [formControl]="control"></ion-checkbox>
 
-  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
+  <ion-checkbox [formControl]="ngControl.control" (ionChange)="setValue($event)"></ion-checkbox>
+
+  <app-field-error-message [visible]="showValidationErrorMessage"
+    [currentControl]="ngControl.control">
   </app-field-error-message>
 </ion-item>

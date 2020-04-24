@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Input, ViewChild, Self } from '@angular/core';
+import { NgControl, ControlValueAccessor } from '@angular/forms';
 
 /*
   Documentation: https://github.com/code-farmz/ng-otp-input
@@ -10,26 +10,52 @@ import { FormControl } from '@angular/forms';
   templateUrl: './field-otp.component.html',
   styleUrls: ['./field-otp.component.scss'],
 })
-export class FieldOtpComponent {
+export class FieldOtpComponent implements ControlValueAccessor {
   @ViewChild('ngOtpInput', { static: false }) ngOtpInputRef: any;
 
-  @Input() control: FormControl;
   @Input() placeholder = '-';
   @Input() label: string;
   @Input() showValidationErrorMessage = true;
   @Input() length = 5;
 
-  @Input() set value(value: number | string) {
-    this.setValue(value);
+  value: any;
+  isDisabled = false;
+
+  onChange: (_: any) => void = () => {};
+  onTouched: () => void = () => {};
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  constructor(@Self() public ngControl: NgControl) {
+    this.ngControl.valueAccessor = this;
   }
 
-  onValueChange($event: number | string) {
-    this.control.setValue($event);
+  // FORM CONTROL FUNCTIONS
+  setValue(value: number | string) {
+    this.value = value;
+    this.updateChanges();
   }
 
-  setValue(val: number | string) {
+  updateChanges() {
+    this.onChange(this.value);
+  }
+
+  writeValue(value: number | string): void {
+    this.value = value;
     if (this.ngOtpInputRef) {
-      this.ngOtpInputRef.setValue(val);
+      this.ngOtpInputRef.setValue(value);
     }
+    this.updateChanges();
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean) {
+    this.isDisabled = isDisabled;
   }
 }

@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalExampleComponent } from '../../../../shared/components/modal-example/modal-example.component';
 import { ToastService } from '../../../../core/toasts/services/toast-service/toast.service';
+import { FieldRadioOption } from '../../../../shared/components/field-radio/field-radio.interface';
+import { FieldSelectOption } from '../../../../shared/components/field-select/field-select.interface';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +12,49 @@ import { ToastService } from '../../../../core/toasts/services/toast-service/toa
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private modalController: ModalController, private toastService: ToastService) {}
+  form: FormGroup;
+  radioOptions: FieldRadioOption[] = [
+    {
+      label: 'Male',
+      value: 'M',
+      icon: 'male',
+    },
+    {
+      label: 'Female',
+      value: 'F',
+      icon: 'female',
+    },
+  ];
+
+  selectOptions: FieldSelectOption[] = [
+    {
+      label: 'Male',
+      value: 'M',
+    },
+    {
+      label: 'Female',
+      value: 'F',
+    },
+  ];
+
+  constructor(
+    private modalController: ModalController,
+    private toastService: ToastService,
+    private formBuilder: FormBuilder
+  ) {
+    this.form = this.formBuilder.group({
+      checkbox: [true, Validators.required],
+      email: ['', Validators.required],
+      number: ['', Validators.required],
+      text: [{ value: 'test', disabled: true }, Validators.required],
+      otp: ['', Validators.required],
+      radio1: ['', Validators.required],
+      radio2: ['', Validators.required],
+      password: ['', Validators.required],
+      select: ['', Validators.required],
+      file: ['', Validators.required],
+    });
+  }
 
   async openModal(longText = false) {
     const modal = await this.modalController.create({
@@ -39,5 +84,10 @@ export class HomePage {
         this.toastService.info('Testing Info');
         break;
     }
+  }
+
+  submit() {
+    // eslint-disable-next-line no-console
+    console.log(this.form.value);
   }
 }

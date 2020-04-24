@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
@@ -20,6 +20,8 @@ import { FieldCheckboxComponent } from './components/field-checkbox/field-checkb
 import { ModalComponent } from './components/modal/modal.component';
 import { FieldOtpComponent } from './components/field-otp/field-otp.component';
 import { FieldSelectComponent } from './components/field-select/field-select.component';
+import { DndDirective } from './directives/drag-and-drop.directive';
+import { FieldFileComponent } from './components/field-file/field-file.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,12 @@ import { FieldSelectComponent } from './components/field-select/field-select.com
     FieldCheckboxComponent,
     FieldOtpComponent,
     FieldSelectComponent,
+    DndDirective,
+    FieldFileComponent,
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     IonicModule,
     NgOtpInputModule,
@@ -56,6 +61,8 @@ import { FieldSelectComponent } from './components/field-select/field-select.com
     FieldCheckboxComponent,
     FieldOtpComponent,
     FieldSelectComponent,
+    DndDirective,
+    FieldFileComponent,
   ],
 })
 export class SharedModule {}

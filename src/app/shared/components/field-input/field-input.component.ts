@@ -1,41 +1,75 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, Input, Self, OnInit } from '@angular/core';
+import { Validators, ControlValueAccessor, NgControl, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-field-input',
   templateUrl: './field-input.component.html',
   styleUrls: ['./field-input.component.scss'],
 })
-export class FieldInputComponent implements OnInit {
-  @Input() control: FormControl;
+export class FieldInputComponent implements ControlValueAccessor, OnInit {
   @Input() type: 'text' | 'number' | 'email' = 'text';
   @Input() mask: 'phone' | 'zip-code' | 'svnr';
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() required = false;
-  @Input() disabled = false;
-  @Input() showValidationErrorMessage = true;
   @Input() icon;
+  @Input() showValidationErrorMessage = true;
 
-  ngOnInit() {
-    if (this.disabled) {
-      this.control.disable();
-    }
+  value: string;
+  isDisabled = false;
 
-    this.setupValidators();
+  onChange: (_: any) => void = () => {};
+  onTouched: () => void = () => {};
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  constructor(@Self() public ngControl: NgControl) {
+    this.ngControl.valueAccessor = this;
   }
 
-  private setupValidators() {
-    const validators = [];
+  ngOnInit() {
+    const { control } = this.ngControl;
 
-    if (this.required) {
-      validators.push(Validators.required);
-    }
+    let validators = this.getValidators();
+    validators = control.validator ? [control.validator, ...validators] : this.getValidators();
+
+    control.setValidators(validators);
+    control.updateValueAndValidity();
+  }
+
+  // FORM CONTROL FUNCTIONS
+  setValue($event: any) {
+    this.value = $event.detail.value;
+    this.updateChanges();
+  }
+
+  updateChanges() {
+    this.onChange(this.value);
+  }
+
+  writeValue(value: string): void {
+    this.value = value;
+    this.updateChanges();
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean) {
+    this.isDisabled = isDisabled;
+  }
+
+  // PRIVATE
+  private getValidators(): ValidatorFn[] {
+    const validators = [];
 
     if (this.type === 'email') {
       validators.push(Validators.email);
     }
 
-    this.control.setValidators(validators);
+    return validators;
   }
 }
