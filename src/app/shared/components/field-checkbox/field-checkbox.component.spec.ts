@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AppFieldEmailComponent } from './app-field-email.component';
+import { FieldCheckboxComponent } from './field-checkbox.component';
 
-describe('AppFieldEmailComponent', () => {
-  let component: AppFieldEmailComponent;
-  let fixture: ComponentFixture<AppFieldEmailComponent>;
+describe('FieldCheckboxComponent', () => {
+  let component: FieldCheckboxComponent;
+  let fixture: ComponentFixture<FieldCheckboxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppFieldEmailComponent],
+      declarations: [FieldCheckboxComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppFieldEmailComponent);
+    fixture = TestBed.createComponent(FieldCheckboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

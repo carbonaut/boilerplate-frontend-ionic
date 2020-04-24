@@ -2,13 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-app-field-email',
-  templateUrl: './app-field-email.component.html',
-  styleUrls: ['./app-field-email.component.scss'],
+  selector: 'app-field-checkbox',
+  templateUrl: './field-checkbox.component.html',
+  styleUrls: ['./field-checkbox.component.scss'],
 })
-export class AppFieldEmailComponent implements OnInit {
+export class FieldCheckboxComponent implements OnInit {
   @Input() control: FormControl;
-  @Input() placeholder: string;
   @Input() label: string;
   @Input() required = false;
   @Input() disabled = false;
@@ -23,6 +22,8 @@ export class AppFieldEmailComponent implements OnInit {
   }
 
   private setupValidators() {
-    this.control.setValidators([Validators.email]);
+    if (this.required) {
+      this.control.setValidators([Validators.requiredTrue]);
+    }
   }
 }

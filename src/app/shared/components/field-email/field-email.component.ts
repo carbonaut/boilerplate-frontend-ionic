@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-app-field-number',
-  templateUrl: './app-field-number.component.html',
-  styleUrls: ['./app-field-number.component.scss'],
+  selector: 'app-field-email',
+  templateUrl: './field-email.component.html',
+  styleUrls: ['./field-email.component.scss'],
 })
-export class AppFieldNumberComponent implements OnInit {
+export class FieldEmailComponent implements OnInit {
   @Input() control: FormControl;
   @Input() placeholder: string;
   @Input() label: string;
@@ -18,5 +18,11 @@ export class AppFieldNumberComponent implements OnInit {
     if (this.disabled) {
       this.control.disable();
     }
+
+    this.setupValidators();
+  }
+
+  private setupValidators() {
+    this.control.setValidators([Validators.email]);
   }
 }

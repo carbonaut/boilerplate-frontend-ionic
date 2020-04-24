@@ -9,8 +9,8 @@ describe('ModalExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalExampleComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [ModalExampleComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ModalExampleComponent);

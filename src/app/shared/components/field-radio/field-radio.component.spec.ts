@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AppFieldTextComponent } from './app-field-text.component';
+import { FieldRadioComponent } from './field-radio.component';
 
-describe('AppFieldTextComponent', () => {
-  let component: AppFieldTextComponent;
-  let fixture: ComponentFixture<AppFieldTextComponent>;
+describe('FieldRadioComponent', () => {
+  let component: FieldRadioComponent;
+  let fixture: ComponentFixture<FieldRadioComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppFieldTextComponent],
+      declarations: [FieldRadioComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppFieldTextComponent);
+    fixture = TestBed.createComponent(FieldRadioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

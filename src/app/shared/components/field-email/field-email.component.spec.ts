@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AppFieldPasswordComponent } from './app-field-password.component';
+import { FieldEmailComponent } from './field-email.component';
 
-describe('AppFieldPasswordComponent', () => {
-  let component: AppFieldPasswordComponent;
-  let fixture: ComponentFixture<AppFieldPasswordComponent>;
+describe('FieldEmailComponent', () => {
+  let component: FieldEmailComponent;
+  let fixture: ComponentFixture<FieldEmailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppFieldPasswordComponent],
+      declarations: [FieldEmailComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppFieldPasswordComponent);
+    fixture = TestBed.createComponent(FieldEmailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
