@@ -17,6 +17,7 @@ import { FieldPasswordComponent } from './components/field-password/field-passwo
 import { FieldRadioComponent } from './components/field-radio/field-radio.component';
 import { FieldCheckboxComponent } from './components/field-checkbox/field-checkbox.component';
 import { FieldOtpComponent } from './components/field-otp/field-otp.component';
+import { FieldSelectComponent } from './components/field-select/field-select.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FieldOtpComponent } from './components/field-otp/field-otp.component';
     FieldRadioComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
+    FieldSelectComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { FieldOtpComponent } from './components/field-otp/field-otp.component';
     FieldRadioComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
+    FieldSelectComponent,
   ],
 })
 export class SharedModule {}
