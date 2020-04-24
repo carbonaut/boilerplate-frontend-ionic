@@ -132,6 +132,11 @@
                 <a href="#" class="c-list__action">
                   <ion-icon class="c-list__icon" name="eye"></ion-icon>
                   <div class="c-list__label">Action 1</div>
+
+                  <div class="c-badge u-color--success u-margin-right--sm">
+                    Negative
+                  </div>
+
                   <ion-icon class="c-list__arrow" name="chevron-forward-outline"></ion-icon>
                 </a>
               </li>
@@ -201,6 +206,78 @@
               Confirm and Share
             </li>
           </ol>
+        </div>
+      </div>
+
+      <div class="u-margin-bottom--lg">
+        <h3>Modal</h3>
+
+        <div class="u-margin-left--md">
+          <app-button class="u-margin-bottom--md" (click)="openModal()">
+            Show Modal
+          </app-button>
+
+          <app-button (click)="openModal(true)">
+            Show Long Modal
+          </app-button>
+        </div>
+      </div>
+
+      <div class="u-margin-bottom--lg">
+        <h3>Toast</h3>
+
+        <div class="u-margin-left--md">
+          <app-button class="u-margin-bottom--md" (click)="triggetToast('success')">
+            Success
+          </app-button>
+
+          <app-button class="u-margin-bottom--md" (click)="triggetToast('error')">
+            Error
+          </app-button>
+
+          <app-button class="u-margin-bottom--md" (click)="triggetToast('info')">
+            Info
+          </app-button>
+
+          <app-button (click)="triggetToast('warning')">
+            Warning
+          </app-button>
+        </div>
+      </div>
+
+      <div class="u-margin-bottom--lg">
+        <h3>Input</h3>
+
+        <div class="u-margin-left--md">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <app-field-checkbox formControlName="checkbox" label="Checkbox"></app-field-checkbox>
+
+            <app-field-input formControlName="text" label="Test"></app-field-input>
+
+            <app-field-input formControlName="email" label="Email" type="email"></app-field-input>
+
+            <app-field-otp formControlName="otp" label="OTP"></app-field-otp>
+
+            <app-field-radio formControlName="radio1" label="Testing" [options]="radioOptions">
+            </app-field-radio>
+
+            <app-field-radio formControlName="radio2" label="Testing" theme="toggle"
+              [options]="radioOptions">
+            </app-field-radio>
+
+            <app-field-select formControlName="select" label="Select" [options]="selectOptions">
+            </app-field-select>
+
+            <app-field-password formControlName="password" label="Testing">
+            </app-field-password>
+
+            <app-field-file formControlName="file" label="Testing" placeholder="Placeholder">
+            </app-field-file>
+
+            <app-button type="submit">
+              Submit
+            </app-button>
+          </form>
         </div>
       </div>
     </div>

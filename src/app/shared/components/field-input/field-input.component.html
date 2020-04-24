@@ -1,11 +1,13 @@
 <ion-item>
   <ion-label position="stacked">{{ label }}</ion-label>
-  <ion-input [type]="type" [placeholder]="placeholder" [formControl]="control"
-    [required]="required">
+
+  <ion-input [type]="type" [placeholder]="placeholder" [formControl]="ngControl.control"
+    (ionChange)="setValue($event)">
   </ion-input>
 
   <ion-icon *ngIf="icon" [name]="icon" slot="end"></ion-icon>
 
-  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
+  <app-field-error-message [visible]="showValidationErrorMessage"
+    [currentControl]="ngControl.control">
   </app-field-error-message>
 </ion-item>

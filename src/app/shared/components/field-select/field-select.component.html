@@ -1,8 +1,9 @@
 <ion-list>
   <ion-item>
     <ion-label>{{ label }}</ion-label>
+
     <ion-select [placeholder]="placeholder || ('FIELDS.SELECT.PLACEHOLDER' | translate)"
-      [required]="required" [formControl]="control" [attr.multiple]="multiple"
+      [required]="required" [formControl]="ngControl.control" [attr.multiple]="multiple"
       [okText]="'FIELDS.SELECT.OK_TEXT' | translate"
       [cancelText]="'FIELDS.SELECT.CANCEL_TEXT' | translate">
       <ion-select-option *ngFor="let option of options; trackBy: trackByOptions"
@@ -10,6 +11,7 @@
     </ion-select>
   </ion-item>
 
-  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
+  <app-field-error-message [visible]="showValidationErrorMessage"
+    [currentControl]="ngControl.control">
   </app-field-error-message>
 </ion-list>

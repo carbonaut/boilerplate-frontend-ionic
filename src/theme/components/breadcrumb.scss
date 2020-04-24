@@ -17,9 +17,10 @@
     align-items: center;
     margin-right: $size-md;
     color: var(--color);
+    font-weight: 600;
 
     &--completed {
-      --color: var(--color-success-300);
+      --color: var(--color-success);
 
       &:before {
         content: '\2713' !important;

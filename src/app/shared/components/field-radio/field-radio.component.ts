@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Input, OnInit, Self } from '@angular/core';
+import { NgControl, ControlValueAccessor } from '@angular/forms';
 import { FieldRadioOption } from './field-radio.interface';
 
 const TOTAL_OPTIONS_TOGGLE_THEME = 2;
@@ -9,8 +9,7 @@ const TOTAL_OPTIONS_TOGGLE_THEME = 2;
   templateUrl: './field-radio.component.html',
   styleUrls: ['./field-radio.component.scss'],
 })
-export class FieldRadioComponent implements OnInit {
-  @Input() control: FormControl;
+export class FieldRadioComponent implements ControlValueAccessor, OnInit {
   @Input() label: string;
   @Input() required = false;
   @Input() disabled = false;
@@ -18,10 +17,21 @@ export class FieldRadioComponent implements OnInit {
   @Input() options: FieldRadioOption[] = [];
   @Input() showValidationErrorMessage = true;
 
+  value: any;
+  isDisabled = false;
+
+  onChange: (_: any) => void = () => {};
+  onTouched: () => void = () => {};
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  constructor(@Self() public ngControl: NgControl) {
+    this.ngControl.valueAccessor = this;
+  }
+
   ngOnInit() {
     this.validateThemeField();
 
-    if (!this.control.value) {
+    if (!this.value) {
       this.selectDefaultOption();
     }
   }
@@ -30,6 +40,34 @@ export class FieldRadioComponent implements OnInit {
     return option.value;
   }
 
+  // FORM CONTROL FUNCTIONS
+  setValue($event: any) {
+    this.value = $event.detail.value;
+    this.updateChanges();
+  }
+
+  updateChanges() {
+    this.onChange(this.value);
+  }
+
+  writeValue(value: string): void {
+    this.value = value;
+    this.updateChanges();
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean) {
+    this.isDisabled = isDisabled;
+  }
+
+  // PRIVATE
   private validateThemeField() {
     if (this.theme === 'toggle' && this.options.length !== TOTAL_OPTIONS_TOGGLE_THEME) {
       throw new Error('Theme "toggle" requires 2 options.');
@@ -37,6 +75,6 @@ export class FieldRadioComponent implements OnInit {
   }
 
   private selectDefaultOption() {
-    this.control.setValue(this.options[0] !== undefined ? this.options[0].value : null);
+    this.value = this.options[0] !== undefined ? this.options[0].value : null;
   }
 }

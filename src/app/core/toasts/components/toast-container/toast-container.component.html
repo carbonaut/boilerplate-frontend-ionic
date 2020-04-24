@@ -1,0 +1,6 @@
+<div class="c-toast-container">
+  <div class="c-toast-container__wrapper"
+    *ngFor="let toast of visibleToasts$ | async; trackBy: trackById">
+    <app-toast-message [toast]="toast" (clicked)="closeToast(toast)"></app-toast-message>
+  </div>
+</div>

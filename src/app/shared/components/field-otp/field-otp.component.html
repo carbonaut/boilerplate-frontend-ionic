@@ -1,7 +1,9 @@
 <ion-item>
   <ion-label>{{ label }}</ion-label>
-  <ng-otp-input #ngOtpInput (onInputChange)="onValueChange($event)"
+  <ng-otp-input #ngOtpInput (onInputChange)="setValue($event)"
     [config]="{ length: length, placeholder: placeholder }"></ng-otp-input>
-  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="control">
+
+  <app-field-error-message [visible]="showValidationErrorMessage"
+    [currentControl]="ngControl.control">
   </app-field-error-message>
 </ion-item>
