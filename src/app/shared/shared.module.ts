@@ -12,10 +12,8 @@ import { ButtonComponent } from './components/button/button.component';
 // ================================================================================================
 
 import { FieldErrorMessageComponent } from './components/field-error-message/field-error-message.component';
-import { FieldTextComponent } from './components/field-text/field-text.component';
-import { FieldEmailComponent } from './components/field-email/field-email.component';
+import { FieldInputComponent } from './components/field-input/field-input.component';
 import { FieldPasswordComponent } from './components/field-password/field-password.component';
-import { FieldNumberComponent } from './components/field-number/field-number.component';
 import { FieldRadioComponent } from './components/field-radio/field-radio.component';
 import { FieldCheckboxComponent } from './components/field-checkbox/field-checkbox.component';
 import { FieldOtpComponent } from './components/field-otp/field-otp.component';
@@ -26,9 +24,7 @@ import { FieldOtpComponent } from './components/field-otp/field-otp.component';
     ButtonComponent,
     FieldErrorMessageComponent,
     FieldPasswordComponent,
-    FieldEmailComponent,
-    FieldNumberComponent,
-    FieldTextComponent,
+    FieldInputComponent,
     FieldRadioComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
@@ -46,9 +42,7 @@ import { FieldOtpComponent } from './components/field-otp/field-otp.component';
     ButtonComponent,
     FieldErrorMessageComponent,
     FieldPasswordComponent,
-    FieldEmailComponent,
-    FieldNumberComponent,
-    FieldTextComponent,
+    FieldInputComponent,
     FieldRadioComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
