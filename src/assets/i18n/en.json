@@ -17,6 +17,9 @@
       "PLACEHOLDER": "Select an option",
       "OK_TEXT": "OK",
       "CANCEL_TEXT": "Dismiss"
+    },
+    "FILE": {
+      "PLACEHOLDER": "Drag & drop a file here"
     }
   },
   "FORM_VALIDATION_MESSAGES": {
