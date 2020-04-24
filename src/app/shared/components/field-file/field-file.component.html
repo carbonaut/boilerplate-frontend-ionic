@@ -1,15 +1,11 @@
 <ion-item>
-  <input [id]="ngControl.name + '-file'" type="file" [placeholder]="placeholder"
+  <input [id]="ngControl.name + '-file'" type="file"
     (change)="setValue($event.target.files)" />
 
   <label [for]="ngControl.name + '-file'" appDnd (fileDropped)="setValue($event)">
     <div>
       <h6>{{ label }}</h6>
-
-      <p *ngIf="!value">{{ placeholder }}</p>
-      <p *ngIf="value">
-        {{ value.name }}
-      </p>
+      <p>{{ value ? value['name'] : (placeholder || 'FIELDS.FILE.PLACEHOLDER' | translate ) }}</p>
     </div>
   </label>
 </ion-item>

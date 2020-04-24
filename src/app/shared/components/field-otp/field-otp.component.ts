@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, Self } from '@angular/core';
+import { Component, Input, ViewChild, Self, Optional } from '@angular/core';
 import { NgControl, ControlValueAccessor } from '@angular/forms';
 
 /*
@@ -25,7 +25,7 @@ export class FieldOtpComponent implements ControlValueAccessor {
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  constructor(@Self() public ngControl: NgControl) {
+  constructor(@Self() @Optional() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
   }
 
