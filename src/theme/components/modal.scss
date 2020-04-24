@@ -1,0 +1,140 @@
+@import '../sizing.scss';
+@import '../variables.scss';
+
+@keyframes overflowTrigger {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+.c-ion-modal {
+  --width: auto;
+  --height: auto;
+  --max-height: auto;
+  align-items: flex-start;
+
+  // animate overflow toggling to make it look nicer
+  animation-name: overflowTrigger;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+
+  ion-backdrop {
+    display: none;
+  }
+
+  .modal-wrapper {
+    --background: transparent;
+    width: 100%;
+    max-width: none;
+    overflow: visible;
+    box-shadow: none;
+
+    .ion-page {
+      position: static;
+      contain: unset;
+      align-items: center;
+      padding: $size-xl 0;
+      min-height: 100vh;
+    }
+
+    .c-modal {
+      height: 100%;
+    }
+  }
+}
+
+.c-modal-backdrop {
+  position: fixed;
+  top: -150px; // include an offset to make the overlay not look weird
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.c-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  min-height: 440px;
+  background: white;
+  border-radius: $size-md;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: $size-lg;
+
+  &__close {
+    position: absolute;
+    top: $size-md;
+    right: $size-md;
+    width: $size-lg;
+    height: $size-lg;
+    background: var(--color-gray-200);
+    border-radius: 50%;
+    border: 0;
+    color: var(--color-blue-500);
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+
+    &:before {
+      content: '×';
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      color: var(--color-primary-500);
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__description {
+    color: var(--color-gray-600);
+    text-align: center;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: $size-md;
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .c-ion-modal {
+    .modal-wrapper {
+      .ion-page {
+        padding-top: $size-xl * 2;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .c-modal {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    min-height: 60vh;
+    margin-bottom: 0;
+
+    &__footer {
+      border-top: 0;
+    }
+  }
+}

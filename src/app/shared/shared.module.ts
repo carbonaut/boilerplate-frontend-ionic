@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
 import { ButtonComponent } from './components/button/button.component';
+import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 
 // ================================================================================================
 // FORM COMPONENTS
@@ -19,6 +20,7 @@ import { AppFieldTextComponent } from './components/app-field-text/app-field-tex
 @NgModule({
   declarations: [
     SharedExampleComponent,
+    ModalExampleComponent,
     ButtonComponent,
     AppFieldErrorMessageComponent,
     AppFieldPasswordComponent,
@@ -27,8 +29,10 @@ import { AppFieldTextComponent } from './components/app-field-text/app-field-tex
     AppFieldTextComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, IonicModule, TranslateModule.forChild({})],
+  entryComponents: [ModalExampleComponent],
   exports: [
     SharedExampleComponent,
+    ModalExampleComponent,
     TranslateModule,
     ButtonComponent,
     AppFieldErrorMessageComponent,
