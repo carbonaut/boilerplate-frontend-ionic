@@ -1,4 +1,4 @@
-import { Component, Input, Optional, Self } from '@angular/core';
+import { Component, Input, Optional, Self, OnInit } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { FieldSelectOption } from './field-select.interface';
 import { FieldRadioOption } from '../field-radio/field-radio.interface';
@@ -8,7 +8,7 @@ import { FieldRadioOption } from '../field-radio/field-radio.interface';
   templateUrl: './field-select.component.html',
   styleUrls: ['./field-select.component.scss'],
 })
-export class FieldSelectComponent implements ControlValueAccessor {
+export class FieldSelectComponent implements ControlValueAccessor, OnInit {
   @Input() label: string;
   @Input() placeholder: string;
   @Input() required = false;
@@ -19,6 +19,7 @@ export class FieldSelectComponent implements ControlValueAccessor {
 
   value: string;
   isDisabled = false;
+  interfaceOptions = {};
 
   onChange: (_: any) => void = () => {};
   onTouched: () => void = () => {};
@@ -26,6 +27,10 @@ export class FieldSelectComponent implements ControlValueAccessor {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   constructor(@Self() @Optional() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
+  }
+
+  ngOnInit() {
+    this.setInterfaceOptions();
   }
 
   trackByOptions(index: number, option: FieldRadioOption) {
@@ -57,5 +62,12 @@ export class FieldSelectComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean) {
     this.isDisabled = isDisabled;
+  }
+
+  // PRIVATE
+  setInterfaceOptions() {
+    this.interfaceOptions = {
+      header: this.label,
+    };
   }
 }

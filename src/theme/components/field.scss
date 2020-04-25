@@ -15,7 +15,8 @@
     align-items: center;
   }
 
-  &__input {
+  &__input,
+  &__select {
     border: 1px solid var(--color-gray-400);
     border-radius: $size-xs;
     padding: $size-xs $size-sm !important;
@@ -37,6 +38,10 @@
     &--has-icon {
       padding-right: 3 * $size-base !important;
     }
+  }
+
+  &__select {
+    padding: (0.75 * $size-base) $size-md !important;
   }
 
   &__toggle {
