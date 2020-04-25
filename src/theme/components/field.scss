@@ -167,6 +167,23 @@
     }
   }
 
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: $size-md;
+
+    --border-color: var(--color-gray-400);
+    border-bottom-color: var(--border-color);
+
+    &:last-child {
+      --border-color: transparent;
+    }
+
+    &-input {
+      margin-right: $size-md;
+    }
+  }
+
   &__icon {
     position: absolute;
     z-index: 2;
