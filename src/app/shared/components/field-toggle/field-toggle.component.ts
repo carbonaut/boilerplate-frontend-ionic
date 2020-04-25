@@ -1,13 +1,13 @@
 import { Component, Input, OnInit, Optional, Self } from '@angular/core';
 import { NgControl, ControlValueAccessor } from '@angular/forms';
-import { FieldRadioOption } from './field-radio.interface';
+import { FieldRadioOption } from '../field-radio/field-radio.interface';
 
 @Component({
-  selector: 'app-field-radio',
-  templateUrl: './field-radio.component.html',
-  styleUrls: ['./field-radio.component.scss'],
+  selector: 'app-field-toggle',
+  templateUrl: './field-toggle.component.html',
+  styleUrls: ['./field-toggle.component.scss'],
 })
-export class FieldRadioComponent implements ControlValueAccessor, OnInit {
+export class FieldToggleComponent implements ControlValueAccessor, OnInit {
   @Input() label: string;
   @Input() required = false;
   @Input() disabled = false;
@@ -36,8 +36,8 @@ export class FieldRadioComponent implements ControlValueAccessor, OnInit {
   }
 
   // FORM CONTROL FUNCTIONS
-  setValue($event: any) {
-    this.value = $event.detail.value;
+  setValue(value: any) {
+    this.value = value;
     this.updateChanges();
   }
 

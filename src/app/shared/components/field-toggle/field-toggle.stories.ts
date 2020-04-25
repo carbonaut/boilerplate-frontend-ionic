@@ -4,11 +4,11 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { FieldRadioComponent } from './field-radio.component';
+import { FieldToggleComponent } from './field-toggle.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 
-storiesOf('Form/Radio field', module)
+storiesOf('Form/Toggle field', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
@@ -17,7 +17,7 @@ storiesOf('Form/Radio field', module)
     })
   )
   .add('Minimal configuration (default theme)', () => ({
-    component: FieldRadioComponent,
+    component: FieldToggleComponent,
     props: {
       control: new FormControl(),
       label: text('label', 'Foods'),
@@ -33,7 +33,7 @@ storiesOf('Form/Radio field', module)
     },
   }))
   .add('Minimal configuration (toggle theme)', () => ({
-    component: FieldRadioComponent,
+    component: FieldToggleComponent,
     props: {
       control: new FormControl(),
       label: text('label', 'Sex'),
@@ -44,7 +44,7 @@ storiesOf('Form/Radio field', module)
     },
   }))
   .add('Form options with icons', () => ({
-    component: FieldRadioComponent,
+    component: FieldToggleComponent,
     props: {
       control: new FormControl(),
       label: text('label', 'Sex'),
@@ -59,7 +59,7 @@ storiesOf('Form/Radio field', module)
     },
   }))
   .add('Full configuration', () => ({
-    component: FieldRadioComponent,
+    component: FieldToggleComponent,
     props: {
       control: new FormControl(),
       label: text('label', 'Sex'),

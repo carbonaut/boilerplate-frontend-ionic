@@ -23,6 +23,7 @@ import { FieldSelectComponent } from './components/field-select/field-select.com
 import { DndDirective } from './directives/drag-and-drop.directive';
 import { FieldFileComponent } from './components/field-file/field-file.component';
 import { FieldValidationIconComponent } from './components/field-validation-icon/field-validation-icon.component';
+import { FieldToggleComponent } from './components/field-toggle/field-toggle.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FieldValidationIconComponent } from './components/field-validation-icon
     FieldPasswordComponent,
     FieldInputComponent,
     FieldRadioComponent,
+    FieldToggleComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
     FieldSelectComponent,
@@ -60,6 +62,7 @@ import { FieldValidationIconComponent } from './components/field-validation-icon
     FieldPasswordComponent,
     FieldInputComponent,
     FieldRadioComponent,
+    FieldToggleComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
     FieldSelectComponent,
