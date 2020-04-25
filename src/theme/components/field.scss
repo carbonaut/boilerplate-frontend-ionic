@@ -130,6 +130,43 @@
     }
   }
 
+  &__file {
+    input {
+      display: none;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $size-lg;
+      border: 2px dashed var(--color-gray-400);
+      border-radius: $size-sm;
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--color-primary-500);
+      }
+
+      &.c-field__file--dnd {
+        border-color: var(--color-primary-500);
+        background: var(--color-blue-100);
+      }
+
+      p {
+        margin: 0;
+        color: var(--color-gray-600);
+      }
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      label {
+        background: var(--color-gray-100);
+      }
+    }
+  }
+
   &__icon {
     position: absolute;
     z-index: 2;
