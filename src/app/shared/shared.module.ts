@@ -4,12 +4,16 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgOtpInputModule } from 'ng-otp-input';
-import { SharedExampleComponent } from './components/shared-example/shared-example.component';
-import { ButtonComponent } from './components/button/button.component';
-import { ModalExampleComponent } from './components/modal-example/modal-example.component';
+import { DpDatePickerModule } from 'ng2-date-picker';
 
 // ================================================================================================
-// FORM COMPONENTS
+// DIRECTIVES
+// ================================================================================================
+
+import { DndDirective } from './directives/drag-and-drop.directive';
+
+// ================================================================================================
+// COMPONENTS
 // ================================================================================================
 
 import { FieldErrorMessageComponent } from './components/field-error-message/field-error-message.component';
@@ -20,10 +24,14 @@ import { FieldCheckboxComponent } from './components/field-checkbox/field-checkb
 import { ModalComponent } from './components/modal/modal.component';
 import { FieldOtpComponent } from './components/field-otp/field-otp.component';
 import { FieldSelectComponent } from './components/field-select/field-select.component';
-import { DndDirective } from './directives/drag-and-drop.directive';
 import { FieldFileComponent } from './components/field-file/field-file.component';
 import { FieldValidationIconComponent } from './components/field-validation-icon/field-validation-icon.component';
 import { FieldToggleComponent } from './components/field-toggle/field-toggle.component';
+import { FieldCalendarComponent } from './components/field-calendar/field-calendar.component';
+
+import { ButtonComponent } from './components/button/button.component';
+import { SharedExampleComponent } from './components/shared-example/shared-example.component';
+import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +50,7 @@ import { FieldToggleComponent } from './components/field-toggle/field-toggle.com
     DndDirective,
     FieldFileComponent,
     FieldValidationIconComponent,
+    FieldCalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +58,7 @@ import { FieldToggleComponent } from './components/field-toggle/field-toggle.com
     ReactiveFormsModule,
     IonicModule,
     NgOtpInputModule,
+    DpDatePickerModule,
     TranslateModule.forChild({}),
   ],
   entryComponents: [ModalExampleComponent],
@@ -69,6 +79,7 @@ import { FieldToggleComponent } from './components/field-toggle/field-toggle.com
     DndDirective,
     FieldFileComponent,
     FieldValidationIconComponent,
+    FieldCalendarComponent,
   ],
 })
 export class SharedModule {}

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FieldValidationIconComponent } from './field-validation-icon.component';
+import { FieldCalendarComponent } from './field-calendar.component';
 
-describe('FieldValidationIconComponent', () => {
-  let component: FieldValidationIconComponent;
-  let fixture: ComponentFixture<FieldValidationIconComponent>;
+describe('FieldCalendarComponent', () => {
+  let component: FieldCalendarComponent;
+  let fixture: ComponentFixture<FieldCalendarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FieldValidationIconComponent],
+      declarations: [FieldCalendarComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FieldValidationIconComponent);
+    fixture = TestBed.createComponent(FieldCalendarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
