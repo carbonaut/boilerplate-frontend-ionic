@@ -102,6 +102,19 @@
             </app-button>
           </div>
 
+          <div class="c-card  c-card--center u-margin-bottom--md">
+            <ion-icon class="c-card__icon" name="rainy"></ion-icon>
+            <h3 class="c-card__title">Card Title</h3>
+            <p class="c-card__description">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia nobis quod vel
+              recusandae earum eum explicabo, magnam, inventore.
+            </p>
+
+            <app-button class="c-card__button" size="sm">
+              Learn More
+            </app-button>
+          </div>
+
           <div class="c-card c-card--center">
             <img class="c-card__image"
               src="../../../../../assets/images/illustration/illustration-1.png">
@@ -252,18 +265,22 @@
           <form [formGroup]="form" (ngSubmit)="submit()">
             <app-field-checkbox formControlName="checkbox" label="Checkbox"></app-field-checkbox>
 
-            <app-field-input formControlName="text" label="Test"></app-field-input>
+            <app-field-input formControlName="text" label="Test Disable">
+            </app-field-input>
 
-            <app-field-input formControlName="email" label="Email" type="email"></app-field-input>
+            <app-field-input formControlName="scan" label="Test" validationIcon="scan">
+            </app-field-input>
+
+            <app-field-input formControlName="email" label="Email" type="email" icon="mail">
+            </app-field-input>
 
             <app-field-otp formControlName="otp" label="OTP"></app-field-otp>
 
             <app-field-radio formControlName="radio1" label="Testing" [options]="radioOptions">
             </app-field-radio>
 
-            <app-field-radio formControlName="radio2" label="Testing" theme="toggle"
-              [options]="radioOptions">
-            </app-field-radio>
+            <app-field-toggle formControlName="radio2" label="Testing" [options]="radioOptions">
+            </app-field-toggle>
 
             <app-field-select formControlName="select" label="Select" [options]="selectOptions">
             </app-field-select>
@@ -271,7 +288,7 @@
             <app-field-password formControlName="password" label="Testing">
             </app-field-password>
 
-            <app-field-file formControlName="file" label="Testing" placeholder="Placeholder">
+            <app-field-file formControlName="file" label="Testing">
             </app-field-file>
 
             <app-button type="submit">

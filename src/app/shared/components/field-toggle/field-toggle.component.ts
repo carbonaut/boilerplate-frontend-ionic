@@ -1,25 +1,21 @@
-import { Component, Input, Optional, Self, OnInit } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { FieldSelectOption } from './field-select.interface';
+import { Component, Input, OnInit, Optional, Self } from '@angular/core';
+import { NgControl, ControlValueAccessor } from '@angular/forms';
 import { FieldRadioOption } from '../field-radio/field-radio.interface';
 
 @Component({
-  selector: 'app-field-select',
-  templateUrl: './field-select.component.html',
-  styleUrls: ['./field-select.component.scss'],
+  selector: 'app-field-toggle',
+  templateUrl: './field-toggle.component.html',
+  styleUrls: ['./field-toggle.component.scss'],
 })
-export class FieldSelectComponent implements ControlValueAccessor, OnInit {
+export class FieldToggleComponent implements ControlValueAccessor, OnInit {
   @Input() label: string;
-  @Input() placeholder: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() options: FieldSelectOption[] = [];
+  @Input() options: FieldRadioOption[] = [];
   @Input() showValidationErrorMessage = true;
-  @Input() multiple = false;
 
-  value: string;
+  value: any;
   isDisabled = false;
-  interfaceOptions = {};
 
   onChange: (_: any) => void = () => {};
   onTouched: () => void = () => {};
@@ -30,7 +26,9 @@ export class FieldSelectComponent implements ControlValueAccessor, OnInit {
   }
 
   ngOnInit() {
-    this.setInterfaceOptions();
+    if (!this.value) {
+      this.selectDefaultOption();
+    }
   }
 
   trackByOptions(index: number, option: FieldRadioOption) {
@@ -38,8 +36,8 @@ export class FieldSelectComponent implements ControlValueAccessor, OnInit {
   }
 
   // FORM CONTROL FUNCTIONS
-  setValue($event: any) {
-    this.value = $event.detail.value;
+  setValue(value: any) {
+    this.value = value;
     this.updateChanges();
   }
 
@@ -65,9 +63,7 @@ export class FieldSelectComponent implements ControlValueAccessor, OnInit {
   }
 
   // PRIVATE
-  setInterfaceOptions() {
-    this.interfaceOptions = {
-      header: this.label,
-    };
+  private selectDefaultOption() {
+    this.value = this.options[0] !== undefined ? this.options[0].value : null;
   }
 }

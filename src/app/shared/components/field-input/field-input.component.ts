@@ -11,6 +11,7 @@ export class FieldInputComponent implements ControlValueAccessor, OnInit {
   @Input() mask: 'phone' | 'zip-code' | 'svnr';
   @Input() label: string;
   @Input() placeholder: string;
+  @Input() validationIcon;
   @Input() icon;
   @Input() showValidationErrorMessage = true;
 

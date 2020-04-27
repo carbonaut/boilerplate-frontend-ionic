@@ -47,6 +47,7 @@ export class HomePage {
       email: ['', Validators.required],
       number: ['', Validators.required],
       text: [{ value: 'test', disabled: true }, Validators.required],
+      scan: ['test', Validators.required],
       otp: ['', Validators.required],
       radio1: ['', Validators.required],
       radio2: ['', Validators.required],

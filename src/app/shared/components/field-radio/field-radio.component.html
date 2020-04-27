@@ -1,17 +1,16 @@
-<ion-list class="theme-{{ theme }}">
-  <ion-radio-group [formControl]="ngControl.control">
-    <ion-list-header>
-      <ion-label>{{ label }}</ion-label>
-    </ion-list-header>
+<div ion-content class="c-field">
+  <h6 class="c-field__label">{{ label }}</h6>
 
-    <ion-item *ngFor="let option of options; trackBy: trackByOptions">
-      <ion-icon *ngIf="option.icon" [name]="option.icon"></ion-icon>
-      <ion-label>{{ option.label | translate }}</ion-label>
-      <ion-radio [disabled]="disabled" slot="start" [value]="option.value"></ion-radio>
+  <ion-radio-group [formControl]="ngControl.control">
+    <ion-item class="c-field__option" *ngFor="let option of options; trackBy: trackByOptions">
+      <ion-icon class="c-field__option-icon" *ngIf="option.icon" [name]="option.icon"></ion-icon>
+      <ion-label class="c-field__option-label">{{ option.label | translate }}</ion-label>
+      <ion-radio class="c-field__option-radio" [disabled]="disabled" slot="start"
+        [value]="option.value"></ion-radio>
     </ion-item>
   </ion-radio-group>
-</ion-list>
 
-<app-field-error-message [visible]="showValidationErrorMessage"
-  [currentControl]="ngControl.control">
-</app-field-error-message>
+  <app-field-error-message [visible]="showValidationErrorMessage"
+    [currentControl]="ngControl.control">
+  </app-field-error-message>
+</div>

@@ -25,6 +25,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { FieldOtpComponent } from './components/field-otp/field-otp.component';
 import { FieldSelectComponent } from './components/field-select/field-select.component';
 import { FieldFileComponent } from './components/field-file/field-file.component';
+import { FieldValidationIconComponent } from './components/field-validation-icon/field-validation-icon.component';
+import { FieldToggleComponent } from './components/field-toggle/field-toggle.component';
 import { FieldCalendarComponent } from './components/field-calendar/field-calendar.component';
 
 import { ButtonComponent } from './components/button/button.component';
@@ -41,11 +43,13 @@ import { ModalExampleComponent } from './components/modal-example/modal-example.
     FieldPasswordComponent,
     FieldInputComponent,
     FieldRadioComponent,
+    FieldToggleComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
     FieldSelectComponent,
     DndDirective,
     FieldFileComponent,
+    FieldValidationIconComponent,
     FieldCalendarComponent,
   ],
   imports: [
@@ -68,11 +72,13 @@ import { ModalExampleComponent } from './components/modal-example/modal-example.
     FieldPasswordComponent,
     FieldInputComponent,
     FieldRadioComponent,
+    FieldToggleComponent,
     FieldCheckboxComponent,
     FieldOtpComponent,
     FieldSelectComponent,
     DndDirective,
     FieldFileComponent,
+    FieldValidationIconComponent,
     FieldCalendarComponent,
   ],
 })
