@@ -7,6 +7,7 @@
   height: 100%;
   max-width: 1366px;
   margin: 0 auto;
+  padding: $size-md;
 }
 
 .l-grid {
@@ -59,4 +60,8 @@
   &--xl {
     max-width: 52 * $size-base;
   }
+}
+
+.l-footer {
+  margin-top: auto;
 }
