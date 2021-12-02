@@ -7,7 +7,7 @@
     <img alt="ci: github action" src="https://github.com/carbonaut/pwa-boilerplate/workflows/integration/badge.svg"></a> <a href="https://storybook.js.org/">
     <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
 
-This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 11](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12.\*.(for CI)
+This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 5](https://ionicframework.com/), [Angular 13](http://angular.io/) and [Node.js](https://nodejs.org/en/) 12.\*.(for CI)
 
 ## Basic Setup
 
