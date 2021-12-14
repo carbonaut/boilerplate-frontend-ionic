@@ -8,6 +8,7 @@ import { ToastMessage } from '../../services/toast-service/toast-service.interfa
 })
 export class ToastMessageComponent implements OnInit {
   @Input() toast: ToastMessage;
+
   @Output() clicked = new EventEmitter();
 
   constructor(private el: ElementRef) {}

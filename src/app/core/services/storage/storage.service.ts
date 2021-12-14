@@ -7,6 +7,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class StorageService {
   akitaStorage;
+
   constructor() {
     if (environment.production) {
       enableAkitaProdMode();

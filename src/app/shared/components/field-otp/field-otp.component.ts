@@ -14,14 +14,19 @@ export class FieldOtpComponent implements ControlValueAccessor {
   @ViewChild('ngOtpInput', { static: false }) ngOtpInputRef: any;
 
   @Input() placeholder = '-';
+
   @Input() label: string;
+
   @Input() showValidationErrorMessage = true;
+
   @Input() length = 5;
 
   value: any;
+
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

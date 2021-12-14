@@ -9,15 +9,21 @@ import { FieldRadioOption } from '../field-radio/field-radio.interface';
 })
 export class FieldToggleComponent implements ControlValueAccessor, OnInit {
   @Input() label: string;
+
   @Input() required = false;
+
   @Input() disabled = false;
+
   @Input() options: FieldRadioOption[] = [];
+
   @Input() showValidationErrorMessage = true;
 
   value: any;
+
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

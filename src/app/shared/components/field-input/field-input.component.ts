@@ -8,17 +8,25 @@ import { Validators, ControlValueAccessor, NgControl, ValidatorFn } from '@angul
 })
 export class FieldInputComponent implements ControlValueAccessor, OnInit {
   @Input() type: 'text' | 'number' | 'email' = 'text';
+
   @Input() mask: 'phone' | 'zip-code' | 'svnr';
+
   @Input() label: string;
+
   @Input() placeholder: string;
+
   @Input() validationIcon;
+
   @Input() icon;
+
   @Input() showValidationErrorMessage = true;
 
   value: string;
+
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

@@ -7,14 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() size: 'lg' | 'sm' | '';
+
   @Input('clear') isClear: boolean;
+
   @Input('outline') isOutline: boolean;
+
   @Input('inverted') isInverted: boolean;
+
   @Input('arrow') hasArrow: boolean;
 
   @Input() icon: string;
+
   @Input() type: boolean;
+
   @Input() loading: boolean;
+
   @Input() disabled: boolean;
 
   ngOnInit() {}

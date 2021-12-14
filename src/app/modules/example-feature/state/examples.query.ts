@@ -9,6 +9,7 @@ import { ExampleInterface } from './example.interface';
 })
 export class ExamplesQuery extends QueryEntity<ExampleState> {
   examples$: Observable<ExampleInterface[]> = this.selectAll();
+
   constructor(protected store: ExamplesStore) {
     super(store);
   }

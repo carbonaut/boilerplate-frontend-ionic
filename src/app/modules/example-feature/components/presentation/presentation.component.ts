@@ -20,5 +20,6 @@ export class PresentationComponent implements OnInit {
       console.log(examples);
     });
   }
+
   ngOnInit() {}
 }

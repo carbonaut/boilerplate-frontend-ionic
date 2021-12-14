@@ -10,18 +10,25 @@ import { passwordStrengthValidator } from '../../../core/validators/password-str
 })
 export class FieldPasswordComponent implements ControlValueAccessor, OnInit {
   @Input() label: string;
+
   @Input() placeholder: string;
+
   @Input() required = false;
+
   @Input() disabled = false;
+
   @Input() showValidationErrorMessage = true;
+
   @Input() validatePasswordStrength = false;
 
   showPassword = false;
 
   value: string;
+
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

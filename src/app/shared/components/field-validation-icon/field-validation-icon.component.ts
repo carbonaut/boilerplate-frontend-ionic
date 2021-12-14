@@ -8,5 +8,6 @@ import { FormControl } from '@angular/forms';
 })
 export class FieldValidationIconComponent {
   @Input() icon: string;
+
   @Input() control: FormControl;
 }

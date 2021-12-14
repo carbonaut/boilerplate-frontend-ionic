@@ -13,6 +13,7 @@ import { FieldSelectOption } from '../../../../shared/components/field-select/fi
 })
 export class HomePage {
   form: FormGroup;
+
   radioOptions: FieldRadioOption[] = [
     {
       label: 'Male',
