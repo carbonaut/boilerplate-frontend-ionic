@@ -8,13 +8,17 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
 })
 export class FieldFileComponent implements ControlValueAccessor {
   @Input() label: string;
+
   @Input() placeholder: string;
+
   @Input() showValidationErrorMessage = true;
 
   value: string;
+
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

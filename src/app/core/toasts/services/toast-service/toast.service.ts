@@ -9,6 +9,7 @@ export class ToastService {
   visibleToasts$: BehaviorSubject<ToastMessage[]> = new BehaviorSubject([]);
 
   private toasts: ToastMessage[] = [];
+
   private toastTimers: { toast: ToastMessage; timer: any }[] = [];
 
   private defaultAnimationMs = 295;

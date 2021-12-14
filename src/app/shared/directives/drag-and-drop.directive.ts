@@ -5,6 +5,7 @@ import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@ang
 })
 export class DndDirective {
   @HostBinding('class.c-field__file--dnd') fileOver: boolean;
+
   @Output() fileDropped = new EventEmitter<any>();
 
   // Dragover listener

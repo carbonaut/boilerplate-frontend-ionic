@@ -13,9 +13,18 @@ import { IDatePickerDirectiveConfig } from 'ng2-date-picker';
 })
 export class FieldCalendarComponent implements OnInit {
   @Input() label: string;
+
   @Input() placeholder: string;
+
   @Input() icon;
+
   @Input() showValidationErrorMessage = true;
+
+  value: string;
+
+  isDisabled = true;
+
+  config: IDatePickerDirectiveConfig = {};
 
   @Input() set locale(locale: string) {
     if (locale) {
@@ -23,12 +32,8 @@ export class FieldCalendarComponent implements OnInit {
     }
   }
 
-  value: string;
-  isDisabled = true;
-
-  config: IDatePickerDirectiveConfig = {};
-
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

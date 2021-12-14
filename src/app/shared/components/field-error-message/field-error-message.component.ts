@@ -8,9 +8,11 @@ import { FormControl } from '@angular/forms';
 })
 export class FieldErrorMessageComponent implements AfterViewInit, OnDestroy {
   @Input() visible = true;
+
   @Input() currentControl: FormControl;
 
   errorMessage = null;
+
   private controlSubscription;
 
   ngAfterViewInit() {

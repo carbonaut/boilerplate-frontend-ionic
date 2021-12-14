@@ -8,14 +8,19 @@ import { NgControl, ControlValueAccessor } from '@angular/forms';
 })
 export class FieldCheckboxComponent implements ControlValueAccessor {
   @Input() label: string;
+
   @Input() required = false;
+
   @Input() disabled = false;
+
   @Input() showValidationErrorMessage = true;
 
   value: boolean;
+
   isDisabled = false;
 
   onChange: (_: any) => void = () => {};
+
   onTouched: () => void = () => {};
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

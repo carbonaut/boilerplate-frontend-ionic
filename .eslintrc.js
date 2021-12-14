@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  extends: ['airbnb-typescript/base', 'plugin:prettier/recommended', 'prettier/@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
+  extends: ['airbnb-typescript/base', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
@@ -31,10 +31,8 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: [
-          '**/*.stories.ts', 
-        ]
-      }
+        devDependencies: ['**/*.stories.ts'],
+      },
     ],
     'no-restricted-syntax': [
       // copied from airbnb code, but removed for...of
