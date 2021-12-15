@@ -9,7 +9,7 @@ on:
 env:
   CI: true
   NG_CLI_ANALYTICS: false
-  NODE_VERSION: 12.x
+  NODE_VERSION: 16.10.x
 
 jobs:
   install-dependencies:
