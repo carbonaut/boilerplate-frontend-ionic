@@ -66,6 +66,28 @@
                 }
               ]
             },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "local": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
             "ci": {
               "progress": false
             }
@@ -80,10 +102,17 @@
             "production": {
               "browserTarget": "app:build:production"
             },
+            "development": {
+              "browserTarget": "app:build:development"
+            },
+            "local": {
+              "browserTarget": "app:build:local"
+            },
             "ci": {
               "progress": false
             }
-          }
+          },
+          "defaultConfiguration": "local"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
