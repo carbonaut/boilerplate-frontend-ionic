@@ -23,25 +23,25 @@
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 
-  ion-backdrop {
+  .ion-page {
+    position: static;
+    contain: unset;
+    align-items: center;
+    padding: $size-xl 0;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  &::part(backdrop) {
     display: none;
   }
 
-  .modal-wrapper {
+  &::part(content) {
     --background: transparent;
     width: 100%;
     max-width: none;
     overflow: visible;
     box-shadow: none;
-
-    .ion-page {
-      position: static;
-      contain: unset;
-      align-items: center;
-      padding: $size-xl 0;
-      min-height: 100vh;
-      justify-content: center;
-    }
   }
 }
 
