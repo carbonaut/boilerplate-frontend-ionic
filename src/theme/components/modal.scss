@@ -27,9 +27,9 @@
     position: static;
     contain: unset;
     align-items: center;
-    padding: $size-xl 0;
+    padding: $size-xl 0 0;
     min-height: 100vh;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   &::part(backdrop) {
