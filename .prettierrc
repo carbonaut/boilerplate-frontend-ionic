@@ -2,5 +2,9 @@
   "semi": true,
   "singleQuote": true,
   "trailingComma": "es5",
-  "printWidth": 100
+  "tabWidth": 2,
+  "printWidth": 115,
+  "html.format.wrapAttributes": "force-aligned",
+  "bracketSameLine": true,
+  "bracketSpacing": true
 }
