@@ -14,13 +14,7 @@ storiesOf('Form/OTP field', module)
   .addDecorator(
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
-      imports: [
-        StorybookTranslateModule,
-        CommonModule,
-        ReactiveFormsModule,
-        IonicModule,
-        NgOtpInputModule,
-      ],
+      imports: [StorybookTranslateModule, CommonModule, ReactiveFormsModule, IonicModule, NgOtpInputModule],
     })
   )
   .add('Minimal configuration', () => ({
