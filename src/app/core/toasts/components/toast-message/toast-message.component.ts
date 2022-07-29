@@ -14,10 +14,7 @@ export class ToastMessageComponent implements OnInit {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    this.el.nativeElement.style.setProperty(
-      '--toast-message-duration',
-      `${this.toast.animationDuration}ms`
-    );
+    this.el.nativeElement.style.setProperty('--toast-message-duration', `${this.toast.animationDuration}ms`);
   }
 
   handleClick(ev) {

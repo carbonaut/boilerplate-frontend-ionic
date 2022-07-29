@@ -18,9 +18,7 @@ export class ApiInterceptor implements HttpInterceptor {
     const isLoggedUser = this.sessionQuery.isLoggedIn();
     const { accessToken, tokenType } = this.sessionQuery.session();
 
-    const requestModified = isLoggedUser
-      ? this.addAuthenticationHeader(request, tokenType, accessToken)
-      : request;
+    const requestModified = isLoggedUser ? this.addAuthenticationHeader(request, tokenType, accessToken) : request;
 
     return next.handle(requestModified).pipe(
       timeout(environment.api.maxWaiting),
@@ -44,17 +42,11 @@ export class ApiInterceptor implements HttpInterceptor {
   private customErrorHandler(error: any) {
     let errorMessage: string;
 
-    if (
-      error === 'ERROR_NO_INTERNET' ||
-      error === 'ERR_INTERNET_DISCONNECTED' ||
-      error.name === 'TimeoutError'
-    ) {
+    if (error === 'ERROR_NO_INTERNET' || error === 'ERR_INTERNET_DISCONNECTED' || error.name === 'TimeoutError') {
       errorMessage = 'HTTP_ERRORS.NO_INTERNET_CONNECTION';
     } else {
       errorMessage =
-        error && error.error && error.error.message
-          ? error.error.message
-          : 'HTTP_ERRORS.DEFAULT_MESSAGE';
+        error && error.error && error.error.message ? error.error.message : 'HTTP_ERRORS.DEFAULT_MESSAGE';
     }
 
     return observableThrowError({ message: errorMessage, original: error });
