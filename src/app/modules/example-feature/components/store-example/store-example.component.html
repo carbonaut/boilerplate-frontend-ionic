@@ -1,0 +1,16 @@
+
+<div *ngIf="posts$ | async as posts; else loading" class="e-store-example">
+  <button class="e-store-example__button" (click)="getOne(95)">Call Post 95</button>
+  <button class="e-store-example__button" (click)="remove(1)">Remove First</button>
+
+  <div *ngFor="let post of posts" class="e-store-example__wrapper">
+    <h2  (click)="toggleActive(post.id)" class="e-store-example__title">{{ post.title }}</h2>
+    <p class="e-store-example__body">{{ post.body }}</p>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="e-store-example__loading">
+    <ion-spinner name="circles"></ion-spinner>  
+  </div>
+</ng-template>

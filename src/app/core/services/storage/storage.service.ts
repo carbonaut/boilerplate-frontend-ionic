@@ -8,11 +8,19 @@ import { environment } from '../../../../environments/environment';
 export class StorageService {
   akitaStorage;
 
-  constructor() {
+  init() {
     if (environment.production) {
       enableAkitaProdMode();
     }
     this.akitaStorage = persistState();
+  }
+
+  persistStorage() {
+    if (!this.akitaStorage) {
+      this.akitaStorage = persistState({
+        key: 'BoilerplateStorage',
+      });
+    }
   }
 
   clearAll() {

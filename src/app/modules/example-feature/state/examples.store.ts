@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
-import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
+import { EntityState, EntityStore, EntityUIStore, StoreConfig } from '@datorama/akita';
 import { ExampleInterface } from './example.interface';
 
-export interface ExampleState extends EntityState<ExampleInterface> {
-  metaInformation: boolean;
-}
+export type ExampleUI = {
+  isOpen: boolean;
+};
 
-export function createInitialState() {
-  return {
-    metaInformation: false,
-  };
-}
+export interface ExampleState extends EntityState<ExampleInterface> {}
+export interface ExampleUIState extends EntityState<ExampleUI> {}
 
 @Injectable({
   providedIn: 'root',
 })
 @StoreConfig({
   name: 'examples',
+  idKey: 'id',
 })
 export class ExamplesStore extends EntityStore<ExampleState> {
+  ui: EntityUIStore<ExampleUIState>;
+
   constructor() {
-    super(createInitialState());
+    super();
+    this.createUIStore().setInitialEntityState({ isOpen: false });
   }
 }

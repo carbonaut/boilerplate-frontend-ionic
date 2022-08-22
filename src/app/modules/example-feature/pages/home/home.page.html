@@ -12,6 +12,17 @@
   </ion-header>
 
   <div id="container">
+    
+    <app-button class="c-card__button" size="md" (click)="toggleStoreExample()">
+      {{ isStoreExampleOpened ? 'Close' : 'Open' }} ngEntity Store Example
+    </app-button>
+
+    <ng-container *ngIf="isStoreExampleOpened">
+      <app-store-example></app-store-example>
+    </ng-container>
+  </div>
+
+  <div id="container">
     <div class="u-text-align--left u-margin-left--md u-margin-top--md">
       <div class="u-margin-bottom--lg">
         <h3>Text Styles</h3>

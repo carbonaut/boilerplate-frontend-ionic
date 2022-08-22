@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HomePage } from './pages/home/home.page';
 import { ExampleFeatureRoutingModule } from './example-feature-routing.module';
 import { PresentationComponent } from './components/presentation/presentation.component';
+import { StoreExampleComponent } from './components/store-example/store-example.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { PresentationComponent } from './components/presentation/presentation.co
     IonicModule,
     ExampleFeatureRoutingModule,
   ],
-  declarations: [HomePage, PresentationComponent],
+  declarations: [HomePage, PresentationComponent, StoreExampleComponent],
 })
 export class HomePageModule {}

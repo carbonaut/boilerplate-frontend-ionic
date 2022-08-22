@@ -27,6 +27,7 @@ import { StorageService } from './core/services/storage/storage.service';
 // ====================================
 
 import { ApiInterceptor } from './core/interceptors/api/api.interceptor';
+import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,6 +52,12 @@ import { ApiInterceptor } from './core/interceptors/api/api.interceptor';
     SplashScreen,
     StorageService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: NG_ENTITY_SERVICE_CONFIG,
+      useValue: {
+        baseUrl: 'https://jsonplaceholder.typicode.com',
+      },
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,

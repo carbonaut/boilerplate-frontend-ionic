@@ -12,11 +12,13 @@ export class ExamplesService {
 
   loadExamples(): Observable<ExampleInterface[]> {
     // On a real service should call an API service method
-    const example: ExampleInterface = { id: 1, label: 'example' };
+    const example: ExampleInterface[] = [
+      { id: 1, label: 'example' },
+      { id: 2, label: 'another example' },
+    ];
 
-    return of([example]).pipe(
+    return of(example).pipe(
       tap((response) => {
-        // Set it in store
         this.examplesStore.set(response);
       })
     );

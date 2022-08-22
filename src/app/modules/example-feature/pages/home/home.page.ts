@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalExampleComponent } from '../../../../shared/components/modal-example/modal-example.component';
 import { ToastService } from '../../../../core/toasts/services/toast-service/toast.service';
 import { FieldRadioOption } from '../../../../shared/components/field-radio/field-radio.interface';
 import { FieldSelectOption } from '../../../../shared/components/field-select/field-select.interface';
+import { ExamplesQuery } from '../../state/examples.query';
+import { ExamplesService } from '../../state/examples.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   form: FormGroup;
+
+  isModalOpen: boolean;
+
+  isStoreExampleOpened: boolean = false;
 
   radioOptions: FieldRadioOption[] = [
     {
@@ -41,7 +47,9 @@ export class HomePage {
   constructor(
     private modalController: ModalController,
     private toastService: ToastService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private exampleService: ExamplesService,
+    private examplesQuery: ExamplesQuery
   ) {
     this.form = this.formBuilder.group({
       checkbox: [true, Validators.required],
@@ -58,7 +66,17 @@ export class HomePage {
     });
   }
 
+  ngOnInit() {
+    this.exampleService.loadExamples().subscribe();
+  }
+
+  toggleStoreExample() {
+    this.isStoreExampleOpened = !this.isStoreExampleOpened;
+  }
+
   async openModal(longText = false) {
+    this.examplesQuery.turnOnOpen();
+
     const modal = await this.modalController.create({
       component: ModalExampleComponent,
       mode: 'md',
@@ -66,6 +84,10 @@ export class HomePage {
       componentProps: {
         longText,
       },
+    });
+
+    modal.onDidDismiss().then(() => {
+      this.examplesQuery.turnOffOpen();
     });
 
     return modal.present();
