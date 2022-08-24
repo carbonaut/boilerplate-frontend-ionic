@@ -1,12 +1,12 @@
 {
-  "name": "pwa-boilerplate",
+  "name": "boilerplate",
   "version": "0.0.2",
   "author": "Carbonaut",
   "homepage": "",
   "main": "electron.ts",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "electron-forge start",
     "electron": "ng build --base-href ./ && electron .",
     "build": "ng build --prod --configuration=$CURRENT_ENV",
     "test": "echo \"Error: no tests specified.\"",
@@ -15,7 +15,9 @@
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json"
+    "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "akitaCli": {
     "basePath": "./src/app",
@@ -45,6 +47,7 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/angular": "^6.4.3",
     "core-js": "^3.22.8",
+    "electron-squirrel-startup": "^1.0.0",
     "ng-otp-input": "^1.7.1",
     "ng2-date-picker": "^8.0.0",
     "rxjs": "~7.5.5",
@@ -63,6 +66,11 @@
     "@angular/compiler-cli": "~13.0.2",
     "@angular/language-service": "~13.0.2",
     "@babel/core": "^7.9.0",
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
     "@ionic/angular-toolkit": "^6.1.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
@@ -92,5 +100,34 @@
     "typescript": "~4.4.4",
     "webpack-bundle-analyzer": "^3.7.0"
   },
-  "description": "Boilerplate for Carbonaut projects."
+  "description": "Boilerplate for Carbonaut projects.",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "pwa_boilerplate"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
 }
