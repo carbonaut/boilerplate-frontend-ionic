@@ -49,5 +49,5 @@ jobs:
 
       - name: Generate Build
         run: |
-        npm run package
-        npm run make -- --arch=x64
+          npm run package
+          npm run make -- --arch=x64
