@@ -3,10 +3,11 @@
   "version": "0.0.2",
   "author": "Carbonaut",
   "homepage": "",
+  "main": "electron.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "electron": "electron .",
+    "electron": "ng build --base-href ./ && electron .",
     "build": "ng build --prod --configuration=$CURRENT_ENV",
     "test": "echo \"Error: no tests specified.\"",
     "lint": "eslint --ext .ts --ext .js src/app/",
