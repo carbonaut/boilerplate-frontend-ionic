@@ -48,4 +48,6 @@ jobs:
           key: ${{ runner.OS }}-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Generate Build
-        run: npm run make -- --arch=x64
+        run: |
+        npm run package
+        npm run make -- --arch=x64
