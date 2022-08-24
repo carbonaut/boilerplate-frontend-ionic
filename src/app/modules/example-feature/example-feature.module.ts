@@ -8,6 +8,8 @@ import { HomePage } from './pages/home/home.page';
 import { ExampleFeatureRoutingModule } from './example-feature-routing.module';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { StoreExampleComponent } from './components/store-example/store-example.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { AboutPage } from './pages/about/about.page';
 
 @NgModule({
   imports: [
@@ -18,6 +20,6 @@ import { StoreExampleComponent } from './components/store-example/store-example.
     IonicModule,
     ExampleFeatureRoutingModule,
   ],
-  declarations: [HomePage, PresentationComponent, StoreExampleComponent],
+  declarations: [HomePage, PresentationComponent, StoreExampleComponent, AboutPage, NavigationComponent],
 })
 export class HomePageModule {}
