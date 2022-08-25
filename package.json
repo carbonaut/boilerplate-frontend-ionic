@@ -15,10 +15,15 @@
     "build-storybook": "build-storybook",
     "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json"
   },
-  "akitaCli": {
-    "basePath": "./src/app",
-    "template": "angular",
-    "idKey": "_id"
+  "elf": {
+    "cli": {
+      "repoTemplate": "class",
+      "repoLibrary": "state",
+      "idKey": "_id",
+      "plugins": [
+        "@ngneat/elf-cli-ng"
+      ]
+    }
   },
   "private": true,
   "dependencies": {
