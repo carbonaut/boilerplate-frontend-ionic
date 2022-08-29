@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { ExamplesStore } from './examples.store';
 import { ExampleInterface } from './example.interface';
+import { ExampleRepository } from './examples.repository';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExamplesService {
-  constructor(private examplesStore: ExamplesStore) {}
+  constructor(private exampleRepository: ExampleRepository) {}
 
   loadExamples(): Observable<ExampleInterface[]> {
     // On a real service should call an API service method
@@ -16,8 +16,8 @@ export class ExamplesService {
 
     return of([example]).pipe(
       tap((response) => {
-        // Set it in store
-        this.examplesStore.set(response);
+        // Upsert it in store
+        this.exampleRepository.upsert(response);
       })
     );
   }

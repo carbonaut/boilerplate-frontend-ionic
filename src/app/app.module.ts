@@ -20,7 +20,6 @@ import { ToastModule } from './core/toasts/toast.module';
 import { ExampleCoreService } from './core/services/example-service/example-core.service';
 import { GlobalErrorHandlerService } from './core/services/global-error-handler/global-error-handler.service';
 import { CustomTranslationsLoaderService } from './core/services/custom-translations-loader-service/custom-translations-loader.service';
-import { StorageService } from './core/services/storage/storage.service';
 
 // ====================================
 // INTERCEPTORS
@@ -49,7 +48,6 @@ import { ApiInterceptor } from './core/interceptors/api/api.interceptor';
     ExampleCoreService,
     StatusBar,
     SplashScreen,
-    StorageService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,
