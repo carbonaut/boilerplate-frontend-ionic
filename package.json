@@ -80,7 +80,7 @@
     "@typescript-eslint/parser": "5.27.1",
     "babel-loader": "^8.1.0",
     "codelyzer": "^6.0.1",
-    "electron": "^20.0.3",
+    "electron": "^20.1.0",
     "eslint": "^8.17.0",
     "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-prettier": "^8.3.0",
