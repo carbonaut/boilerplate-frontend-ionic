@@ -5,6 +5,8 @@ import { ModalExampleComponent } from '../../../../shared/components/modal-examp
 import { ToastService } from '../../../../core/toasts/services/toast-service/toast.service';
 import { FieldRadioOption } from '../../../../shared/components/field-radio/field-radio.interface';
 import { FieldSelectOption } from '../../../../shared/components/field-select/field-select.interface';
+import { ExampleRepository } from '../../state/examples.repository';
+import { ExamplesService } from '../../state/examples.service';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +43,9 @@ export class HomePage {
   constructor(
     private modalController: ModalController,
     private toastService: ToastService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private examplesRepository: ExampleRepository,
+    private exampleService: ExamplesService
   ) {
     this.form = this.formBuilder.group({
       checkbox: [true, Validators.required],
@@ -55,6 +59,15 @@ export class HomePage {
       password: ['', Validators.required],
       select: ['', Validators.required],
       file: ['', Validators.required],
+    });
+
+    // Just an example for elf repository usage
+    this.exampleService.loadExamples().subscribe();
+
+    // You can also bound this observable to a variable
+    // and use it with an async pipe on template
+    this.examplesRepository.examples$.subscribe((examples) => {
+      console.log(examples);
     });
   }
 

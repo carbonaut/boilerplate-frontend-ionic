@@ -4,11 +4,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { persistState, enableAkitaProdMode } from '@datorama/akita';
+import { enableElfProdMode } from '@ngneat/elf';
 
 if (environment.production) {
   enableProdMode();
+  enableElfProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.log(err));

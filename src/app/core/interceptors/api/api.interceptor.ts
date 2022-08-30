@@ -1,4 +1,4 @@
-import { throwError as observableThrowError, Observable } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
@@ -6,17 +6,17 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { environment } from '../../../../environments/environment';
 
 import { LoggerService } from '../../services/logger-service/logger.service';
-import { SessionQuery } from '../../state/session/session.query';
+import { SessionRepository } from '../../state/session/session.repository';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiInterceptor implements HttpInterceptor {
-  constructor(private loggerService: LoggerService, private sessionQuery: SessionQuery) {}
+  constructor(private loggerService: LoggerService, private sessionRepository: SessionRepository) {}
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const isLoggedUser = this.sessionQuery.isLoggedIn();
-    const { accessToken, tokenType } = this.sessionQuery.session();
+    const isLoggedUser = this.sessionRepository.isLoggedIn();
+    const { accessToken, tokenType } = this.sessionRepository.session();
 
     const requestModified = isLoggedUser ? this.addAuthenticationHeader(request, tokenType, accessToken) : request;
 
@@ -49,6 +49,6 @@ export class ApiInterceptor implements HttpInterceptor {
         error && error.error && error.error.message ? error.error.message : 'HTTP_ERRORS.DEFAULT_MESSAGE';
     }
 
-    return observableThrowError({ message: errorMessage, original: error });
+    return throwError(() => ({ message: errorMessage, original: error }));
   }
 }
