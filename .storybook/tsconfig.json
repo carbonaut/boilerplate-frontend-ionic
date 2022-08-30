@@ -3,7 +3,8 @@
   "compilerOptions": {
     "types": [
       "node"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "../src/test.ts",
