@@ -116,7 +116,7 @@ $widths: (
   }
 
   .u-max-width--#{$width} {
-    width: $width-value;
+    max-width: $width-value;
   }
 }
 
