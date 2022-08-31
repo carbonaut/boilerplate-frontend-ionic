@@ -2,20 +2,17 @@
 @import 'variables.scss';
 
 // DISPLAY
-.u-display--block {
-  display: block;
-}
+$displays: (
+  'none': none,
+  'block': block,
+  'flex': flex,
+  'inline': inline,
+);
 
-.u-display--inline {
-  display: inline;
-}
-
-.u-display--none {
-  display: none;
-}
-
-.u-display--flex {
-  display: flex;
+@each $display, $display-value in $displays {
+  .u-display--#{$display} {
+    display: $display-value;
+  }
 }
 
 .u-flex-direction--row {
@@ -63,16 +60,17 @@
   text-align: right;
 }
 
-.u-font-weight--regular {
-  font-weight: 400;
-}
+$weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+);
 
-.u-font-weight--semibold {
-  font-weight: 600;
-}
-
-.u-font-weight--bold {
-  font-weight: 700;
+@each $weight, $weight-value in $weights {
+  .u-font-weight--#{$weight} {
+    font-weight: $weight-value;
+  }
 }
 
 .u-font-style--italic {
@@ -87,86 +85,39 @@
   text-decoration: none;
 }
 
-.u-text-transform--uppercase {
-  text-transform: uppercase;
+$transformers: (
+  'none': none,
+  'uppercase': uppercase,
+  'lowercase': lowercase,
+  'capitalize': capitalize,
+);
+
+@each $transform, $transform-value in $transformers {
+  .u-text-transform--#{$transform} {
+    text-transform: $transform-value;
+  }
 }
 
-.u-text-transform--lowercase {
-  text-transform: lowercase;
-}
+// WIDTH, MAX WIDTH
+$widths: (
+  '10': 10%,
+  '25': 25%,
+  '33': 33.3%,
+  '50': 50%,
+  '66': 66.6%,
+  '75': 75%,
+  '90': 90%,
+  '100': 100%,
+);
 
-.u-text-transform--capitalize {
-  text-transform: capitalize;
-}
+@each $width, $width-value in $widths {
+  .u-width--#{$width} {
+    width: $width-value;
+  }
 
-.u-text-transform--none {
-  text-transform: none;
-}
-
-// WIDTH
-.u-width--10 {
-  width: 10%;
-}
-
-.u-width--25 {
-  width: 25%;
-}
-
-.u-width--33 {
-  width: 33%;
-}
-
-.u-width--50 {
-  width: 50%;
-}
-
-.u-width--66 {
-  width: 66%;
-}
-
-.u-width--75 {
-  width: 75%;
-}
-
-.u-width--90 {
-  width: 90%;
-}
-
-.u-width--100 {
-  width: 100%;
-}
-
-// MAX WIDTH
-.u-max-width--10 {
-  max-width: 10%;
-}
-
-.u-max-width--25 {
-  max-width: 66%;
-}
-
-.u-max-width--33 {
-  max-width: 33%;
-}
-
-.u-max-width--50 {
-  max-width: 50%;
-}
-
-.u-max-width--66 {
-  max-width: 66%;
-}
-
-.u-max-width--75 {
-  max-width: 75%;
-}
-
-.u-max-width--90 {
-  max-width: 90%;
-}
-
-.u-max-width--100 {
-  max-width: 100%;
+  .u-max-width--#{$width} {
+    max-width: $width-value;
+  }
 }
 
 // CURSOR
@@ -181,32 +132,32 @@ $sizes: (
   'md': $size-md,
   'lg': $size-lg,
   'xl': $size-xl,
+  'auto': auto,
+  'none': none,
 );
 $directions: 'left', 'right', 'top', 'bottom';
 
-@each $direction in $directions {
-  @each $size, $size-value in $sizes {
+@each $size, $size-value in $sizes {
+  .u-margin--#{$size} {
+    margin: $size-value !important;
+  }
+
+  @if ($size != 'auto') {
+    .u-padding--#{$size} {
+      padding: $size-value !important;
+    }
+  }
+
+  @each $direction in $directions {
     .u-margin-#{$direction}--#{$size} {
       margin-#{$direction}: $size-value !important;
     }
 
-    .u-padding-#{$direction}--#{$size} {
-      padding-#{$direction}: $size-value !important;
+    @if ($size != 'auto') {
+      .u-padding-#{$direction}--#{$size} {
+        padding-#{$direction}: $size-value !important;
+      }
     }
-  }
-}
-
-@each $direction in $directions {
-  .u-margin-#{$direction}--auto {
-    margin-#{$direction}: auto !important;
-  }
-
-  .u-margin-#{$direction}--none {
-    margin-#{$direction}: none !important;
-  }
-
-  .u-padding-#{$direction}--none {
-    margin-#{$direction}: none !important;
   }
 }
 
