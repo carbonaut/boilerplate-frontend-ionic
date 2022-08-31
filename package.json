@@ -12,6 +12,8 @@
     "lint": "eslint --ext .ts --ext .js src/app/",
     "lint:fix": "eslint --ext .ts --ext .js src/app/ --fix",
     "e2e": "ng e2e",
+    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "build-storybook": "npm run docs:json && build-storybook",
     "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d ."
   },
@@ -67,7 +69,6 @@
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
-    "@storybook/addon-knobs": "^6.4.0",
     "@storybook/addon-links": "^6.5.10",
     "@storybook/angular": "^6.5.10",
     "@storybook/builder-webpack5": "^6.5.10",
