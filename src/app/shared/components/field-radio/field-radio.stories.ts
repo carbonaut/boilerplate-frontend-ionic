@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldRadioComponent } from './field-radio.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export default {
   title: 'Shared/Field Radio',
@@ -10,14 +11,37 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
-      imports: [IonicModule.forRoot(), StorybookTranslateModule],
+      imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
     }),
   ],
 } as Meta;
 
-const Template: Story<FieldRadioComponent> = (args: FieldRadioComponent) => ({
-  props: args,
-});
+const Template: Story<FieldRadioComponent> = (args: FieldRadioComponent) => {
+  const form: FormGroup = new FormGroup({
+    radio1: new FormControl(''),
+  });
+
+  return {
+    component: FieldRadioComponent,
+    template: `
+      <form [formGroup]="form">
+      <app-field-radio
+        formControlName="radio1"
+        [label]="label"
+        [options]="options"
+        [required]="required"
+        [disabled]="disabled"
+        [showValidationErrorMessage]="showValidationErrorMessage"
+      >
+      </app-field-radio>
+      </form>
+    `,
+    props: {
+      ...args,
+      form,
+    },
+  };
+};
 
 export const MinimalConfigurationDefaultTheme = Template.bind({});
 MinimalConfigurationDefaultTheme.args = {

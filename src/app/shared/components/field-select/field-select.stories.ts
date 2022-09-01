@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldSelectComponent } from './field-select.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export default {
   title: 'Shared/Field Select',
@@ -10,14 +11,39 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
-      imports: [IonicModule.forRoot(), StorybookTranslateModule],
+      imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
     }),
   ],
 } as Meta;
 
-const Template: Story<FieldSelectComponent> = (args: FieldSelectComponent) => ({
-  props: args,
-});
+const Template: Story<FieldSelectComponent> = (args: FieldSelectComponent) => {
+  const form: FormGroup = new FormGroup({
+    select: new FormControl(''),
+  });
+
+  return {
+    component: FieldSelectComponent,
+    template: `
+      <form [formGroup]="form">
+        <app-field-select
+          formControlName="select"
+          [label]="label"
+          [options]="options"
+          [placeholder]="placeholder"
+          [multiple]="multiple"
+          [required]="required"
+          [disabled]="disabled"
+          [showValidationErrorMessage]="showValidationErrorMessage"
+        >
+        </app-field-select>
+      </form>
+    `,
+    props: {
+      ...args,
+      form,
+    },
+  };
+};
 
 export const MinimalConfiguration = Template.bind({});
 MinimalConfiguration.args = {

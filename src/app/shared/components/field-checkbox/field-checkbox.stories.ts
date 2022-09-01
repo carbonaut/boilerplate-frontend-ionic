@@ -2,7 +2,7 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
 import { FieldCheckboxComponent } from './field-checkbox.component';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 
 export default {
@@ -16,9 +16,29 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<FieldCheckboxComponent> = (args: FieldCheckboxComponent) => ({
-  props: args,
-});
+const Template: Story<FieldCheckboxComponent> = (args: FieldCheckboxComponent) => {
+  const form: FormGroup = new FormGroup({
+    checkbox: new FormControl(),
+  });
+
+  return {
+    component: FieldCheckboxComponent,
+    template: `
+      <form [formGroup]="form">
+        <app-field-checkbox
+          formControlName="checkbox"
+          [required]="required"
+          [disabled]="disabled"
+          [label]="label"
+          [showValidationErrorMessage]="showValidationErrorMessage"></app-field-checkbox>
+      </form>
+    `,
+    props: {
+      ...args,
+      form: form,
+    },
+  };
+};
 
 export const MinimalConfiguration = Template.bind({});
 MinimalConfiguration.args = {

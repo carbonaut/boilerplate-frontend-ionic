@@ -220,7 +220,7 @@
 
         <div class="u-margin-left--md">
           <form [formGroup]="form" (ngSubmit)="submit()">
-            <app-field-checkbox formControlName="checkbox" label="Checkbox"></app-field-checkbox>
+            <app-field-checkbox formControlName="checkbox" label="Checkbox" [disabled]="true"></app-field-checkbox>
 
             <app-field-input formControlName="text" label="Test Disable"> </app-field-input>
 

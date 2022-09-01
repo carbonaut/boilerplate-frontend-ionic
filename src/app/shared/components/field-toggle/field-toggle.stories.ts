@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldToggleComponent } from './field-toggle.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export default {
   title: 'Shared/Field Toggle',
@@ -10,14 +11,37 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
-      imports: [IonicModule.forRoot(), StorybookTranslateModule],
+      imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
     }),
   ],
 } as Meta;
 
-const Template: Story<FieldToggleComponent> = (args: FieldToggleComponent) => ({
-  props: args,
-});
+const Template: Story<FieldToggleComponent> = (args: FieldToggleComponent) => {
+  const form: FormGroup = new FormGroup({
+    toggle: new FormControl(),
+  });
+
+  return {
+    component: FieldToggleComponent,
+    template: `
+      <form [formGroup]="form">
+        <app-field-toggle
+          formControlName="toggle"
+          [label]="label"
+          [options]="options"
+          [required]="required"
+          [disabled]="disabled"
+          [showValidationErrorMessage]="showValidationErrorMessage"
+        >
+        </app-field-toggle>
+      </form>
+    `,
+    props: {
+      ...args,
+      form,
+    },
+  };
+};
 
 export const MinimalConfigurationDefaultTheme = Template.bind({});
 MinimalConfigurationDefaultTheme.args = {
