@@ -234,8 +234,12 @@ Note that the component preview has a 16px padding on all sites for a better vie
 
 ### Live Storybook Instance
 
-`npm run storybook`
+`ng run app:storybook`
 
 ### Static Storybook
 
-`npm run build-storybook`
+`ng run app:build-storybook`
+
+Note that if the project name `app` is changed on `angular.json`, Storybook commands inside architect must be changed as well.
+
+`"browserTarget": "{project-name}:build",`

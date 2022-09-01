@@ -1,35 +1,54 @@
-/* tslint:disable:ter-indent */
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FieldCheckboxComponent } from './field-checkbox.component';
-import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 
-storiesOf('Form/Checkbox field', module)
-  .addDecorator(withKnobs)
-  .addDecorator(
+export default {
+  title: 'Shared/Field Checkbox',
+  component: FieldCheckboxComponent,
+  decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
-      imports: [StorybookTranslateModule, CommonModule, ReactiveFormsModule, IonicModule],
-    })
-  )
-  .add('Minimal configuration', () => ({
+      imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
+    }),
+  ],
+} as Meta;
+
+const Template: Story<FieldCheckboxComponent> = (args: FieldCheckboxComponent) => {
+  const form: FormGroup = new FormGroup({
+    checkbox: new FormControl(),
+  });
+
+  return {
     component: FieldCheckboxComponent,
+    template: `
+      <form [formGroup]="form">
+        <app-field-checkbox
+          formControlName="checkbox"
+          [required]="required"
+          [disabled]="disabled"
+          [label]="label"
+          [showValidationErrorMessage]="showValidationErrorMessage"></app-field-checkbox>
+      </form>
+    `,
     props: {
-      control: new FormControl(),
-      label: text('label', 'Terms and conditions accepted'),
+      ...args,
+      form: form,
     },
-  }))
-  .add('Full configuration', () => ({
-    component: FieldCheckboxComponent,
-    props: {
-      control: new FormControl(),
-      label: text('label', 'Terms and conditions accepted'),
-      required: boolean('required', true),
-      disabled: boolean('disabled', false),
-      showValidationErrorMessage: boolean('showValidationErrorMessage', true),
-    },
-  }));
+  };
+};
+
+export const MinimalConfiguration = Template.bind({});
+MinimalConfiguration.args = {
+  label: 'Terms and conditions accepted',
+};
+
+export const FullConfiguration = Template.bind({});
+FullConfiguration.args = {
+  label: 'Terms and conditions accepted',
+  required: true,
+  disabled: false,
+  showValidationErrorMessage: true,
+};

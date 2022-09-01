@@ -1,4 +1,15 @@
 module.exports = {
-  stories: ['../src/**/*.stories.ts'],
-  addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-notes', '@storybook/addon-knobs/register'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-docs',
+  ],
+  framework: '@storybook/angular',
+  core: {
+    builder: '@storybook/builder-webpack5',
+    disableTelemetry: true,
+    enableCrashReports: true,
+  },
 };

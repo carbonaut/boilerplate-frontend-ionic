@@ -1,78 +1,119 @@
-/* tslint:disable:ter-indent */
-import { withKnobs, text, object, boolean } from '@storybook/addon-knobs';
-import { storiesOf, moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldRadioComponent } from './field-radio.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
-import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-storiesOf('Form/Radio field', module)
-  .addDecorator(withKnobs)
-  .addDecorator(
+export default {
+  title: 'Shared/Field Radio',
+  component: FieldRadioComponent,
+  decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
-      imports: [StorybookTranslateModule, CommonModule, ReactiveFormsModule, IonicModule],
-    })
-  )
-  .add('Minimal configuration (default theme)', () => ({
+      imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
+    }),
+  ],
+} as Meta;
+
+const Template: Story<FieldRadioComponent> = (args: FieldRadioComponent) => {
+  const form: FormGroup = new FormGroup({
+    radio1: new FormControl(''),
+  });
+
+  return {
     component: FieldRadioComponent,
+    template: `
+      <form [formGroup]="form">
+      <app-field-radio
+        formControlName="radio1"
+        [label]="label"
+        [options]="options"
+        [required]="required"
+        [disabled]="disabled"
+        [showValidationErrorMessage]="showValidationErrorMessage"
+      >
+      </app-field-radio>
+      </form>
+    `,
     props: {
-      control: new FormControl(),
-      label: text('label', 'Foods'),
-      options: object('options', [
-        { label: 'Burrito', value: '1' },
-        { label: 'Pizza', value: '2' },
-        {
-          label: 'Lasagna',
-          value: '3',
-        },
-        { label: 'Pasta', value: '4' },
-      ]),
+      ...args,
+      form,
     },
-  }))
-  .add('Minimal configuration (toggle theme)', () => ({
-    component: FieldRadioComponent,
-    props: {
-      control: new FormControl(),
-      label: text('label', 'Sex'),
-      options: object('options', [
-        { label: 'Female', value: 'female' },
-        { label: 'Male', value: 'male' },
-      ]),
+  };
+};
+
+export const MinimalConfigurationDefaultTheme = Template.bind({});
+MinimalConfigurationDefaultTheme.args = {
+  label: 'Foods',
+  options: [
+    {
+      label: 'Burrito',
+      value: 1,
     },
-  }))
-  .add('Form options with icons', () => ({
-    component: FieldRadioComponent,
-    props: {
-      control: new FormControl(),
-      label: text('label', 'Sex'),
-      options: object('options', [
-        { icon: 'female-outline', label: 'Female', value: 'female' },
-        {
-          icon: 'male-outline',
-          label: 'Male',
-          value: 'male',
-        },
-      ]),
+    {
+      label: 'Pizza',
+      value: 2,
     },
-  }))
-  .add('Full configuration', () => ({
-    component: FieldRadioComponent,
-    props: {
-      control: new FormControl(),
-      label: text('label', 'Sex'),
-      required: boolean('required', true),
-      disabled: boolean('disabled', false),
-      showValidationErrorMessage: boolean('showValidationErrorMessage', true),
-      options: object('options', [
-        { icon: 'female-outline', label: 'Female', value: 'female' },
-        {
-          icon: 'male-outline',
-          label: 'Male',
-          value: 'male',
-        },
-      ]),
+    {
+      label: 'Lasagna',
+      value: 3,
     },
-  }));
+    {
+      label: 'Pasta',
+      value: 4,
+    },
+  ],
+};
+
+export const MinimalConfigurationToggleTheme = Template.bind({});
+MinimalConfigurationToggleTheme.args = {
+  label: 'Gender',
+  options: [
+    {
+      label: 'Female',
+      value: 'female',
+    },
+    {
+      label: 'Male',
+      value: 'male',
+    },
+  ],
+};
+
+export const FormOptionsWithIcons = Template.bind({});
+FormOptionsWithIcons.args = {
+  label: 'Gender',
+  options: [
+    {
+      label: 'Female',
+      value: 'female',
+      icon: 'female-outline',
+    },
+    {
+      label: 'Male',
+      value: 'male',
+      icon: 'male-outline',
+    },
+  ],
+};
+
+export const FullConfiguration = Template.bind({});
+FullConfiguration.args = {
+  label: 'Gender',
+  required: true,
+  disabled: false,
+  showValidationErrorMessage: true,
+  options: [
+    {
+      label: 'Female',
+      value: 'female',
+      icon: 'female-outline',
+    },
+    {
+      label: 'Male',
+      value: 'male',
+      icon: 'male-outline',
+    },
+  ],
+};
