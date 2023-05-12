@@ -12,20 +12,16 @@ import { TranslationsService } from './core/services/translations-service/transl
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    private translationsService: TranslationsService,
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
+  constructor(private translationsService: TranslationsService, private platform: Platform) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.translationsService.init();
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.setMobileStarterAssets();
     });
   }
+
+  async setMobileStarterAssets() {}
 }
