@@ -41,7 +41,7 @@
     "@ngneat/elf-cli-ng": "^1.0.0",
     "@ngneat/elf-entities": "^4.4.2",
     "@ngneat/elf-persist-state": "^1.1.5",
-    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/core": "^14.0.0",
     "core-js": "^3.22.8",
     "ng-otp-input": "^1.7.1",
     "ng2-date-picker": "^8.0.0",
