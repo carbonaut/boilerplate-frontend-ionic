@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ModalExampleComponent } from '../../../../shared/components/modal-example/modal-example.component';
 import { ToastService } from '../../../../core/toasts/services/toast-service/toast.service';
 import { FieldRadioOption } from '../../../../shared/components/field-radio/field-radio.interface';
@@ -14,7 +14,7 @@ import { ExamplesService } from '../../state/examples.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   radioOptions: FieldRadioOption[] = [
     {
@@ -43,7 +43,7 @@ export class HomePage {
   constructor(
     private modalController: ModalController,
     private toastService: ToastService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private examplesRepository: ExampleRepository,
     private exampleService: ExamplesService
   ) {
