@@ -59,6 +59,7 @@ export class HomePage {
       password: ['', Validators.required],
       select: ['', Validators.required],
       file: ['', Validators.required],
+      datetime: [new Date(), Validators.required],
     });
 
     // Just an example for elf repository usage

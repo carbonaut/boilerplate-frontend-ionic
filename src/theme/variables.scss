@@ -91,6 +91,10 @@
   --color-blue-500: #aebcc9;
   --color-blue-700: #8091a5;
 
+  --color-text-dark: #334155;
+  --color-text-medium: #94a3b8;
+  --color-text-light: #f8fafc;
+
   --color-primary-300: #1892dc;
   --color-primary-500: #005ca9;
   --color-primary-700: #004282;
@@ -99,4 +103,6 @@
   --color-warning: #f7c662;
   --color-success: #1b9a8f;
   --color-message: #007fff;
+
+  --shadow-focus: drop-shadow(0 0 2px #0084ff);
 }

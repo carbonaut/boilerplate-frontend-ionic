@@ -1,0 +1,35 @@
+<div class="c-field">
+  <h6 class="c-field__label" *ngIf="label">
+    {{ label }}
+    <span class="c-field__optional" *ngIf="optional">{{ 'FIELDS.OPTIONAL' | translate }}</span>
+  </h6>
+
+  <button
+    class="c-field__datetime"
+    [class.c-field__datetime--placeholder]="ngControl.value === ''"
+    (click)="showModal(true)">
+    <ng-container *ngIf="ngControl.value === ''">
+      {{ placeholder || 'FIELDS.DATE.PLACEHOLDER' | translate }}
+    </ng-container>
+    <ng-container *ngIf="ngControl.value !== ''">
+      {{ ngControl.value || ngControl.value?.seconds * 1000 | date: 'YYYY-MM-dd HH:mm:ss zzz' }}
+    </ng-container>
+  </button>
+</div>
+
+<ion-modal class="c-ion-modal c-ion-modal--auto" [isOpen]="isModalOpen" (didDismiss)="showModal(false)">
+  <ng-template>
+    <div class="c-modal">
+      <ion-datetime
+        class="c-field__datetime-component"
+        size="cover"
+        [presentation]="type"
+        mode="ios"
+        locale="pt-BR"
+        [value]="parsedDate"
+        [min]="minDate"
+        [max]="maxDate"
+        (ionChange)="setValue($event)"></ion-datetime>
+    </div>
+  </ng-template>
+</ion-modal>

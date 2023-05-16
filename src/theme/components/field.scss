@@ -105,6 +105,39 @@
     }
   }
 
+  &__datetime {
+    background: var(--color-gray-400);
+    border: 1px solid var(--color-gray-400);
+    border-radius: $size-xs;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-family: inherit;
+    padding: $size-base;
+    text-align: left;
+    width: 100%;
+
+    &:active,
+    &:focus {
+      filter: var(--shadow-focus);
+    }
+
+    &--placeholder {
+      color: var(--color-text-medium);
+    }
+
+    &-component {
+      --background: var(--color-gray-1000);
+      --ion-color-base: var(--color-primary-600) !important;
+      --ion-color-step-300: var(--color-text-medium);
+      --ion-text-color: var(--color-text-light);
+      --title-color: var(--color-text-light);
+
+      &::part(title) {
+        color: var(--color-text-dark);
+      }
+    }
+  }
+
   &__option {
     --border-color: var(--color-gray-400);
     border-bottom-color: var(--border-color);
