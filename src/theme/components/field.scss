@@ -127,7 +127,7 @@
 
     &-component {
       --background: var(--color-gray-1000);
-      --ion-color-base: var(--color-primary-600) !important;
+      --ion-color-base: var(--color-primary-700) !important;
       --ion-color-step-300: var(--color-text-medium);
       --ion-text-color: var(--color-text-light);
       --title-color: var(--color-text-light);
@@ -135,6 +135,34 @@
       &::part(title) {
         color: var(--color-text-dark);
       }
+    }
+  }
+
+  &__toggle {
+    --background: transparent;
+    --border-color: var(--color-text-medium);
+
+    border-bottom-color: var(--border-color);
+    margin-bottom: $size-md;
+    user-select: none;
+
+    &:last-child {
+      --border-color: transparent;
+    }
+
+    &-label {
+      font-weight: 500;
+    }
+
+    &-input {
+      --background: var(--color-gray-300);
+      --background-checked: var(--color-primary-700);
+      --handle-background: var(--color-gray-700);
+      --background-checked-checked: white;
+      --handle-spacing: 4px;
+      --handle-width: 26px;
+      --handle-height: 26px;
+      width: 60px;
     }
   }
 

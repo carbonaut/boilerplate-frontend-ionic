@@ -1,21 +1,13 @@
-<div ion-content class="c-field">
-  <h6 class="c-field__label">{{ label }}</h6>
+<ion-item class="c-field__toggle">
+  <ion-label class="c-field__toggle-label">{{ label }}</ion-label>
 
-  <div class="c-field__toggle">
-    <div class="c-field__option"
-      *ngFor="let option of options; let i = index; trackBy: trackByOptions">
-      <input type="radio" [id]="ngControl.name + '-radio-' + i" [name]="ngControl.name + '-radio'"
-        class="c-field__option-radio" [disabled]="disabled" [value]="option.value"
-        [(ngModel)]="value" (ngModelChange)="setValue(option.value)" />
-
-      <label class="c-field__option-label" [for]="ngControl.name + '-radio-' + i">
-        <ion-icon class="c-field__option-icon" *ngIf="option.icon" [name]="option.icon"></ion-icon>
-        <span>{{ option.label | translate }}</span>
-      </label>
-    </div>
-  </div>
-
-  <app-field-error-message [visible]="showValidationErrorMessage"
-    [currentControl]="ngControl.control">
+  <ion-toggle
+    #ionToggle
+    mode="ios"
+    class="c-field__toggle-input"
+    [disabled]="disabled"
+    [formControl]="ngControl.control"
+    (ionChange)="setValue($event)"></ion-toggle>
+  <app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="ngControl.control">
   </app-field-error-message>
-</div>
+</ion-item>
