@@ -33,10 +33,12 @@ import { ButtonComponent } from './components/button/button.component';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
 import { FieldDatetimeComponent } from './components/field-datetime/field-datetime.component';
+import { ContentSegmentComponent } from './components/content-segment/content-segment.component';
 
 @NgModule({
   declarations: [
     SharedExampleComponent,
+    ContentSegmentComponent,
     ModalComponent,
     ModalExampleComponent,
     ButtonComponent,
@@ -65,6 +67,7 @@ import { FieldDatetimeComponent } from './components/field-datetime/field-dateti
   ],
   exports: [
     SharedExampleComponent,
+    ContentSegmentComponent,
     ModalComponent,
     ModalExampleComponent,
     TranslateModule,

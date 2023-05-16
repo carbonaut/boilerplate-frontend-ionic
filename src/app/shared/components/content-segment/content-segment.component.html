@@ -1,0 +1,14 @@
+<ion-segment
+  mode="md"
+  [scrollable]="scrollable"
+  [value]="value"
+  (ionChange)="onChange($event)"
+  *ngIf="options?.length > 0">
+  <ng-container *ngFor="let option of options">
+    <ion-segment-button [value]="option.value">
+      <ion-label class="u-width--100">
+        <span class="u-font-weight--semibold">{{ option.label | translate }}</span>
+      </ion-label>
+    </ion-segment-button>
+  </ng-container>
+</ion-segment>

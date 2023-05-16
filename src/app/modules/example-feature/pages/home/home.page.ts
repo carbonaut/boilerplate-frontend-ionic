@@ -7,6 +7,7 @@ import { FieldRadioOption } from '../../../../shared/components/field-radio/fiel
 import { FieldSelectOption } from '../../../../shared/components/field-select/field-select.interface';
 import { ExampleRepository } from '../../state/examples.repository';
 import { ExamplesService } from '../../state/examples.service';
+import { ContentSegmentOption } from '../../../../shared/components/content-segment/content-segment.interface';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,19 @@ export class HomePage {
     {
       label: 'Female',
       value: 'F',
+    },
+  ];
+
+  segment = 'label_1';
+
+  segmentOptions: ContentSegmentOption[] = [
+    {
+      label: 'Label 1',
+      value: 'label_1',
+    },
+    {
+      label: 'Label 2',
+      value: 'label_2',
     },
   ];
 
