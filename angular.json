@@ -86,7 +86,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
-            },
+            },            
             "ci": {
               "progress": false
             }
@@ -194,17 +194,26 @@
             }
           }
         },
+        "serve-storybook": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "tsConfig": ".storybook/tsconfig.json",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts"
+          }
+        },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
-            "browserTarget": "app:build",
+            "browserTarget": "app:serve-storybook",
             "port": 6006
           }
         },
         "build-storybook": {
           "builder": "@storybook/angular:build-storybook",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:serve-storybook"
           }
         }
       }
