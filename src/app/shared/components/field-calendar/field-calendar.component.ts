@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Optional, Self } from '@angular/core';
 import { NgControl, ValidatorFn } from '@angular/forms';
 import { IDatePickerDirectiveConfig } from 'ng2-date-picker';
+import * as DayJs from 'dayjs';
 
 /*
   https://github.com/vlio20/angular-datepicker#readme
@@ -52,7 +53,7 @@ export class FieldCalendarComponent implements OnInit {
   }
 
   setLocale(locale: string) {
-    this.config.locale = locale;
+    DayJs.locale(locale);
   }
 
   selectDateEvent(value: string) {

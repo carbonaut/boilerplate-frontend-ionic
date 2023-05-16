@@ -43,6 +43,7 @@
     "@ngneat/elf-persist-state": "^1.1.5",
     "@ngx-translate/core": "^14.0.0",
     "core-js": "^3.22.8",
+    "dayjs": "^1.11.7",
     "ng-otp-input": "^1.7.1",
     "ng2-date-picker": "^8.0.0",
     "rxjs": "^7.5.0",
