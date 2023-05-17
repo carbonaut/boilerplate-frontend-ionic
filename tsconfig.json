@@ -12,6 +12,14 @@
     "importHelpers": true,
     "target": "ES2022",
     "skipLibCheck": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "strictBindCallApply": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization" : true,
     "typeRoots": [
       "node_modules/@types"
     ],

@@ -37,7 +37,6 @@ const Template: StoryFn<FieldInputComponent> = (args: FieldInputComponent) => {
           [placeholder]="placeholder"
           [mask]="mask"
           [ícon]="icon"
-          [required]="required"
           [disabled]="disabled"
           [showValidationErrorMessage]="showValidationErrorMessage"
         >
@@ -72,7 +71,5 @@ TextField.args = {
   placeholder: '(99) 9999-9999',
   mask: 'phone',
   icon: 'call-outline',
-  required: true,
-  disabled: false,
   showValidationErrorMessage: true,
 };

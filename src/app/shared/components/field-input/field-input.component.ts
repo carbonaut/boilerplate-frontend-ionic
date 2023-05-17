@@ -9,19 +9,19 @@ import { Validators, ControlValueAccessor, NgControl, ValidatorFn } from '@angul
 export class FieldInputComponent implements ControlValueAccessor, OnInit {
   @Input() type: 'text' | 'number' | 'email' = 'text';
 
-  @Input() mask: 'phone' | 'zip-code' | 'svnr';
+  @Input() mask: 'phone' | 'zip-code' | 'svnr' = 'phone';
 
-  @Input() label: string;
+  @Input() label: string | null = null;
 
-  @Input() placeholder: string;
+  @Input() placeholder: string | null = null;
 
-  @Input() validationIcon;
+  @Input() validationIcon: string | null = null;
 
-  @Input() icon;
+  @Input() icon: string | null = null;
 
   @Input() showValidationErrorMessage = true;
 
-  value: string;
+  value: string | null = null;
 
   isDisabled = false;
 
@@ -38,10 +38,10 @@ export class FieldInputComponent implements ControlValueAccessor, OnInit {
     const { control } = this.ngControl;
 
     let validators = this.getValidators();
-    validators = control.validator ? [control.validator, ...validators] : this.getValidators();
+    validators = control?.validator ? [control.validator, ...validators] : this.getValidators();
 
-    control.setValidators(validators);
-    control.updateValueAndValidity();
+    control?.setValidators(validators);
+    control?.updateValueAndValidity();
   }
 
   // FORM CONTROL FUNCTIONS

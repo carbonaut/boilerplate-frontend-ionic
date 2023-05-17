@@ -50,10 +50,7 @@ const Template: Story<PresentationComponent> = (args: PresentationComponent) => 
 });
 
 export const VariantA = Template.bind({});
-VariantA.args = {
-  myProp: 'initial value',
-  onAction: 'An action!',
-};
+VariantA.args = {};
 
 export const VariantB = Template.bind({});
 VariantB.args = {};

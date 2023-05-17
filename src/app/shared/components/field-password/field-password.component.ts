@@ -9,9 +9,9 @@ import { passwordStrengthValidator } from '../../../core/validators/password-str
   styleUrls: ['./field-password.component.scss'],
 })
 export class FieldPasswordComponent implements ControlValueAccessor, OnInit {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
-  @Input() placeholder: string;
+  @Input() placeholder: string | null = null;
 
   @Input() required = false;
 
@@ -23,7 +23,7 @@ export class FieldPasswordComponent implements ControlValueAccessor, OnInit {
 
   showPassword = false;
 
-  value: string;
+  value: string | null = null;
 
   isDisabled = false;
 
@@ -40,10 +40,10 @@ export class FieldPasswordComponent implements ControlValueAccessor, OnInit {
     const { control } = this.ngControl;
 
     let validators = this.getValidators();
-    validators = control.validator ? [control.validator, ...validators] : this.getValidators();
+    validators = control?.validator ? [control.validator, ...validators] : this.getValidators();
 
-    control.setValidators(validators);
-    control.updateValueAndValidity();
+    control?.setValidators(validators);
+    control?.updateValueAndValidity();
   }
 
   togglePasswordVisibility() {

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContentSegmentOption } from './content-segment.interface';
+import { SegmentCustomEvent } from '@ionic/core';
 
 /** @ignore */
 @Component({
@@ -8,15 +9,15 @@ import { ContentSegmentOption } from './content-segment.interface';
   styleUrls: ['./content-segment.component.scss'],
 })
 export class ContentSegmentComponent {
-  @Input() options: ContentSegmentOption[];
+  @Input() options!: ContentSegmentOption[];
 
-  @Input() scrollable: boolean;
+  @Input() scrollable: boolean = false;
 
-  @Input() value: string;
+  @Input() value!: string;
 
   @Output() valueChange = new EventEmitter();
 
-  onChange(event) {
+  onChange(event: SegmentCustomEvent) {
     this.valueChange.emit(event.detail.value);
   }
 }

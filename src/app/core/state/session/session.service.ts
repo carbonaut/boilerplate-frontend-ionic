@@ -18,7 +18,7 @@ export class SessionService {
   logout() {
     return this.sessionApiService.postLogout().pipe(
       tap(() => {
-        this.sessionRepository.update({ session: { accessToken: undefined, tokenType: undefined } });
+        this.sessionRepository.update({ session: undefined });
       })
     );
   }

@@ -5,7 +5,7 @@
     <input [id]="ngControl.name + '-file'" type="file" (change)="setValue($event.target.files)" />
 
     <label [for]="ngControl.name + '-file'" appDnd (fileDropped)="setValue($event)">
-      <p>{{ value ? value['name'] : (placeholder || 'FIELDS.FILE.PLACEHOLDER' | translate ) }}</p>
+      <p>{{ value ? value['name'] : (placeholder || 'FIELDS.FILE.PLACEHOLDER' | translate) }}</p>
     </label>
   </div>
 </div>

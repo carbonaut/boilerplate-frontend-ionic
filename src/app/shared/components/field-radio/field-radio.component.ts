@@ -8,7 +8,7 @@ import { FieldRadioOption } from './field-radio.interface';
   styleUrls: ['./field-radio.component.scss'],
 })
 export class FieldRadioComponent implements ControlValueAccessor, OnInit {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
   @Input() required = false;
 

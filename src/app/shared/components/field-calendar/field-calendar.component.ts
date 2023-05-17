@@ -13,15 +13,15 @@ import * as DayJs from 'dayjs';
   styleUrls: ['./field-calendar.component.scss'],
 })
 export class FieldCalendarComponent implements OnInit {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
-  @Input() placeholder: string;
+  @Input() placeholder: string | null = null;
 
-  @Input() icon;
+  @Input() icon: string | null = null;
 
   @Input() showValidationErrorMessage = true;
 
-  value: string;
+  value: string | null = null;
 
   isDisabled = true;
 
@@ -46,10 +46,10 @@ export class FieldCalendarComponent implements OnInit {
     const { control } = this.ngControl;
 
     let validators = this.getValidators();
-    validators = control.validator ? [control.validator, ...validators] : this.getValidators();
+    validators = control?.validator ? [control.validator, ...validators] : this.getValidators();
 
-    control.setValidators(validators);
-    control.updateValueAndValidity();
+    control?.setValidators(validators);
+    control?.updateValueAndValidity();
   }
 
   setLocale(locale: string) {
@@ -87,11 +87,7 @@ export class FieldCalendarComponent implements OnInit {
   }
 
   private getValidators(): ValidatorFn[] {
-    const validators = [];
-    //
-    // if (this.type === 'email') {
-    //   validators.push(Validators.email);
-    // }
+    const validators = new Array<ValidatorFn>();
 
     return validators;
   }

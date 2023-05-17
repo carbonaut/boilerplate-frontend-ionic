@@ -6,23 +6,21 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  @Input() size: 'lg' | 'sm' | '';
+  @Input() size: 'lg' | 'sm' | '' = '';
 
-  @Input('clear') isClear: boolean;
+  @Input('clear') isClear: boolean = false;
 
-  @Input('outline') isOutline: boolean;
+  @Input('outline') isOutline: boolean = false;
 
-  @Input('inverted') isInverted: boolean;
+  @Input('inverted') isInverted: boolean = false;
 
-  @Input('arrow') hasArrow: boolean;
+  @Input('arrow') hasArrow: boolean = false;
 
-  @Input() icon: string;
+  @Input() icon: string | null = null;
 
-  @Input() type: boolean;
+  @Input() loading: boolean = false;
 
-  @Input() loading: boolean;
-
-  @Input() disabled: boolean;
+  @Input() disabled: boolean = false;
 
   ngOnInit() {}
 }

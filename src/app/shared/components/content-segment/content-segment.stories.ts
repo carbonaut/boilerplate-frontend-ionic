@@ -8,11 +8,6 @@ export default {
   title: 'Shared/Content Segment',
   component: ContentSegmentComponent,
   tags: ['autodocs'],
-  render: (args: ContentSegmentComponent) => ({
-    props: {
-      ...args,
-    },
-  }),
   decorators: [
     moduleMetadata({
       imports: [IonicModule.forRoot(), StorybookTranslateModule],

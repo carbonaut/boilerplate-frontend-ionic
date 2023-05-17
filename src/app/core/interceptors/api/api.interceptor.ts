@@ -16,6 +16,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const isLoggedUser = this.sessionRepository.isLoggedIn();
+    // @ts-expect-error
     const { accessToken, tokenType } = this.sessionRepository.session();
 
     const requestModified = isLoggedUser ? this.addAuthenticationHeader(request, tokenType, accessToken) : request;

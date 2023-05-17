@@ -8,25 +8,25 @@ import { formatISO } from 'date-fns';
   styleUrls: ['./field-datetime.component.scss'],
 })
 export class FieldDatetimeComponent implements ControlValueAccessor, OnInit {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
   @Input() optional = false;
 
-  @Input() placeholder: string;
+  @Input() placeholder: string | null = null;
 
   @Input() showValidationErrorMessage = true;
 
-  @Input() minDate: string;
+  @Input() minDate!: string;
 
-  @Input() maxDate: string;
+  @Input() maxDate!: string;
 
-  @Input() type: 'date' | 'time';
+  @Input() type!: 'date' | 'time';
 
   isModalOpen = false;
 
-  parsedDate: string;
+  parsedDate: string | null = null;
 
-  value: Date;
+  value: Date | null = null;
 
   isDisabled = false;
 
