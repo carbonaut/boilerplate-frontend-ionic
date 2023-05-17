@@ -12,10 +12,10 @@
     "lint": "eslint --ext .ts --ext .js src/app/",
     "lint:fix": "eslint --ext .ts --ext .js src/app/ --fix",
     "e2e": "ng e2e",
-    "storybook": "npm run docs:json && storybook dev -p 6006",
-    "build-storybook": "npm run docs:json && storybook build",
     "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json",
-    "docs:json": "compodoc -p ./tsconfig.json -e json -d ."
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "storybook": "ng run app:storybook",
+    "build-storybook": "ng run app:build-storybook"
   },
   "elf": {
     "cli": {
@@ -66,12 +66,12 @@
     "@babel/core": "^7.9.0",
     "@compodoc/compodoc": "^1.1.19",
     "@ionic/angular-toolkit": "^6.1.0",
-    "@storybook/addon-actions": "^7.0.12",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
     "@storybook/angular": "^7.0.12",
-    "@storybook/testing-library": "^0.1.0",
+    "@storybook/blocks": "^7.0.12",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

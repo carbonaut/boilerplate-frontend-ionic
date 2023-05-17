@@ -86,7 +86,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
-            },            
+            },
             "ci": {
               "progress": false
             }
@@ -194,35 +194,43 @@
             }
           }
         },
-        "serve-storybook": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "tsConfig": ".storybook/tsconfig.json",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts"
-          }
-        },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
-            "browserTarget": "app:serve-storybook",
-            "port": 6006
+            "configDir": ".storybook",
+            "browserTarget": "app:build",
+            "compodoc": false,
+            "port": 6006,
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": ["src/theme/variables.scss", "src/global.scss"]
           }
         },
         "build-storybook": {
           "builder": "@storybook/angular:build-storybook",
           "options": {
-            "browserTarget": "app:serve-storybook"
+            "configDir": ".storybook",
+            "browserTarget": "app:build",
+            "compodoc": false,
+            "outputDir": "storybook-static"
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@ionic/angular-toolkit"
-    ]
+    "schematicCollections": ["@ionic/angular-toolkit"],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

@@ -1,22 +1,27 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { applicationConfig, Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldPasswordComponent } from './field-password.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { importProvidersFrom } from '@angular/core';
 
 export default {
   title: 'Shared/Field Password',
   component: FieldPasswordComponent,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
       imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
     }),
+    applicationConfig({
+      providers: [importProvidersFrom([IonicModule.forRoot()])],
+    }),
   ],
 } as Meta;
 
-const Template: Story<FieldPasswordComponent> = (args: FieldPasswordComponent) => {
+const Template: StoryFn<FieldPasswordComponent> = (args: FieldPasswordComponent) => {
   const form: FormGroup = new FormGroup({
     password: new FormControl(),
   });

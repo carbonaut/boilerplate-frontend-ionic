@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'import'],
-  extends: ['airbnb-typescript/base', 'plugin:prettier/recommended', 'plugin:storybook/recommended'],
+  extends: ['airbnb-typescript/base', 'plugin:prettier/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
   parserOptions: {
     ecmaVersion: 2018,
     // Allows for the parsing of modern ECMAScript features

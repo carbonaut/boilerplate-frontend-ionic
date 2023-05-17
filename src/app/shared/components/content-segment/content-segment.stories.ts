@@ -1,19 +1,29 @@
 import { IonicModule } from '@ionic/angular';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
+import { applicationConfig, Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { ContentSegmentComponent } from './content-segment.component';
+import { importProvidersFrom } from '@angular/core';
+import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 
 export default {
   title: 'Shared/Content Segment',
   component: ContentSegmentComponent,
+  tags: ['autodocs'],
+  render: (args: ContentSegmentComponent) => ({
+    props: {
+      ...args,
+    },
+  }),
   decorators: [
     moduleMetadata({
       imports: [IonicModule.forRoot(), StorybookTranslateModule],
     }),
+    applicationConfig({
+      providers: [importProvidersFrom([IonicModule.forRoot()])],
+    }),
   ],
 } as Meta;
 
-const Template: Story<ContentSegmentComponent> = (args: ContentSegmentComponent) => {
+const Template: StoryFn<ContentSegmentComponent> = (args: ContentSegmentComponent) => {
   let segment = 'general';
   return {
     component: ContentSegmentComponent,
