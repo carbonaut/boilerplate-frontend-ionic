@@ -1,13 +1,13 @@
 {
   "name": "pwa-boilerplate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Carbonaut",
   "homepage": "",
   "description": "Boilerplate for Carbonaut projects.",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --configuration=$CURRENT_ENV",
+    "build": "ng build --configuration=$CURRENT_ENV",
     "test": "echo \"Error: no tests specified.\"",
     "lint": "eslint --ext .ts --ext .js src/app/",
     "lint:fix": "eslint --ext .ts --ext .js src/app/ --fix",
