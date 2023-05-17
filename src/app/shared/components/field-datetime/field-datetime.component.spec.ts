@@ -9,8 +9,8 @@ describe('FieldDatetimeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FieldDatetimeComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [FieldDatetimeComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FieldDatetimeComponent);

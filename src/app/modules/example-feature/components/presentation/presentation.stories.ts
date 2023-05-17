@@ -13,8 +13,8 @@ export default {
   ],
 } as Meta;
 
-export const withMarkdown = () => PresentationComponent;
-withMarkdown.story = {
+export const WithMarkdown = () => PresentationComponent;
+WithMarkdown.story = {
   parameters: {
     notes: {
       markdown: `
