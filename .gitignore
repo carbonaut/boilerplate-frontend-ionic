@@ -32,3 +32,6 @@ npm-debug.log*
 /www
 /storybook-static
 documentation.json
+/test-results/
+/playwright-report/
+/playwright/.cache/
