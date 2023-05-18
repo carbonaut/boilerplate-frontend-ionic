@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {

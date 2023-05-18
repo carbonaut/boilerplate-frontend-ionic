@@ -7,10 +7,7 @@ export const environment = {
   },
   log: {
     enabled: true,
-    payload: { },
+    payload: {},
   },
-  availableLanguages: [
-    'en',
-    'de'
-  ]
+  availableLanguages: ['en', 'de'],
 };

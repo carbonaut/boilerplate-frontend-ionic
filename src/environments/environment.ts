@@ -11,12 +11,9 @@ export const environment = {
   },
   log: {
     enabled: false,
-    payload: { },
+    payload: {},
   },
-  availableLanguages: [
-    'en',
-    'de'
-  ]
+  availableLanguages: ['en', 'de'],
 };
 
 /*
