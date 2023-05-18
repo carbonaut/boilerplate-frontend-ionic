@@ -12,8 +12,7 @@
     "lint": "eslint --ext .ts --ext .js src/app/",
     "lint:fix": "eslint --ext .ts --ext .js src/app/ --fix",
     "e2e": "npx playwright test",
-    "bundle-report": "ng build --prod --stats-json --configuration=production && webpack-bundle-analyzer www/stats-es2015.json",
-    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "bundle-report": "ng build --stats-json --configuration=production && webpack-bundle-analyzer www/stats.json",
     "storybook": "ng run app:storybook",
     "build-storybook": "ng run app:build-storybook"
   },
@@ -64,7 +63,6 @@
     "@angular/compiler-cli": "^15.2.9",
     "@angular/language-service": "^15.2.9",
     "@babel/core": "^7.9.0",
-    "@compodoc/compodoc": "^1.1.19",
     "@ionic/angular-toolkit": "^6.1.0",
     "@playwright/test": "^1.33.0",
     "@storybook/addon-essentials": "^7.0.12",
