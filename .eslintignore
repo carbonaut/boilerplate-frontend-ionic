@@ -7,4 +7,6 @@ coverage
 # don't lint android folder
 android
 # don't lint ios folder
-ios 
+ios
+
+.eslintrc.js
