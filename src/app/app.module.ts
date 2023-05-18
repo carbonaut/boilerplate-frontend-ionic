@@ -24,7 +24,6 @@ import { CustomTranslationsLoaderService } from './core/services/custom-translat
 // ====================================
 
 import { ApiInterceptor } from './core/interceptors/api/api.interceptor';
-import { DpDatePickerModule } from 'ng2-date-picker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +32,6 @@ import { DpDatePickerModule } from 'ng2-date-picker';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    DpDatePickerModule,
     ToastModule,
     TranslateModule.forRoot({
       loader: {

@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgOtpInputModule } from 'ng-otp-input';
-import { DpDatePickerModule } from 'ng2-date-picker';
 
 // ================================================================================================
 // DIRECTIVES
@@ -27,7 +26,6 @@ import { FieldSelectComponent } from './components/field-select/field-select.com
 import { FieldFileComponent } from './components/field-file/field-file.component';
 import { FieldValidationIconComponent } from './components/field-validation-icon/field-validation-icon.component';
 import { FieldToggleComponent } from './components/field-toggle/field-toggle.component';
-import { FieldCalendarComponent } from './components/field-calendar/field-calendar.component';
 
 import { ButtonComponent } from './components/button/button.component';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
@@ -54,7 +52,6 @@ import { ContentSegmentComponent } from './components/content-segment/content-se
     FieldFileComponent,
     FieldDatetimeComponent,
     FieldValidationIconComponent,
-    FieldCalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -62,7 +59,6 @@ import { ContentSegmentComponent } from './components/content-segment/content-se
     ReactiveFormsModule,
     IonicModule,
     NgOtpInputModule,
-    DpDatePickerModule,
     TranslateModule.forChild({}),
   ],
   exports: [
@@ -84,7 +80,6 @@ import { ContentSegmentComponent } from './components/content-segment/content-se
     FieldFileComponent,
     FieldDatetimeComponent,
     FieldValidationIconComponent,
-    FieldCalendarComponent,
   ],
 })
 export class SharedModule {}
