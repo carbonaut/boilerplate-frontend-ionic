@@ -13,8 +13,8 @@ export default {
   ],
 } as Meta;
 
-export const withMarkdown = () => PresentationComponent;
-withMarkdown.story = {
+export const WithMarkdown = () => PresentationComponent;
+WithMarkdown.story = {
   parameters: {
     notes: {
       markdown: `
@@ -50,10 +50,7 @@ const Template: Story<PresentationComponent> = (args: PresentationComponent) => 
 });
 
 export const VariantA = Template.bind({});
-VariantA.args = {
-  myProp: 'initial value',
-  onAction: 'An action!',
-};
+VariantA.args = {};
 
 export const VariantB = Template.bind({});
 VariantB.args = {};

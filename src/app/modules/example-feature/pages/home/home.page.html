@@ -220,6 +220,11 @@
 
         <div class="u-margin-left--md">
           <form [formGroup]="form" (ngSubmit)="submit()">
+            <app-content-segment
+              label="Segment"
+              [options]="segmentOptions"
+              [(value)]="segment"></app-content-segment>
+
             <app-field-checkbox formControlName="checkbox" label="Checkbox" [disabled]="true"></app-field-checkbox>
 
             <app-field-input formControlName="text" label="Test Disable"> </app-field-input>
@@ -241,6 +246,8 @@
             <app-field-password formControlName="password" label="Testing"> </app-field-password>
 
             <app-field-file formControlName="file" label="Testing"> </app-field-file>
+
+            <app-field-datetime formControlName="datetime" label="Testing Date"></app-field-datetime>
 
             <app-button type="submit"> Submit </app-button>
           </form>

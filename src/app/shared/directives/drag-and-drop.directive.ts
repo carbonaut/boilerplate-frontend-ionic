@@ -4,32 +4,32 @@ import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@ang
   selector: '[appDnd]',
 })
 export class DndDirective {
-  @HostBinding('class.c-field__file--dnd') fileOver: boolean;
+  @HostBinding('class.c-field__file--dnd') fileOver: boolean = false;
 
   @Output() fileDropped = new EventEmitter<any>();
 
   // Dragover listener
-  @HostListener('dragover', ['$event']) onDragOver(evt) {
+  @HostListener('dragover', ['$event']) onDragOver(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = true;
   }
 
   // Dragleave listener
-  @HostListener('dragleave', ['$event']) public onDragLeave(evt) {
+  @HostListener('dragleave', ['$event']) public onDragLeave(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = false;
   }
 
   // Drop listener
-  @HostListener('drop', ['$event']) public ondrop(evt) {
+  @HostListener('drop', ['$event']) public ondrop(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
     this.fileOver = false;
-    const { files } = evt.dataTransfer;
-    if (files.length > 0) {
-      this.fileDropped.emit(files);
+
+    if (evt.dataTransfer?.files && evt.dataTransfer.files.length > 0) {
+      this.fileDropped.emit(evt.dataTransfer.files);
     }
   }
 }

@@ -1,22 +1,27 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { applicationConfig, Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldRadioComponent } from './field-radio.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { importProvidersFrom } from '@angular/core';
 
 export default {
   title: 'Shared/Field Radio',
   component: FieldRadioComponent,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
       imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
     }),
+    applicationConfig({
+      providers: [importProvidersFrom([IonicModule.forRoot()])],
+    }),
   ],
 } as Meta;
 
-const Template: Story<FieldRadioComponent> = (args: FieldRadioComponent) => {
+const Template: StoryFn<FieldRadioComponent> = (args: FieldRadioComponent) => {
   const form: FormGroup = new FormGroup({
     radio1: new FormControl(''),
   });

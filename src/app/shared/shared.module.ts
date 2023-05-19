@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NgOtpInputModule } from 'ng-otp-input';
-import { DpDatePickerModule } from 'ng2-date-picker';
 
 // ================================================================================================
 // DIRECTIVES
@@ -27,15 +26,17 @@ import { FieldSelectComponent } from './components/field-select/field-select.com
 import { FieldFileComponent } from './components/field-file/field-file.component';
 import { FieldValidationIconComponent } from './components/field-validation-icon/field-validation-icon.component';
 import { FieldToggleComponent } from './components/field-toggle/field-toggle.component';
-import { FieldCalendarComponent } from './components/field-calendar/field-calendar.component';
 
 import { ButtonComponent } from './components/button/button.component';
 import { SharedExampleComponent } from './components/shared-example/shared-example.component';
 import { ModalExampleComponent } from './components/modal-example/modal-example.component';
+import { FieldDatetimeComponent } from './components/field-datetime/field-datetime.component';
+import { ContentSegmentComponent } from './components/content-segment/content-segment.component';
 
 @NgModule({
   declarations: [
     SharedExampleComponent,
+    ContentSegmentComponent,
     ModalComponent,
     ModalExampleComponent,
     ButtonComponent,
@@ -49,8 +50,8 @@ import { ModalExampleComponent } from './components/modal-example/modal-example.
     FieldSelectComponent,
     DndDirective,
     FieldFileComponent,
+    FieldDatetimeComponent,
     FieldValidationIconComponent,
-    FieldCalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -58,12 +59,11 @@ import { ModalExampleComponent } from './components/modal-example/modal-example.
     ReactiveFormsModule,
     IonicModule,
     NgOtpInputModule,
-    DpDatePickerModule,
     TranslateModule.forChild({}),
   ],
-  entryComponents: [ModalExampleComponent],
   exports: [
     SharedExampleComponent,
+    ContentSegmentComponent,
     ModalComponent,
     ModalExampleComponent,
     TranslateModule,
@@ -78,8 +78,8 @@ import { ModalExampleComponent } from './components/modal-example/modal-example.
     FieldSelectComponent,
     DndDirective,
     FieldFileComponent,
+    FieldDatetimeComponent,
     FieldValidationIconComponent,
-    FieldCalendarComponent,
   ],
 })
 export class SharedModule {}

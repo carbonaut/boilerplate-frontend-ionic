@@ -3,11 +3,15 @@
 <a href="https://github.com/prettier/prettier">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
 <a href="https://www.typescriptlang.org/">
-    <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a> <a href="https://github.com/carbonaut/pwa-boilerplate/actions?query=workflow%3Aintegration/">
-    <img alt="ci: github action" src="https://github.com/carbonaut/pwa-boilerplate/workflows/integration/badge.svg"></a> <a href="https://storybook.js.org/">
+    <img alt="type: typescript" src="https://img.shields.io/npm/types/typescript.svg"></a>
+<a href="https://github.com/carbonaut/pwa-boilerplate/actions?query=workflow%3Aintegration/">
+    <img alt="ci: github action" src="https://github.com/carbonaut/pwa-boilerplate/workflows/integration/badge.svg"></a>
+<a href="https://storybook.js.org/">
     <img alt="storybook support" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a>
+<a href="https://playwright.dev/">
+    <img alt="e2e: playwright" src="https://badgen.net/badge/e2e/Playwright/green"></a>
 
-This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 6](https://ionicframework.com/), [Angular 13](http://angular.io/) and [Node.js](https://nodejs.org/en/) 16.10.\*.(for CI)
+This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 7](https://ionicframework.com/), [Angular 15](http://angular.io/) and [Node.js](https://nodejs.org/en/) 18.14.\*.
 
 ## Basic Setup
 
@@ -234,12 +238,29 @@ Note that the component preview has a 16px padding on all sites for a better vie
 
 ### Live Storybook Instance
 
-`ng run app:storybook`
+`npm run storybook`
 
 ### Static Storybook
 
-`ng run app:build-storybook`
+`npm run build-storybook`
 
 Note that if the project name `app` is changed on `angular.json`, Storybook commands inside architect must be changed as well.
 
 `"browserTarget": "{project-name}:build",`
+
+## Tests
+
+The test suite for this project uses the default testing libraries that Angular uses (Jasmine and Karma). The only exception is that we use [Playwright](https://playwright.dev/) for E2E tests.
+
+In order to run the E2E tests, first you need to install the browsers used by Playwright with the command:
+
+```
+npx playwright install --with-deps
+```
+
+Then, to run the tests:
+```
+npm run e2e
+```
+
+New tests should be included in the `e2e` folder.

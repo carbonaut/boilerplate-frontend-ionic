@@ -9,9 +9,9 @@ import { FieldRadioOption } from '../field-radio/field-radio.interface';
   styleUrls: ['./field-select.component.scss'],
 })
 export class FieldSelectComponent implements ControlValueAccessor, OnInit {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
-  @Input() placeholder: string;
+  @Input() placeholder: string | null = null;
 
   @Input() required = false;
 
@@ -23,7 +23,7 @@ export class FieldSelectComponent implements ControlValueAccessor, OnInit {
 
   @Input() multiple = false;
 
-  value: string;
+  value: string | null = null;
 
   isDisabled = false;
 

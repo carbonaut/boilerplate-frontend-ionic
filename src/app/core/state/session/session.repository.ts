@@ -4,14 +4,11 @@ import { Session } from './session.interface';
 import { localStorageStrategy, persistState } from '@ngneat/elf-persist-state';
 
 interface SessionState {
-  session: Session;
+  session: Session | undefined;
 }
 
 const initialState: SessionState = {
-  session: {
-    accessToken: undefined,
-    tokenType: undefined,
-  },
+  session: undefined,
 };
 
 const store = createStore({ name: 'session' }, withProps<SessionState>(initialState));
@@ -23,15 +20,15 @@ export const persist = persistState(store, {
 
 @Injectable({ providedIn: 'root' })
 export class SessionRepository {
-  isLoggedIn$ = store.pipe(select((state) => state.session.accessToken));
+  isLoggedIn$ = store.pipe(select((state) => state.session?.accessToken));
 
   session$ = store.pipe(select((state) => state.session));
 
   isLoggedIn(): boolean {
-    return Boolean(store.getValue().session.accessToken);
+    return Boolean(store.getValue().session?.accessToken);
   }
 
-  session(): Session {
+  session(): Session | undefined {
     return store.getValue().session;
   }
 

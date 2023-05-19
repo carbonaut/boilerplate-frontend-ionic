@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-field-validation-icon',
@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./field-validation-icon.component.scss'],
 })
 export class FieldValidationIconComponent {
-  @Input() icon: string;
+  @Input() icon: string | null = null;
 
-  @Input() control: FormControl;
+  @Input() control!: UntypedFormControl;
 }

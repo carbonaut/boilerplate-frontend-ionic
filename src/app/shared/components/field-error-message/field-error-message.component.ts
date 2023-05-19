@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-field-error-message',
@@ -9,11 +10,11 @@ import { FormControl } from '@angular/forms';
 export class FieldErrorMessageComponent implements AfterViewInit, OnDestroy {
   @Input() visible = true;
 
-  @Input() currentControl: FormControl;
+  @Input() currentControl!: UntypedFormControl;
 
-  errorMessage = null;
+  errorMessage: string | null = null;
 
-  private controlSubscription;
+  private controlSubscription: Subscription | null = null;
 
   ngAfterViewInit() {
     this.controlSubscription = this.currentControl.valueChanges.subscribe(() => {

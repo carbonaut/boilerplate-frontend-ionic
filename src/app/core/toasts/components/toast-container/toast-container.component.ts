@@ -17,7 +17,7 @@ export class ToastContainerComponent implements OnInit {
 
   ngOnInit() {}
 
-  trackById(index, item: ToastMessage) {
+  trackById(index: number, item: ToastMessage) {
     return item.key;
   }
 

@@ -6,7 +6,7 @@ import { ToastMessage } from './toast-service.interface';
   providedIn: 'root',
 })
 export class ToastService {
-  visibleToasts$: BehaviorSubject<ToastMessage[]> = new BehaviorSubject([]);
+  visibleToasts$: BehaviorSubject<ToastMessage[]> = new BehaviorSubject<ToastMessage[]>([]);
 
   private toasts: ToastMessage[] = [];
 
@@ -16,7 +16,7 @@ export class ToastService {
 
   private currentKey = 1;
 
-  message(message, params?: ToastMessage) {
+  message(message: string, params?: ToastMessage) {
     const toast = params || {};
     toast.type = 'neutral';
     toast.message = message;
@@ -116,7 +116,7 @@ export class ToastService {
     const toast = { ...params };
     toast.type = toast.type || 'info';
 
-    toast.timeout = toast.timeout >= 0 ? toast.timeout : 3000;
+    toast.timeout ??= 3000;
 
     if (!toast.icon) {
       toast.icon = this.getDefaultIcon(toast);

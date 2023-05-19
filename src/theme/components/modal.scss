@@ -11,62 +11,78 @@
   }
 }
 
-.c-ion-modal {
-  --width: auto;
-  --height: auto;
-  --max-height: auto;
-  align-items: flex-start;
+ion-modal::part(backdrop) {
+  z-index: 100;
+  --backdrop-opacity: 0.32;
+}
 
-  // animate overflow toggling to make it look nicer
-  animation-name: overflowTrigger;
-  animation-delay: 0.25s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
+ion-modal::part(content) {
+  --width: calc(100% - #{$size-xl});
+  --height: calc(100% - #{$size-xl});
+  --max-height: 84vh;
+  --border-radius: $size-md;
+  overflow-y: auto;
+  z-index: 101;
+}
+
+.c-ion-modal {
+  overflow: auto;
+  position: fixed;
 
   .ion-page {
-    position: static;
-    contain: unset;
-    align-items: center;
-    padding: $size-xl 0 0;
-    min-height: 100vh;
-    justify-content: flex-end;
-  }
-
-  &::part(backdrop) {
-    display: none;
+    position: relative;
+    contain: content !important;
   }
 
   &::part(content) {
-    --background: transparent;
-    width: 100%;
-    max-width: none;
-    overflow: visible;
-    box-shadow: none;
+    --border-radius: #{$size-md};
+    --height: auto;
+    --width: 640px;
+    --max-height: calc(100% - #{$size-xl});
+    --max-width: 640px !important;
+  }
+
+  &--full::part(content) {
+    --width: 100vw;
+    --height: 100vh;
+    --max-height: 100vh;
+    --border-radius: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    z-index: 101;
+  }
+
+  &--auto {
+    &::part(content) {
+      --border-radius: #{$size-md};
+      --height: auto !important;
+      --width: auto !important;
+    }
+  }
+
+  scrollbar-color: var(--color-gray-300) var(--color-gray-900);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $size-base;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-gray-900);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-gray-300);
   }
 }
 
-.c-modal-backdrop {
-  position: fixed;
-  top: -150px; // include an offset to make the overlay not look weird
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: black;
-  opacity: 0.3;
-  cursor: pointer;
-}
-
 .c-modal {
-  position: relative;
+  background: var(--color-gray-1000);
   display: flex;
   flex-direction: column;
-  max-width: 640px;
-  min-height: 440px;
-  background: white;
-  border-radius: $size-md;
-  margin-top: auto;
-  margin-bottom: auto;
+  overflow: auto;
   padding: $size-lg;
+  position: relative;
 
   &__close {
     position: absolute;
@@ -74,47 +90,53 @@
     right: $size-md;
     width: $size-lg;
     height: $size-lg;
-    background: var(--color-gray-200);
+    background: var(--color-red);
     border-radius: 50%;
     border: 0;
-    color: var(--color-blue-500);
-    font-size: 1.5em;
-    font-weight: 500;
+    color: var(--color-gray-600);
+    font-size: $size-md;
     text-align: center;
     cursor: pointer;
 
-    &:before {
-      content: '×';
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:focus {
       outline: 0;
     }
 
     &:hover {
-      color: var(--color-primary-500);
+      color: var(--color-gray-900);
+      background: var(--color-red-600);
+    }
+
+    ion-icon {
+      display: inline-flex;
     }
   }
 
   &__title {
-    text-align: center;
+    margin-bottom: $size-sm;
   }
 
   &__description {
-    color: var(--color-gray-600);
-    text-align: center;
+    color: var(--color-text-medium);
+    margin-bottom: $size-base;
+    white-space: pre-wrap;
   }
 
   &__footer {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-top: 1px solid var(--color-gray-200);
-    padding-top: $size-md;
+    justify-content: flex-end;
+    gap: $size-base;
     margin-top: auto;
+    padding-top: $size-md;
   }
 }
 
+/*
 @media (max-width: 600px) {
   .c-ion-modal {
     .modal-wrapper {
@@ -137,3 +159,4 @@
     }
   }
 }
+*/

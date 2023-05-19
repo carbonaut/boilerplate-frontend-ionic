@@ -1,22 +1,27 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { applicationConfig, Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldInputComponent } from './field-input.component';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
+import { importProvidersFrom } from '@angular/core';
 
 export default {
   title: 'Shared/Field Input',
   component: FieldInputComponent,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
       imports: [IonicModule.forRoot(), FormsModule, ReactiveFormsModule, StorybookTranslateModule],
     }),
+    applicationConfig({
+      providers: [importProvidersFrom([IonicModule.forRoot()])],
+    }),
   ],
 } as Meta;
 
-const Template: Story<FieldInputComponent> = (args: FieldInputComponent) => {
+const Template: StoryFn<FieldInputComponent> = (args: FieldInputComponent) => {
   const form: FormGroup = new FormGroup({
     text: new FormControl(),
   });
@@ -32,7 +37,6 @@ const Template: Story<FieldInputComponent> = (args: FieldInputComponent) => {
           [placeholder]="placeholder"
           [mask]="mask"
           [ícon]="icon"
-          [required]="required"
           [disabled]="disabled"
           [showValidationErrorMessage]="showValidationErrorMessage"
         >
@@ -67,7 +71,5 @@ TextField.args = {
   placeholder: '(99) 9999-9999',
   mask: 'phone',
   icon: 'call-outline',
-  required: true,
-  disabled: false,
   showValidationErrorMessage: true,
 };

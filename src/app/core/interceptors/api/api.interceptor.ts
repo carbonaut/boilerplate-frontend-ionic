@@ -7,6 +7,7 @@ import { environment } from '../../../../environments/environment';
 
 import { LoggerService } from '../../services/logger-service/logger.service';
 import { SessionRepository } from '../../state/session/session.repository';
+import { Session } from '../../state/session/session.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,9 @@ export class ApiInterceptor implements HttpInterceptor {
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const isLoggedUser = this.sessionRepository.isLoggedIn();
-    const { accessToken, tokenType } = this.sessionRepository.session();
 
-    const requestModified = isLoggedUser ? this.addAuthenticationHeader(request, tokenType, accessToken) : request;
+    const session = this.sessionRepository.session();
+    const requestModified = session && isLoggedUser ? this.addAuthenticationHeader(request, session) : request;
 
     return next.handle(requestModified).pipe(
       timeout(environment.api.maxWaiting),
@@ -29,11 +30,10 @@ export class ApiInterceptor implements HttpInterceptor {
     );
   }
 
-  private addAuthenticationHeader(
-    request: HttpRequest<any>,
-    tokenType: string,
-    accessToken: string
-  ): HttpRequest<any> {
+  private addAuthenticationHeader(request: HttpRequest<any>, session: Session): HttpRequest<any> {
+    const tokenType = session?.tokenType ?? '';
+    const accessToken = session?.accessToken ?? '';
+
     return request.clone({
       headers: request.headers.set(environment.api.authHeader, `${tokenType} ${accessToken}`),
     });

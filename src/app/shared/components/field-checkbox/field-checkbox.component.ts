@@ -7,7 +7,7 @@ import { NgControl, ControlValueAccessor } from '@angular/forms';
   styleUrls: ['./field-checkbox.component.scss'],
 })
 export class FieldCheckboxComponent implements ControlValueAccessor {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
   @Input() required = false;
 
@@ -15,7 +15,7 @@ export class FieldCheckboxComponent implements ControlValueAccessor {
 
   @Input() showValidationErrorMessage = true;
 
-  value: boolean;
+  value: boolean = false;
 
   isDisabled = false;
 

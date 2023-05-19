@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ModalExampleComponent } from '../../../../shared/components/modal-example/modal-example.component';
 import { ToastService } from '../../../../core/toasts/services/toast-service/toast.service';
 import { FieldRadioOption } from '../../../../shared/components/field-radio/field-radio.interface';
 import { FieldSelectOption } from '../../../../shared/components/field-select/field-select.interface';
 import { ExampleRepository } from '../../state/examples.repository';
 import { ExamplesService } from '../../state/examples.service';
+import { ContentSegmentOption } from '../../../../shared/components/content-segment/content-segment.interface';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { ExamplesService } from '../../state/examples.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   radioOptions: FieldRadioOption[] = [
     {
@@ -40,10 +41,23 @@ export class HomePage {
     },
   ];
 
+  segment = 'label_1';
+
+  segmentOptions: ContentSegmentOption[] = [
+    {
+      label: 'Label 1',
+      value: 'label_1',
+    },
+    {
+      label: 'Label 2',
+      value: 'label_2',
+    },
+  ];
+
   constructor(
     private modalController: ModalController,
     private toastService: ToastService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private examplesRepository: ExampleRepository,
     private exampleService: ExamplesService
   ) {
@@ -59,6 +73,7 @@ export class HomePage {
       password: ['', Validators.required],
       select: ['', Validators.required],
       file: ['', Validators.required],
+      datetime: [new Date(), Validators.required],
     });
 
     // Just an example for elf repository usage

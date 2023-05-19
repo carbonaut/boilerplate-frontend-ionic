@@ -15,7 +15,7 @@ export class FieldOtpComponent implements ControlValueAccessor {
 
   @Input() placeholder = '-';
 
-  @Input() label: string;
+  @Input() label: string | null = null;
 
   @Input() showValidationErrorMessage = true;
 

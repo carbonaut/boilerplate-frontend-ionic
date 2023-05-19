@@ -8,7 +8,7 @@ import { FieldRadioOption } from '../field-radio/field-radio.interface';
   styleUrls: ['./field-toggle.component.scss'],
 })
 export class FieldToggleComponent implements ControlValueAccessor, OnInit {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
   @Input() required = false;
 

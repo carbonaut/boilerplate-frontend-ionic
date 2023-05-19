@@ -1,14 +1,16 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { applicationConfig, Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { IonicModule } from '@ionic/angular';
 import { FieldErrorMessageComponent } from '../field-error-message/field-error-message.component';
 import { FieldOtpComponent } from './field-otp.component';
 import { StorybookTranslateModule } from '../../../core/services/storybook-translations-loader/storybook-translations.module';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { importProvidersFrom } from '@angular/core';
 
 export default {
   title: 'Shared/Field OTP',
   component: FieldOtpComponent,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       declarations: [FieldErrorMessageComponent],
@@ -20,10 +22,13 @@ export default {
         NgOtpInputModule,
       ],
     }),
+    applicationConfig({
+      providers: [importProvidersFrom([IonicModule.forRoot(), NgOtpInputModule])],
+    }),
   ],
 } as Meta;
 
-const Template: Story<FieldOtpComponent> = (args: FieldOtpComponent) => {
+const Template: StoryFn<FieldOtpComponent> = (args: FieldOtpComponent) => {
   const form: FormGroup = new FormGroup({
     otp: new FormControl(['']),
   });
@@ -52,6 +57,7 @@ const Template: Story<FieldOtpComponent> = (args: FieldOtpComponent) => {
 export const MinimalConfiguration = Template.bind({});
 MinimalConfiguration.args = {
   label: 'Verification code',
+  length: 4,
 };
 
 export const FullConfiguration = Template.bind({});

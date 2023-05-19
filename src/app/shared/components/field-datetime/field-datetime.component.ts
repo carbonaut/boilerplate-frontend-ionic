@@ -1,24 +1,32 @@
 import { Component, Input, OnInit, Optional, Self } from '@angular/core';
-import { NgControl, ControlValueAccessor } from '@angular/forms';
-import { FieldRadioOption } from './field-radio.interface';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { formatISO } from 'date-fns';
 
 @Component({
-  selector: 'app-field-radio',
-  templateUrl: './field-radio.component.html',
-  styleUrls: ['./field-radio.component.scss'],
+  selector: 'app-field-datetime',
+  templateUrl: './field-datetime.component.html',
+  styleUrls: ['./field-datetime.component.scss'],
 })
-export class FieldRadioComponent implements ControlValueAccessor, OnInit {
+export class FieldDatetimeComponent implements ControlValueAccessor, OnInit {
   @Input() label: string | null = null;
 
-  @Input() required = false;
+  @Input() optional = false;
 
-  @Input() disabled = false;
-
-  @Input() options: FieldRadioOption[] = [];
+  @Input() placeholder: string | null = null;
 
   @Input() showValidationErrorMessage = true;
 
-  value: any;
+  @Input() minDate!: string;
+
+  @Input() maxDate!: string;
+
+  @Input() type!: 'date' | 'time';
+
+  isModalOpen = false;
+
+  parsedDate: string | null = null;
+
+  value: Date | null = null;
 
   isDisabled = false;
 
@@ -31,19 +39,12 @@ export class FieldRadioComponent implements ControlValueAccessor, OnInit {
     this.ngControl.valueAccessor = this;
   }
 
-  ngOnInit() {
-    if (!this.value) {
-      this.selectDefaultOption();
-    }
-  }
-
-  trackByOptions(index: number, option: FieldRadioOption) {
-    return option.value;
-  }
+  ngOnInit() {}
 
   // FORM CONTROL FUNCTIONS
   setValue($event: any) {
-    this.value = $event.detail.value;
+    this.parsedDate = $event.detail.value;
+    this.value = new Date($event.detail.value);
     this.updateChanges();
   }
 
@@ -51,7 +52,7 @@ export class FieldRadioComponent implements ControlValueAccessor, OnInit {
     this.onChange(this.value);
   }
 
-  writeValue(value: string): void {
+  writeValue(value: Date): void {
     this.value = value;
     this.updateChanges();
   }
@@ -68,8 +69,11 @@ export class FieldRadioComponent implements ControlValueAccessor, OnInit {
     this.isDisabled = isDisabled;
   }
 
-  // PRIVATE
-  private selectDefaultOption() {
-    this.value = this.options[0] !== undefined ? this.options[0].value : null;
+  showModal(val: boolean) {
+    if (val) {
+      this.parsedDate = formatISO(this.ngControl.value || new Date());
+    }
+
+    this.isModalOpen = val;
   }
 }

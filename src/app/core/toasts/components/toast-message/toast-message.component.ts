@@ -7,7 +7,7 @@ import { ToastMessage } from '../../services/toast-service/toast-service.interfa
   styleUrls: ['./toast-message.component.scss'],
 })
 export class ToastMessageComponent implements OnInit {
-  @Input() toast: ToastMessage;
+  @Input() toast!: ToastMessage;
 
   @Output() clicked = new EventEmitter();
 
@@ -17,7 +17,7 @@ export class ToastMessageComponent implements OnInit {
     this.el.nativeElement.style.setProperty('--toast-message-duration', `${this.toast.animationDuration}ms`);
   }
 
-  handleClick(ev) {
+  handleClick(ev: MouseEvent) {
     this.clicked.emit(ev);
   }
 }

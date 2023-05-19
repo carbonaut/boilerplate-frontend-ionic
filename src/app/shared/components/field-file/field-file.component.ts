@@ -7,13 +7,13 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
   styleUrls: ['./field-file.component.scss'],
 })
 export class FieldFileComponent implements ControlValueAccessor {
-  @Input() label: string;
+  @Input() label: string | null = null;
 
-  @Input() placeholder: string;
+  @Input() placeholder: string | null = null;
 
   @Input() showValidationErrorMessage = true;
 
-  value: string;
+  value: string | any;
 
   isDisabled = false;
 
@@ -27,6 +27,7 @@ export class FieldFileComponent implements ControlValueAccessor {
   }
 
   // FORM CONTROL FUNCTIONS
+  // @ts-expect-error
   setValue(files) {
     this.value = files.item(0);
     this.updateChanges();
