@@ -255,7 +255,7 @@ The test suite for this project uses the default testing libraries that Angular 
 In order to run the E2E tests, first you need to install the browsers used by Playwright with the command:
 
 ```
-npx playwright install --with-deps
+npm run e2e:install
 ```
 
 Then, to run the tests:
