@@ -8,6 +8,7 @@ import { FieldSelectOption } from '../../../../shared/components/field-select/fi
 import { ExampleRepository } from '../../state/examples.repository';
 import { ExamplesService } from '../../state/examples.service';
 import { ContentSegmentOption } from '../../../../shared/components/content-segment/content-segment.interface';
+import { formatISO } from 'date-fns';
 
 @Component({
   selector: 'app-home',
@@ -73,7 +74,7 @@ export class HomePage {
       password: ['', Validators.required],
       select: ['', Validators.required],
       file: ['', Validators.required],
-      datetime: [new Date(), Validators.required],
+      datetime: [formatISO(new Date()), Validators.required],
     });
 
     // Just an example for elf repository usage

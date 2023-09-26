@@ -106,31 +106,75 @@
   }
 
   &__datetime {
-    background: var(--color-gray-400);
-    border: 1px solid var(--color-gray-400);
-    border-radius: $size-xs;
-    box-sizing: border-box;
-    font-size: inherit;
-    font-family: inherit;
-    padding: $size-base;
-    text-align: left;
-    width: 100%;
+    --border-color: var(--color-gray-30);
+    --background-color: var(--color-white);
+    --font-color: var(--color-font-primary);
+    --icon-color: var(--color-font-tertiary);
 
-    &:active,
-    &:focus {
-      filter: var(--shadow-focus);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 3 * $size-base;
+    width: fit-content;
+    background-color: var(--background-color);
+    padding: 0 $size-sm;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    gap: $size-xs;
+
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &-label,
+    &-placeholder {
+      margin: 0;
+      color: var(--font-color);
     }
 
-    &--placeholder {
-      color: var(--color-text-medium);
+    &-placeholder {
+      --font-color: var(--color-font-tertiary);
+    }
+
+    &-icon {
+      font-size: 1.25 * $size-base;
+      color: var(--icon-color);
+
+      &--invalid {
+        --icon-color: var(--color-red-2);
+      }
+    }
+
+    &--disabled {
+      --background-color: var(--color-gray-30);
+      --icon-color: var(--color-gray-50);
+      --font-color: var(--color-font-tertiary);
+      pointer-events: none;
+    }
+
+    &--active,
+    &:active,
+    &:focus {
+      --border-color: var(--color-primary);
+    }
+
+    &--invalid {
+      --border-color: var(--color-red-2);
+
+      &.c-field__datetime--active,
+      &:active,
+      &:focus {
+        --border-color: var(--color-red-2);
+        box-shadow: 0px 0px 0px 4px var(--color-red-3), 0px 1px 2px rgba(16, 24, 40, 0.05);
+      }
     }
 
     &-component {
-      --background: var(--color-gray-1000);
-      --ion-color-base: var(--color-primary-700) !important;
-      --ion-color-step-300: var(--color-text-medium);
-      --ion-text-color: var(--color-text-light);
-      --title-color: var(--color-text-light);
+      --background: var(--color-gray-10);
+      --ion-color-base: var(--color-primary) !important;
+      --ion-color-step-300: var(--color-font-secondary);
+      --ion-text-color: var(--color-font-tertiary);
+      --title-color: var(--color-font-tertiary);
 
       &::part(title) {
         color: var(--color-text-dark);

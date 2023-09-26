@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Optional, Self } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { formatISO } from 'date-fns';
+import { ControlValueAccessor, NgControl, ValidatorFn } from '@angular/forms';
+import { format, formatISO } from 'date-fns';
+import { de } from 'date-fns/locale';
 
 @Component({
   selector: 'app-field-datetime',
@@ -8,27 +9,26 @@ import { formatISO } from 'date-fns';
   styleUrls: ['./field-datetime.component.scss'],
 })
 export class FieldDatetimeComponent implements ControlValueAccessor, OnInit {
-  @Input() label: string | null = null;
-
-  @Input() optional = false;
-
-  @Input() placeholder: string | null = null;
-
   @Input() showValidationErrorMessage = true;
 
-  @Input() minDate!: string;
-
-  @Input() maxDate!: string;
-
-  @Input() type!: 'date' | 'time';
+  @Input() placeholder: string | undefined;
 
   isModalOpen = false;
 
   parsedDate: string | null = null;
 
-  value: Date | null = null;
+  value: string | null = null;
 
   isDisabled = false;
+
+  get label(): string {
+    if (this.ngControl.control?.value) {
+      const controlDate = new Date(this.ngControl?.control?.value);
+      return format(controlDate, 'p', { locale: de });
+    }
+
+    return '';
+  }
 
   onChange: (_: any) => void = () => {};
 
@@ -39,12 +39,19 @@ export class FieldDatetimeComponent implements ControlValueAccessor, OnInit {
     this.ngControl.valueAccessor = this;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const { control } = this.ngControl;
+
+    let validators = this.getValidators();
+    validators = control?.validator ? [control?.validator, ...validators] : this.getValidators();
+
+    control?.setValidators(validators);
+    control?.updateValueAndValidity();
+  }
 
   // FORM CONTROL FUNCTIONS
   setValue($event: any) {
-    this.parsedDate = $event.detail.value;
-    this.value = new Date($event.detail.value);
+    this.value = formatISO(new Date($event.detail.value));
     this.updateChanges();
   }
 
@@ -52,7 +59,7 @@ export class FieldDatetimeComponent implements ControlValueAccessor, OnInit {
     this.onChange(this.value);
   }
 
-  writeValue(value: Date): void {
+  writeValue(value: string): void {
     this.value = value;
     this.updateChanges();
   }
@@ -69,11 +76,19 @@ export class FieldDatetimeComponent implements ControlValueAccessor, OnInit {
     this.isDisabled = isDisabled;
   }
 
-  showModal(val: boolean) {
-    if (val) {
-      this.parsedDate = formatISO(this.ngControl.value || new Date());
+  handleModal(showModal: boolean) {
+    if (showModal) {
+      this.ngControl.control?.markAsTouched();
+      this.updateChanges();
     }
 
-    this.isModalOpen = val;
+    this.isModalOpen = showModal;
+  }
+
+  // PRIVATE
+  private getValidators(): ValidatorFn[] {
+    const validators: ValidatorFn[] | null = [];
+
+    return validators;
   }
 }

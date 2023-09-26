@@ -1,35 +1,41 @@
-<div class="c-field">
-  <h6 class="c-field__label" *ngIf="label">
+<div
+  class="c-field__datetime"
+  [class.c-field__datetime--disabled]="ngControl?.control?.disabled"
+  [class.c-field__datetime--active]="isModalOpen"
+  [class.c-field__datetime--invalid]="ngControl?.control?.invalid && ngControl?.control?.touched"
+  id="datetime"
+  (click)="handleModal(true)">
+  <ion-icon class="c-field__datetime-icon" src="assets/images/icons/clock.svg"></ion-icon>
+  <p class="c-field__datetime-label" *ngIf="label; else placeholderLabel">
     {{ label }}
-    <span class="c-field__optional" *ngIf="optional">{{ 'FIELDS.OPTIONAL' | translate }}</span>
-  </h6>
-
-  <button
-    class="c-field__datetime"
-    [class.c-field__datetime--placeholder]="ngControl.value === ''"
-    (click)="showModal(true)">
-    <ng-container *ngIf="ngControl.value === ''">
-      {{ placeholder || 'FIELDS.DATE.PLACEHOLDER' | translate }}
-    </ng-container>
-    <ng-container *ngIf="ngControl.value !== ''">
-      {{ ngControl.value || ngControl.value?.seconds * 1000 | date: 'YYYY-MM-dd HH:mm:ss zzz' }}
-    </ng-container>
-  </button>
+  </p>
+  <ng-template #placeholderLabel>
+    <p class="c-field__datetime-placeholder">
+      {{ placeholder }}
+    </p>
+  </ng-template>
+  <ion-icon
+    *ngIf="ngControl?.control?.invalid && ngControl?.control?.touched"
+    class="c-field__datetime-icon c-field__datetime-icon--invalid"
+    name="warning"></ion-icon>
 </div>
 
-<ion-modal class="c-ion-modal c-ion-modal--auto" [isOpen]="isModalOpen" (didDismiss)="showModal(false)">
+<ion-popover
+  class="c-ion-popover c-ion-popover--auto"
+  trigger="datetime"
+  reference="trigger"
+  [isOpen]="isModalOpen"
+  (didDismiss)="handleModal(false)"
+  [keepContentsMounted]="true">
   <ng-template>
-    <div class="c-modal">
-      <ion-datetime
-        class="c-field__datetime-component"
-        size="cover"
-        [presentation]="type"
-        mode="ios"
-        locale="pt-BR"
-        [value]="parsedDate"
-        [min]="minDate"
-        [max]="maxDate"
-        (ionChange)="setValue($event)"></ion-datetime>
-    </div>
+    <ion-datetime
+      class="c-field__datetime-component"
+      id="datetime"
+      presentation="time"
+      [formControl]="ngControl.control"
+      (ionChange)="setValue($event)"></ion-datetime>
   </ng-template>
-</ion-modal>
+</ion-popover>
+
+<app-field-error-message [visible]="showValidationErrorMessage" [currentControl]="ngControl.control">
+</app-field-error-message>
