@@ -13,7 +13,10 @@ import { Session } from '../../state/session/session.interface';
   providedIn: 'root',
 })
 export class ApiInterceptor implements HttpInterceptor {
-  constructor(private loggerService: LoggerService, private sessionRepository: SessionRepository) {}
+  constructor(
+    private loggerService: LoggerService,
+    private sessionRepository: SessionRepository
+  ) {}
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const isLoggedUser = this.sessionRepository.isLoggedIn();

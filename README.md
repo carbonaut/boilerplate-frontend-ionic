@@ -11,7 +11,7 @@
 <a href="https://playwright.dev/">
     <img alt="e2e: playwright" src="https://badgen.net/badge/e2e/Playwright/green"></a>
 
-This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 7](https://ionicframework.com/), [Angular 15](http://angular.io/) and [Node.js](https://nodejs.org/en/) 18.14.\*.
+This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 7](https://ionicframework.com/), [Angular 16](http://angular.io/) and [Node.js](https://nodejs.org/en/) 18.14.\*.
 
 ## Basic Setup
 
@@ -255,7 +255,7 @@ The test suite for this project uses the default testing libraries that Angular 
 In order to run the E2E tests, first you need to install the browsers used by Playwright with the command:
 
 ```
-npx playwright install --with-deps
+npm run e2e:install
 ```
 
 Then, to run the tests:

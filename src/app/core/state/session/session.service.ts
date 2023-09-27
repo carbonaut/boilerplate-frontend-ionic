@@ -5,7 +5,10 @@ import { SessionRepository } from './session.repository';
 
 @Injectable({ providedIn: 'root' })
 export class SessionService {
-  constructor(private sessionRepository: SessionRepository, private sessionApiService: SessionApiService) {}
+  constructor(
+    private sessionRepository: SessionRepository,
+    private sessionApiService: SessionApiService
+  ) {}
 
   login() {
     return this.sessionApiService.postLogin().pipe(

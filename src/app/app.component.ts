@@ -10,7 +10,10 @@ import { TranslationsService } from './core/services/translations-service/transl
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private translationsService: TranslationsService, private platform: Platform) {
+  constructor(
+    private translationsService: TranslationsService,
+    private platform: Platform
+  ) {
     this.initializeApp();
   }
 
