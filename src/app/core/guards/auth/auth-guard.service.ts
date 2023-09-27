@@ -6,7 +6,10 @@ import { SessionRepository } from '../../state/session/session.repository';
   providedIn: 'root',
 })
 export class AuthGuardService {
-  constructor(public router: Router, public sessionRepository: SessionRepository) {}
+  constructor(
+    public router: Router,
+    public sessionRepository: SessionRepository
+  ) {}
 
   canActivate(): boolean {
     return this.isLoggedIn();
