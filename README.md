@@ -11,7 +11,7 @@
 <a href="https://playwright.dev/">
     <img alt="e2e: playwright" src="https://badgen.net/badge/e2e/Playwright/green"></a>
 
-This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 7](https://ionicframework.com/), [Angular 15](http://angular.io/) and [Node.js](https://nodejs.org/en/) 18.14.\*.
+This is a frontend boilerplate, based on `ionic start` and customized by [Carbonaut](http://carbonaut.io/). It uses [Ionic 7](https://ionicframework.com/), [Angular 16](http://angular.io/) and [Node.js](https://nodejs.org/en/) 18.14.\*.
 
 ## Basic Setup
 
